@@ -39,14 +39,22 @@ class Security {
         $salt='abcmsfml';
         return md5($str.$salt);
     }
-
+	
+	function checkAccess($priv,$arr) {
+		foreach($arr as $k) {
+			if ($k == $priv) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
     function ClearCookie() {
-	setcookie('id', '', time()-60);
-	setcookie('pass', '', time()-60);
-	return true;
+		setcookie('id', '', time()-60);
+		setcookie('pass', '', time()-60);
+		return true;
     }
-    function isMail($email)
-    {
+    function isMail($email) {
          return preg_match("/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i",trim($email));
     }
     function Settings() {

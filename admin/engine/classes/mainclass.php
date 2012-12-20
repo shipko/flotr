@@ -37,17 +37,16 @@ class mainclassAdmin {
         global $sec, $db;
         if ($this->isIssetCookie()) {
             $query = $db->query('SELECT * FROM user WHERE id=' . $this->user['id'] . '');
-            if ($db->num_rows($query) == 1) {
+            if ($db->num_rows($query) == 1 ) {
                 $user = $db->fetch_array($query);
 
-                if ($user['pass'] == $this->user['pass']) {
+                if ($user['pass'] == $this->user['pass'] && $sec->checkAccess($user['priv'],array(1,2))) {
                     $this->user = $user;
                     $this->UpdateLastVisit();
 					$this->UpdateCookie();
                     return true;
                 } else {
                     $sec->ClearCookie();
-
                     $sec->head('login.php?from=' . urlencode($_SERVER['REQUEST_URI']));
                 }
             } else {

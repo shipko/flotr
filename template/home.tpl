@@ -15,7 +15,7 @@
 
                 <h3>Добрый день, Дмитрий</h3>
 
-                <p>Ваши посление пройденные тесты</p>
+                <p>Последние пройденные тесты</p>
                 <table class="table table-striped table-bordered">
               <thead>
                 <tr>
@@ -36,11 +36,13 @@
 
             </div>
             <div class="span4">
-                <h3>Пройденные тесты</h3>
+                <h3>Предметы</h3>
+                <div class="well">
+					<ul class="nav nav-list nav-stacked">
+						{rightBar}
+					</ul>
+				</div>
                 
-                <ul class="nav nav-list">
-                    {rightBar}
-                </ul>
                 
             </div>
             

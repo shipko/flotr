@@ -71,21 +71,14 @@ $(document).ready(function(){
             if (numChange > 0) {
                 return "Вы не сохранили изменения. При закрытии страницы картинки не удалится.";
             };
-        };
-        $("#TitleTextarea").bind('keydown', function() {
-            dynamicTextarea();
-	});
-        $("#TitleTextarea").bind('keyup', function() {
-            dynamicTextarea();
-	});
+        };        
+		
 });
-function dynamicTextarea() {
-    content = $("#TitleTextarea").val();
-    content = content.replace(/</g, '&lt;').replace(/>/g, '&gt;') 
-    .replace(/&/g, '&amp;')
-    .replace(/\n$/, '<br/>&nbsp;')
+function dynamicTextarea(t) {
+    content = t.val();
+    content = content.replace(/\n$/, '<br/>&nbsp;')
     .replace(/\n/g, '<br/>')
-    .replace(/\s\s/g, '&nbsp;');
-    $('.textAreanone').html(content);
-    $("#TitleTextarea").css('height', $('.textAreanone').height());
+    .replace(/\s/g, '&nbsp;');
+    $('.textAreanone').html(content).append('<br/>&nbsp;');
+    t.animate({ height : $('.textAreanone').height()},100)
 }

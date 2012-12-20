@@ -2,6 +2,19 @@
 if(!defined('CMS'))die('Сюда нельзя');
 
 class home {
+	private $subject=false;
+	
+	function setSubject($sid) {
+		global $sec;
+		if (!empty($sid)) {
+			$this->subject = $sec->ClearInt($sid);
+		}
+	}
+	
+	function getSubject() {
+		return $this->subject;
+	}
+	
 	function classTable($ball) {
 		switch($ball) {
 			case '5':
@@ -59,7 +72,10 @@ class home {
 	
 	function getPupilsResult() {
 		global $db,$other,$m;
-		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id  WHERE r.user = '.$m->user['id'].' ORDER BY id DESC ');	
+		if ($this->getSubject()) {
+			$where_mysql = 'WHERE nt.subject = '.$this->getSubject();
+		}
+		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id '.$where_mysql.' ORDER BY id DESC ');	
 		if ($db->num_rows($result) > 0) {
 			while($r = $db->fetch_array($result)) {
 				$r['json']=json_decode($r['result']);
@@ -76,13 +92,41 @@ class home {
 					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
 							  
 							  <td colspan="4">
-									Вы еще не проходили тесты
+									По этому предмету еще не тестировались
 							  </td>
 							</tr>';
 			}
 		return $html_result;
 	}
-
+	
+	function getMyResult() {
+		global $db,$other,$m;
+		if ($this->getSubject()) {
+			$where_mysql = 'AND nt.subject = '.$this->getSubject();
+		}
+		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id WHERE r.user = '.$m->user['id'].' '.$where_mysql.' ORDER BY id DESC ');	
+		if ($db->num_rows($result) > 0) {
+			while($r = $db->fetch_array($result)) {
+				$r['json']=json_decode($r['result']);
+					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
+							  <td><small>'.$other->time->fullDate($r['time_exec']).'<small></td>
+							  <td>'.$r['title'].'</td>
+							  <td>'.$r['json']->ball.'</td>
+							  <td>
+								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">Подробнее</button>
+							  </td>
+							</tr>';
+				}
+			} else {
+					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
+							  
+							  <td colspan="4">
+									По этому предмету Вы еще не тестировались
+							  </td>
+							</tr>';
+			}
+		return $html_result;
+	}
 	function queryAnswerTitle($id) {
 		global $db;
 		$query = $db->query('SELECT id, ask FROM question WHERE test = '.$id.'');
