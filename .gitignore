@@ -7,6 +7,8 @@
 .metadata
 bin/
 tmp/
+lab/
+nbproject/
 uploads/tests/
 config.php
 *.tmp
