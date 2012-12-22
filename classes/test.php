@@ -80,8 +80,11 @@ class test extends Type {
 		$tmp->setVar('keywords',implode(',',$arr_descr_title));
 		
         /* Порядок лучше не менять, иначе не будет разнообразия вопросов */
-        shuffle($this->js['questions']);
-        array_splice($this->js['questions'],20);
+		//if ($this->arr['shuffle'] != '2') {
+			shuffle($this->js['questions']);
+			array_splice($this->js['questions'],20);
+		//}
+        
     }
     function generateJSTest($array) {
         return '<script type="text/javascript">var test_id = '.$this->id.' ,arr ='.json_encode($array).'</script>';
@@ -107,11 +110,12 @@ class test extends Type {
 		return $str;
 	}
 	
-    // Делаем черные квадратики внизу теста
+    // Делаем квадратики внизу теста
     function Scale($count) {
-        if ($count > 20) 
+       // if ($this->arr['shuffle'] != '2' && $count > 20) {
+        if ($count > 20) {
             $count = 20;
-        
+        }
         for ($id=1; $id <= $count; $id++) {
             $sc.=$this->For_li($id);
         }
@@ -124,7 +128,7 @@ class test extends Type {
     function getTest($id) {
         global $db,$err;
         
-        $this->arr=$db->query('SELECT n.title, n.user, n.count_pass, s.title AS sub_title, u.name, u.surname, sc.title AS s_title FROM nametest AS n 
+        $this->arr=$db->query('SELECT n.title, n.user, n.count_pass, n.shuffle, s.title AS sub_title, u.name, u.surname, sc.title AS s_title FROM nametest AS n 
             INNER JOIN subject AS s ON n.subject=s.id 
             LEFT JOIN user AS u ON n.user = u.id 
             LEFT JOIN subject_category AS sc ON n.category = sc.id 

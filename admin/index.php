@@ -58,6 +58,7 @@ $tmp->setVar('HelloUser', $mainclass->HelloUser($mainclass->user['name']));
 $tmp->setVar('Tablets', $tablets);
 $tmp->setVar('TestMode', $testMode);
 $tmp->setVar('CountTest', $other->count->countTestWrite());
+$tmp->setVar('CountPass', $other->count->countTestPass());
 $tmp->setVar('CountAdmin', $other->count->countAdmin());
 $tmp->setVar('title', 'Админ-панель');
 $tmp->setCSS(array('main'));

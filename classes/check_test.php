@@ -29,12 +29,10 @@ class check_test {
                 //переведем и кодировку
                 $value = $this->charseTrue($_POST['value'], 'utf-8', 'cp1251');
                 // т.к. очищаем
+				
                 $value = $sec->filter($this->st2lower(trim($value)));
-
                 // а теперь защитимся
-                if (empty($value)) {
-                    return 'empty_value';
-                }
+                
                 $answer = $db->query('SELECT title,question FROM answers WHERE id="' . $id . '"');
                 if ($db->num_rows($answer) == 0) {
                     return 'empty2';

@@ -12,7 +12,7 @@ $(document).ready(function(){
                 i=i+1;
                 input_hidden.val(i);
                 if (i > i_old) {
-                table.append('<div class="answer" id="input'+i+'"><input name="ok'+i+'" type="checkbox" value="2" class="big_checkbox" /><input name="answer'+i+'" type="text" class="big_input" style="width: 445px" /></div>');
+                table.append('<div class="answer" id="input'+i+'"><input name="ok'+i+'" type="checkbox" value="2" class="big_checkbox" /><textarea name="answer'+i+'" class="big_input answerInput" id="answer'+i+'" onkeyup="dynamicTextarea(this)" style="width: 445px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " /></textarea></div>');
                 i_old=i_old+1;
                 }
                 else {
@@ -69,16 +69,25 @@ $(document).ready(function(){
         
         window.onbeforeunload = function() {
             if (numChange > 0) {
-                return "Вы не сохранили изменения. При закрытии страницы картинки не удалится.";
+                return "Вы не сохранили изменения. Изменения не вступят в силу.";
             };
         };        
 		
 });
+
+var heightTextarea = 0;
 function dynamicTextarea(t) {
-    content = t.val();
-    content = content.replace(/\n$/, '<br/>&nbsp;')
+    // get value
+	var content = t.value;
+		heightText = $('#'+t.id);
+	// Replace special text
+	content = content.replace(/\n$/, '<br/>&nbsp;')
     .replace(/\n/g, '<br/>')
     .replace(/\s/g, '&nbsp;');
-    $('.textAreanone').html(content).append('<br/>&nbsp;');
-    t.animate({ height : $('.textAreanone').height()},100)
+	
+    $('.textAreanone').html(content).width($('#'+t.id).width());//.append('<br/>&nbsp;');
+	// При очень быстром наборе animate срабатывает с запоздание. Исправляем.
+	if ($('#'+t.id).height() != $('.textAreanone').height()) {
+		heightText.animate({height:$('.textAreanone').height()},100);
+	}
 }

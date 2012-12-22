@@ -39,6 +39,10 @@
             <div class="rowTitle ListTableLeftBar">Будет ли показываться?</div>
             <div class="rowBlock"><input name="status" type="checkbox" value="2" {Checked} /></div>
         </div>
+		<div class="row">
+            <div class="rowTitle ListTableLeftBar">Не перемешивать вопросы</div>
+            <div class="rowBlock"><input name="shuffle" type="checkbox" value="2" {Checked-Shuffle} /></div>
+        </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
                 Критерии оценки

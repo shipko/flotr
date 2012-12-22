@@ -253,12 +253,16 @@ border-top: 1px solid #DDD;
     border: 1px solid #aaa;
     font-family: Arial;
 }
-.answer {
+
+.answerInput {
+    margin-left: 25px;
+}
+.answer{
     margin-bottom: 10px;
 }
 .big_checkbox {
-    padding: 5px;
-
+    margin: 12px 5px;
+	position: absolute;
 }
 .answer1 {
     margin-bottom: 9px;

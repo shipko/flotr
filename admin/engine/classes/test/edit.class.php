@@ -123,6 +123,7 @@ class edit extends someFunction {
         $tmp->setVar('categoryId',$sub['category']);
         $tmp->setVar('InputTitle',stripslashes($sub['title']));
         $tmp->setVar('Checked',($sub['status']=='2' ? 'checked="checked"' : ''));
+		$tmp->setVar('Checked-Shuffle',($sub['shuffle']=='2' ? 'checked="checked"' : ''));
         $tmp->setVar('ListSubject',$list_sub);
         
     } 
@@ -139,7 +140,7 @@ class edit extends someFunction {
             $answers.='
                 <div class="answer" id="input'.$i.'">
                     <input name="ok'.$i.'" '.($arr['correct']==2 ? 'checked="checked"' : '').' value="2"  type="checkbox" class="big_checkbox" />
-                    <input name="answer'.$i.'" type="text" value="'.$arr['title'].'" class="big_input" style="width: 400px" />
+                    <textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeyup="dynamicTextarea(this)" style="width: 440px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($arr['title']).'</textarea>
                     <input type="hidden" name="answerid'.$i.'" value="'.$arr['id'].'">
                 </div>';
         }
@@ -169,7 +170,7 @@ class edit extends someFunction {
             $answers.='
                 <div class="answer" id="input'.$i.'">
                     <input name="ok'.$i.'" '.($arr['correct']==2 ? 'checked="checked"' : '').' value="2"  type="checkbox" class="big_checkbox" />
-                    <input name="answer'.$i.'" type="text" value="'.$arr['title'].'" class="big_input" style="width: 400px" />
+                     <textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeyup="dynamicTextarea(this)" style="width: 445px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($arr['title']).'</textarea>
                     <input type="hidden" name="answerid'.$i.'" value="'.$arr['id'].'">
                 </div>';
         }
@@ -197,6 +198,7 @@ class edit extends someFunction {
         $subject=$sec->ClearInt($_POST['subject'],'Предмет не указан');
         $category = $sec->ClearInt($_POST['category']);
         $status=($_POST['status'] == '2' ? (int)$_POST['status'] : '1');
+		$shuffle=($_POST['shuffle'] == '2' ? (int)$_POST['shuffle'] : '1');
         $is_edit = $sec->filter($_POST['is_edit_factor']);
         
         $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id предмета неверен');
@@ -218,7 +220,7 @@ class edit extends someFunction {
             } 
         }
         
-        $db->query('UPDATE nametest SET title="'.$title.'", subject="'.$subject.'", category="'.$category.'", status="'.$status.'", date_edit="'.time().'" WHERE id='.$id.'');
+        $db->query('UPDATE nametest SET title="'.$title.'", subject="'.$subject.'", category="'.$category.'", status="'.$status.'", shuffle="'.$shuffle.'", date_edit="'.time().'" WHERE id='.$id.'');
         
         $sec->head('test.php?sec=edit&cat=list&id='.$id.'&m=1');
     }

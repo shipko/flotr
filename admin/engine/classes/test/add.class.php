@@ -13,12 +13,13 @@ class add extends someFunction {
         $subject=$sec->ClearInt($_POST['subject'],'Предмет не заполнен');
         $category=$sec->ClearInt($_POST['category']);
         $status=((int)$_POST['status']==2) ? '2' : '1';
+		$shuffle=((int)$_POST['shuffle']==2) ? '2' : '1';
         $is_edit = $sec->filter($_POST['is_edit_factor']);
         $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id предмета неверен');
         if ($category != 0) {
             $cat_subject=$db->query('SELECT id FROM subject_category WHERE id="'.$category.'"','id категории неверен');
         }
-        $db->query('INSERT INTO nametest (`title`,`subject`,`category`,`status`,`user`,`date_create`) VALUES ("'.$title.'","'.$subject.'","'.$category.'","'.$status.'","'.$mainclass->user['id'].'","'.time().'")');
+        $db->query('INSERT INTO nametest (`title`,`subject`,`category`,`status`,`user`,`date_create`,`shuffle`) VALUES ("'.$title.'","'.$subject.'","'.$category.'","'.$status.'","'.$mainclass->user['id'].'","'.time().'","'.$shuffle.'")');
         $last_insert = mysql_insert_id();
         if ($is_edit == 'true') {
             $factor3 = $sec->ClearInt($_POST['factor1'],'Первый критерий неверен');
@@ -179,7 +180,7 @@ class add extends someFunction {
             return $sec->head('test.php?sec=add&cat=question&id='.$id.'&m=5&ret');
     }
     function Tr($input='',$check=false,$i) {
-        return '<div class="answer" id="input'.$i.'"><input type="checkbox" name="ok'.$i.'" '.($check=='2' ? 'checked' : '').' value="2" class="big_checkbox" /><input name="answer'.$i.'" type="text" value="'.stripslashes($input).'" class="big_input" style="width: 445px" /></div>';
+        return '<div class="answer" id="input'.$i.'"><input type="checkbox" name="ok'.$i.'" '.($check=='2' ? 'checked' : '').' value="2" class="big_checkbox" /><textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeyup="dynamicTextarea(this)" style="width: 445px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($input).'</textarea></div>';
     }
     
 }

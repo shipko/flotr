@@ -36,7 +36,8 @@
                 {TestMode}
                 <div class="headi">Статистика</div>
                 <div class="settings_table"><div class="title">Всего тестов:</div><div class="text">{CountTest}</div></div>
-                <div class="settings_table"><div class="title">Администраторов:</div><div class="text">{CountAdmin}</div></div>
+                <div class="settings_table"><div class="title">Количество пройденный тестов:</div><div class="text">{CountPass}</div></div>
+				<div class="settings_table"><div class="title">Администраторов:</div><div class="text">{CountAdmin}</div></div>
             </div>
             </td>
     </tr>      

@@ -30,7 +30,7 @@
                 <div class="hint">Необязательно</div>
             </div>
             <div class="rowBlock">
-                <select name="category"  id="catAction">
+                <select name="category" id="catAction">
                    <option value="">Загрузка</option>
                 </select>
             </div>
@@ -38,6 +38,10 @@
         <div class="row">
             <div class="rowTitle ListTableLeftBar">Будет ли показываться?</div>
             <div class="rowBlock"><input name="status" type="checkbox" value="2" /></div>
+        </div>
+		<div class="row">
+            <div class="rowTitle ListTableLeftBar">Не перемешивать вопросы</div>
+            <div class="rowBlock"><input name="shuffle" type="checkbox" value="2" /></div>
         </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
