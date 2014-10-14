@@ -1,51 +1,51 @@
-{HEADER}
+п»ї{HEADER}
      <div class="container">
         <div class="row">
             <div class="span8">
                 <div class="hero-unit">
 					<form class="form-horizontal" id="submitForm" action="signup.php?act=do" method="post">
-						<h2>Регистрация</h2>
+						<h2>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h2>
 						{message}
                                                 <div id="controlName" class="control-group">
-							<label class="control-label" for="inputName">Имя</label>
+							<label class="control-label" for="inputName">РРјСЏ</label>
 							<div class="controls">
-							  <input type="text" id="inputName" name="name" placeholder="Введите ваше имя"><span class="help-inline" style="font-size: 14px;"></span>
+							  <input type="text" id="inputName" name="name" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Рµ РёРјСЏ"><span class="help-inline" style="font-size: 14px;"></span>
 							</div>
 						</div>
                                                 <div id="controlSurname" class="control-group">
-							<label class="control-label" for="inputSurname">Фамилия</label>
+							<label class="control-label" for="inputSurname">Р¤Р°РјРёР»РёСЏ</label>
 							<div class="controls">
-							  <input type="text" id="inputSurname" name="surname" placeholder="Введите вашу фамилию"><span class="help-inline" style="font-size: 14px;"></span>
+							  <input type="text" id="inputSurname" name="surname" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Сѓ С„Р°РјРёР»РёСЋ"><span class="help-inline" style="font-size: 14px;"></span>
 							</div>
 						</div>
 						<div id="controlLogin" class="control-group">
-							<label class="control-label" for="inputLogin">Логин</label>
+							<label class="control-label" for="inputLogin">Р›РѕРіРёРЅ</label>
 							<div class="controls">
-							  <input type="text" id="inputLogin" name="login" placeholder="Введите логин"><span class="help-inline" style="font-size: 14px;"></span>
+							  <input type="text" id="inputLogin" name="login" placeholder="Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ"><span class="help-inline" style="font-size: 14px;"></span>
 							</div>
 						</div>
 						<div id="controlPassword" class="control-group">
-							<label class="control-label" for="inputPassword">Пароль</label>
+							<label class="control-label" for="inputPassword">РџР°СЂРѕР»СЊ</label>
 							<div class="controls">
-							  <input type="password" id="inputPassword" name="pass" placeholder="Введите пароль"><span class="help-inline" style="font-size: 14px;"></span>
+							  <input type="password" id="inputPassword" name="pass" placeholder="Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ"><span class="help-inline" style="font-size: 14px;"></span>
 							</div>
 						</div>
                                                 <div id="controlEmail" class="control-group">
 							<label class="control-label" for="inputEmail">Email</label>
 							<div class="controls">
-							  <input type="text" id="inputEmail" name="email" placeholder="Введите ваш email"><span class="help-inline" style="font-size: 14px;"></span>
+							  <input type="text" id="inputEmail" name="email" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€ email"><span class="help-inline" style="font-size: 14px;"></span>
 							</div>
 						</div>
 						<div class="control-group">
 							<div class="controls">	
-							  <button type="submit" id="submit" class="btn btn-success">Регистрация</button>
+							  <button type="submit" id="submit" class="btn btn-success">Р РµРіРёСЃС‚СЂР°С†РёСЏ</button>
 							</div>
 						</div>
                     </form>	
                 </div>
             </div>
             <div class="span4">
-                <h1>Список предметов</h1>
+                <h1>РЎРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ</h1>
                 
                 <ul class="nav nav-list">
                     {rightBar}

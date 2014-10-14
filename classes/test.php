@@ -1,5 +1,5 @@
-<?php
-if(!defined('CMS'))die('Сюда нельзя');
+п»ї<?php
+if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
 require './classes/type.extend.php';
     $test_mode=!$sec->Settings();
 class test extends Type {
@@ -11,33 +11,33 @@ class test extends Type {
             $arr_quest,
 			$scale = array();
     /*
-     * И так последовательность:
-     * Проверка на существование теста(сразу же загружается тест и предмет)
-     * Выборка из базы всех вопросов, которые относятся к этому тесту
-     * Создание javascript массиа с вопросами и ответами
-     * Вывод шаблона через функцию Template_type№
+     * Р С‚Р°Рє РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ:
+     * РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С‚РµСЃС‚Р°(СЃСЂР°Р·Сѓ Р¶Рµ Р·Р°РіСЂСѓР¶Р°РµС‚СЃСЏ С‚РµСЃС‚ Рё РїСЂРµРґРјРµС‚)
+     * Р’С‹Р±РѕСЂРєР° РёР· Р±Р°Р·С‹ РІСЃРµС… РІРѕРїСЂРѕСЃРѕРІ, РєРѕС‚РѕСЂС‹Рµ РѕС‚РЅРѕСЃСЏС‚СЃСЏ Рє СЌС‚РѕРјСѓ С‚РµСЃС‚Сѓ
+     * РЎРѕР·РґР°РЅРёРµ javascript РјР°СЃСЃРёР° СЃ РІРѕРїСЂРѕСЃР°РјРё Рё РѕС‚РІРµС‚Р°РјРё
+     * Р’С‹РІРѕРґ С€Р°Р±Р»РѕРЅР° С‡РµСЂРµР· С„СѓРЅРєС†РёСЋ Template_typeв„–
      */
     function Go() {
         global $db,$err,$sec,$other,$tmp;
-        // Счетчик вопросов
+        // РЎС‡РµС‚С‡РёРє РІРѕРїСЂРѕСЃРѕРІ
         $count_scale=0;
-        $id=$sec->ClearInt($_GET['id'],'Параметр id задан не верно');
+        $id=$sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ id Р·Р°РґР°РЅ РЅРµ РІРµСЂРЅРѕ');
         $this->getTest($id);
         $this->id=$id;
         $quest_and_ans=$db->query('SELECT q.id,q.ask,a.title,a.id AS aid, a.correct,q.type,q.code FROM question AS q INNER JOIN answers AS a ON q.id = a.question WHERE test='.$id.' AND q.delete = 1 AND a.delete = 1 ORDER BY q.id ',
-        'Мы нашли тест, но вопросов к нему еще не добавили :(');
-        $this->arr['count_pass']=$other->time->rulesTime($this->arr['count_pass'],array('раз','раза','раз'));
+        'РњС‹ РЅР°С€Р»Рё С‚РµСЃС‚, РЅРѕ РІРѕРїСЂРѕСЃРѕРІ Рє РЅРµРјСѓ РµС‰Рµ РЅРµ РґРѕР±Р°РІРёР»Рё :(');
+        $this->arr['count_pass']=$other->time->rulesTime($this->arr['count_pass'],array('СЂР°Р·','СЂР°Р·Р°','СЂР°Р·'));
         
         $i='';
         while($w=$db->fetch_array($quest_and_ans)) {
-            // Добавляем в массив ответ
+            // Р”РѕР±Р°РІР»СЏРµРј РІ РјР°СЃСЃРёРІ РѕС‚РІРµС‚
             if ($i==$w['id']) {
                 switch ($type) {
                     case '1':
                         $this->arr_quest['answers'][]=$this->typeOneYet($w);
                         break;
                     case '2':
-                        exit('Произошла ошибка. Ответов больше чем должно быть!');
+                        exit('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°. РћС‚РІРµС‚РѕРІ Р±РѕР»СЊС€Рµ С‡РµРј РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ!');
                         break;
 					case '3':
                         $this->arr_quest['answers'][]=$this->typeThreeYet($w);
@@ -46,10 +46,10 @@ class test extends Type {
                         break;
                 }
             }else {
-                // Ответы кончились, забиваем их и переходим к следующему вопросу
+                // РћС‚РІРµС‚С‹ РєРѕРЅС‡РёР»РёСЃСЊ, Р·Р°Р±РёРІР°РµРј РёС… Рё РїРµСЂРµС…РѕРґРёРј Рє СЃР»РµРґСѓСЋС‰РµРјСѓ РІРѕРїСЂРѕСЃСѓ
                 $i=$w['id'];
                 $type=$w['type'];
-                // тут начинается самое итересное. Происходит разделение тестов на типы.
+                // С‚СѓС‚ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃР°РјРѕРµ РёС‚РµСЂРµСЃРЅРѕРµ. РџСЂРѕРёСЃС…РѕРґРёС‚ СЂР°Р·РґРµР»РµРЅРёРµ С‚РµСЃС‚РѕРІ РЅР° С‚РёРїС‹.
                 if(!empty($this->arr_quest)) {
                     $this->js['questions'][]=$this->arr_quest;
                     unset($this->arr_quest);
@@ -75,11 +75,11 @@ class test extends Type {
         //shuffle($this->arr['answers']);
         $this->js['questions'][]=$this->arr_quest;
 		
-		// Для поисковика (description)
+		// Р”Р»СЏ РїРѕРёСЃРєРѕРІРёРєР° (description)
         array_splice($arr_descr_title,20);		
 		$tmp->setVar('keywords',implode(',',$arr_descr_title));
 		
-        /* Порядок лучше не менять, иначе не будет разнообразия вопросов */
+        /* РџРѕСЂСЏРґРѕРє Р»СѓС‡С€Рµ РЅРµ РјРµРЅСЏС‚СЊ, РёРЅР°С‡Рµ РЅРµ Р±СѓРґРµС‚ СЂР°Р·РЅРѕРѕР±СЂР°Р·РёСЏ РІРѕРїСЂРѕСЃРѕРІ */
 		//if ($this->arr['shuffle'] != '2') {
 			shuffle($this->js['questions']);
 			array_splice($this->js['questions'],20);
@@ -110,7 +110,7 @@ class test extends Type {
 		return $str;
 	}
 	
-    // Делаем квадратики внизу теста
+    // Р”РµР»Р°РµРј РєРІР°РґСЂР°С‚РёРєРё РІРЅРёР·Сѓ С‚РµСЃС‚Р°
     function Scale($count) {
        // if ($this->arr['shuffle'] != '2' && $count > 20) {
         if ($count > 20) {
@@ -123,7 +123,7 @@ class test extends Type {
     }
  
 /* 
- * Функция отвечающая за выборку теста и предмета, к которому он принадлежит
+ * Р¤СѓРЅРєС†РёСЏ РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РІС‹Р±РѕСЂРєСѓ С‚РµСЃС‚Р° Рё РїСЂРµРґРјРµС‚Р°, Рє РєРѕС‚РѕСЂРѕРјСѓ РѕРЅ РїСЂРёРЅР°РґР»РµР¶РёС‚
  */
     function getTest($id) {
         global $db,$err;
@@ -133,11 +133,11 @@ class test extends Type {
             LEFT JOIN user AS u ON n.user = u.id 
             LEFT JOIN subject_category AS sc ON n.category = sc.id 
             WHERE n.id='.$id.' AND n.status="2" AND n.delete != 2',
-        'Тест не найден',true);
+        'РўРµСЃС‚ РЅРµ РЅР°Р№РґРµРЅ',true);
         $this->title=$this->arr['title'];
         
         if (!empty($this->arr['s_title'])) {
-            $this->cat = '<h3 class="page-header" style="padding: 0; margin-bottom: 7px;">Категория:</h3>
+            $this->cat = '<h3 class="page-header" style="padding: 0; margin-bottom: 7px;">РљР°С‚РµРіРѕСЂРёСЏ:</h3>
                 <p class="lead">'.$this->arr['s_title'].'</p>';
         }
     }

@@ -1,5 +1,5 @@
-<?php
-if(!defined('CMS'))die('Сюда нельзя');
+п»ї<?php
+if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
 
 class home {
 	private $subject=false;
@@ -55,14 +55,14 @@ class home {
 			$h .= '<button class="btn btn-mini btn-'.($v == 'true' ? 'success' : 'danger').'" title="'.$arrAnswerTitle[$k].'">&nbsp;&nbsp;</button>';
 		}
 		$html = '
-			'.($m->user['priv'] < 3 ? '<strong>Пользователь:</strong>
+			'.($m->user['priv'] < 3 ? '<strong>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ:</strong>
 			<span class="badge badge-success">'.$arr['surname'].' '.$arr['name'].'</span> <br> ' : '').'
-			<strong>Оценка:</strong>
+			<strong>РћС†РµРЅРєР°:</strong>
 			<span class="badge badge-success">'.$j->ball.'</span> <br> 
-			<strong>Правильный ответов:</strong> '.$j->true_answer.' ('.$j->percent.'%)<br>
-			<strong>Тест пройден</strong> за '.$other->time->sumTime($arr['time']).'. </br >
-			<strong>Дата прохождения:</strong> '.$other->time->fullDate($arr['time_exec']).'. </br >
-			<strong>Ответы:</strong></br >
+			<strong>РџСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚РѕРІ:</strong> '.$j->true_answer.' ('.$j->percent.'%)<br>
+			<strong>РўРµСЃС‚ РїСЂРѕР№РґРµРЅ</strong> Р·Р° '.$other->time->sumTime($arr['time']).'. </br >
+			<strong>Р”Р°С‚Р° РїСЂРѕС…РѕР¶РґРµРЅРёСЏ:</strong> '.$other->time->fullDate($arr['time_exec']).'. </br >
+			<strong>РћС‚РІРµС‚С‹:</strong></br >
 			<div class="btn-group">
 				'.$h.'
 			</div>';
@@ -84,7 +84,7 @@ class home {
 							  <td>'.$r['title'].'</td>
 							  <td>'.$r['json']->ball.'</td>
 							  <td>
-								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">Подробнее</button>
+								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">РџРѕРґСЂРѕР±РЅРµРµ</button>
 							  </td>
 							</tr>';
 				}
@@ -92,7 +92,7 @@ class home {
 					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
 							  
 							  <td colspan="4">
-									По этому предмету еще не тестировались
+									РџРѕ СЌС‚РѕРјСѓ РїСЂРµРґРјРµС‚Сѓ РµС‰Рµ РЅРµ С‚РµСЃС‚РёСЂРѕРІР°Р»РёСЃСЊ
 							  </td>
 							</tr>';
 			}
@@ -113,7 +113,7 @@ class home {
 							  <td>'.$r['title'].'</td>
 							  <td>'.$r['json']->ball.'</td>
 							  <td>
-								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">Подробнее</button>
+								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">РџРѕРґСЂРѕР±РЅРµРµ</button>
 							  </td>
 							</tr>';
 				}
@@ -121,7 +121,7 @@ class home {
 					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
 							  
 							  <td colspan="4">
-									По этому предмету Вы еще не тестировались
+									РџРѕ СЌС‚РѕРјСѓ РїСЂРµРґРјРµС‚Сѓ Р’С‹ РµС‰Рµ РЅРµ С‚РµСЃС‚РёСЂРѕРІР°Р»РёСЃСЊ
 							  </td>
 							</tr>';
 			}

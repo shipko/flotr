@@ -1,34 +1,34 @@
-<?php
-if(!defined('CMS'))die('Сюда нельзя');
+п»ї<?php
+if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
 class Mainclass {
 	public $user = array();
 	function __construct() {
 		global $tmp;
 		if ($this->isUser()) {
 			$array = array(
-				'1' => 'Админ-панель',
-				'2' => 'Тесты'
+				'1' => 'РђРґРјРёРЅ-РїР°РЅРµР»СЊ',
+				'2' => 'РўРµСЃС‚С‹'
 			);
 			$admin = '';
 			if ($this->user['priv'] <= 2) {
-				$admin = '<li class="nav-header">Управление</li>';
+				$admin = '<li class="nav-header">РЈРїСЂР°РІР»РµРЅРёРµ</li>';
 				$admin .= '<li><a href="admin">'.$array[$this->user['priv']].'</a></li>';
 			}
 			$tmp->setVar('header_user','<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$this->user['name'].' '.$this->user['surname'].'<b class="caret"></b></a>
                 <ul class="dropdown-menu">
 				  '.$admin.'
-                  <li><a href="settings.php">Настройки</a></li>
+                  <li><a href="settings.php">РќР°СЃС‚СЂРѕР№РєРё</a></li>
                   <li class="divider"></li>
-				  <li><a href="login.php?act=logout">Выход</a></li>
+				  <li><a href="login.php?act=logout">Р’С‹С…РѕРґ</a></li>
                 </ul>');
 			$tmp->setJS(array('jquery'));
 		}
 		else {
-			$tmp->setVar('header_user','<a href="login.php" class="dropdown-toggle" data-toggle="dropdown">Вход</a>
+			$tmp->setVar('header_user','<a href="login.php" class="dropdown-toggle" data-toggle="dropdown">Р’С…РѕРґ</a>
 			<ul class="dropdown-menu">
-			  <li><a href="login.php">Вход</a></li>
-			  <li><a href="signup.php">Регистрация</a></li>
-			  <li><a href="login.php?act=restore">Забыли пароль</a></li>
+			  <li><a href="login.php">Р’С…РѕРґ</a></li>
+			  <li><a href="signup.php">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a></li>
+			  <li><a href="login.php?act=restore">Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ</a></li>
 			</ul>');
 			$tmp->setJS(array('jquery'));
 		}
@@ -84,7 +84,7 @@ class Mainclass {
 	}
 	function isIssetLogin($login) {
 		global $sec,$db;
-		$login = $sec->filter($login, 25,'Не введено поле логин'); 
+		$login = $sec->filter($login, 25,'РќРµ РІРІРµРґРµРЅРѕ РїРѕР»Рµ Р»РѕРіРёРЅ'); 
 		$res=$db->query('SELECT id FROM user WHERE login="'.$login.'" LIMIT 1');
 		if($db->num_rows($res) == 0){
 			return true;
@@ -109,7 +109,7 @@ class Mainclass {
 	}
 	function isIssetMail($mail) {
 		global $sec,$db;
-		$email = $sec->filter($mail, 25,'Не введено поле логин');
+		$email = $sec->filter($mail, 25,'РќРµ РІРІРµРґРµРЅРѕ РїРѕР»Рµ Р»РѕРіРёРЅ');
 		if(!$sec->isMail($email)) {
 			return false;
 		}

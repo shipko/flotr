@@ -1,12 +1,12 @@
-    function calcBall(percent,id,time) {
+﻿    function calcBall(percent,id,time) {
         $.ajax({ type: 'POST', async: false, cache: false, url: "./test.php?act=getBall",
             data: ({ 
-				'percent': percent, 
-				'id': id, 
-				'time': time, 
-				'true_answer': number_true_answers,
-				'array': arrResultAnswer
-				}),
+                'percent': percent, 
+                'id': id, 
+                'time': time, 
+                'true_answer': number_true_answers,
+                'array': arrResultAnswer
+                }),
             success: function(data) { 
                 $('.percent').text(data);
             }
@@ -23,29 +23,29 @@
         } else
             $('button.btn#' + arr.id).addClass('btn-danger');
         
-		arrResultAnswer[arr.id] = arr.bool;
-		
+        arrResultAnswer[arr.id] = arr.bool;
+        
         $('#'+arr.id).popover({ 
-				trigger: 'hover',
-				placement: 'top',
-				content: showAsk(arr.id),
-				title: lang['questions']
-		});
-		
-		
+                trigger: 'hover',
+                placement: 'top',
+                content: showAsk(arr.id),
+                title: lang['questions']
+        });
+        
+        
     }
     
     
     function AjaxTest(id,type,async) {
         // Следующий вопрос
-		i++;
-		if (type == 1) {
-			// Проверка теста
+        i++;
+        if (type == 1) {
+            // Проверка теста
             $.ajax({ type: "POST", dataType: 'json', async: async, cache: false, url: "./test.php?act=test&type=1",
                 data: ({ 'id': id}),
                 success: function(data) { succesRequest(data)  }
             });
-		}
+        }
         else if (type == 2) {
             var valueinp = $('.InputAns').val();
             $.ajax({ type: "POST", dataType: 'json', async: async, cache: false, url: "./test.php?act=test&type=2",
@@ -54,38 +54,38 @@
             });     
         } 
         else if (type == 3) {
-			var idParam = new Array()
-			a = 0;
-			for (var j in arrType) { 
-				if (arrType) {
-					idParam[a] = j;
-					a++;
-				}
-			}
+            var idParam = new Array()
+            a = 0;
+            for (var j in arrType) { 
+                if (arrType) {
+                    idParam[a] = j;
+                    a++;
+                }
+            }
 
             $('#btn-enter').animate({ height: '0px'});
-			$('#a3').css('display', 'none');
+            $('#a3').css('display', 'none');
             $.ajax({ type: "POST", dataType: 'json', async: async, cache: false, url: "./test.php?act=test&type=3",
                 data: { 'id' : idParam, 'test' : id },
                 success: function(data) { succesRequest(data)  }
             }); 
         }
     }
-	
+    
     function NextAsk(i) {
         ul.html('');
-		addAsk(arr.questions[i].text);
+        addAsk(arr.questions[i].text);
         
-		addImages(arr.questions[i]);
-		
+        addImages(arr.questions[i]);
+        
         if (arr.questions[i].type == 1) {
             AskType1(i);
         } else if(arr.questions[i].type == 2) {
             AskType2(i);
         } else if (arr.questions[i].type == 3) {
-			AskType3(i);
-		}
-		$('button.btn#' + (i+1) ).attr('id', arr.questions[i].id);
+            AskType3(i);
+        }
+        $('button.btn#' + (i+1) ).attr('id', arr.questions[i].id);
         $(window).load(function () {
             $('.LeftBar').height($('.MainBar').innerHeight()-5);
         });
@@ -113,25 +113,25 @@
         
     }
     function AskType2(i) {
-		$(arr.questions[i].answers).each(function(){
-			var input = $('<input>',{ id : this.id+'_input', value : lang['enter_answer'] });
-			input.addClass('InputAns');
-			input.data('object',this);
-			var but = $('<div>',{
-				id      : this.id,
-				html    : lang['reply']
-			});
-			but.addClass('but a2');
-			
-			
-			ul.append(input);
-			ul.append(but);
-			Focus(this.id);
-		});
+        $(arr.questions[i].answers).each(function(){
+            var input = $('<input>',{ id : this.id+'_input', value : lang['enter_answer'] });
+            input.addClass('InputAns');
+            input.data('object',this);
+            var but = $('<div>',{
+                id      : this.id,
+                html    : lang['reply']
+            });
+            but.addClass('but a2');
+            
+            
+            ul.append(input);
+            ul.append(but);
+            Focus(this.id);
+        });
     }
-	function AskType3(i) {
-	funcType3();
-		$(arr.questions[i].answers).each(function(){
+    function AskType3(i) {
+    funcType3();
+        $(arr.questions[i].answers).each(function(){
             var li = $('<li>',{
                 id      : this.id,
                 html    : this.text
@@ -141,18 +141,18 @@
             ul.append(li);
         });
     }
-	
-	function funcType3() {
-		countCheckAnswer = 0;
-	}
-	
+    
+    function funcType3() {
+        countCheckAnswer = 0;
+    }
+    
     function isClick() {
-		$('.a1').live('click', function(event) { handleClickOne($(this)) });
-		$('.a2').live('click', function(event) { handleClickTwo($(this)) });
-		// Нажимаем кнопку "Ответить"
-		$('#a3').live('click', function(event) { handleClickThree($(this)) });
-		// Выбираем ответ
-		$('.a3').live('click', function(event) { changeButtonType3($(this)) });
+        $('.a1').live('click', function(event) { handleClickOne($(this)) });
+        $('.a2').live('click', function(event) { handleClickTwo($(this)) });
+        // Нажимаем кнопку "Ответить"
+        $('#a3').live('click', function(event) { handleClickThree($(this)) });
+        // Выбираем ответ
+        $('.a3').live('click', function(event) { changeButtonType3($(this)) });
     }
     
     function Focus(id) {
@@ -167,10 +167,10 @@
             }
         });
     }  
-	function GoGo(id,type) {
+    function GoGo(id,type) {
         if((arr.questions.length - 1) == i) {
             time = (Math.round(+new Date()/1000)-time);
-			EndTestLoading();
+            EndTestLoading();
             // Проверка теста
             // Выполняется синхронный запрос
             AjaxTest(id,type,false);
@@ -199,9 +199,9 @@
     sc=$('ul.sc'),
     images = $('div.images'), 
     block_answer=$('div.answer'),
-	arrType = [],
-	arrResultAnswer = {},
-	countCheckAnswer = 0;
+    arrType = [],
+    arrResultAnswer = {},
+    countCheckAnswer = 0;
     // слова
     theme=$('#theme').text();
     // конец слов

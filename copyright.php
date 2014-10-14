@@ -1,5 +1,5 @@
-<?php
+ï»¿<?php
 require 'header.php';
-$tmp->setVar('title','Ïðàâèëà ïåðåïå÷àòêè');
+$tmp->setVar('title','ÐŸÑ€Ð°Ð²Ð¸Ð»Ð° Ð¿ÐµÑ€ÐµÐ¿ÐµÑ‡Ð°Ñ‚ÐºÐ¸');
 $tmp->parse('copyright');
 ?>

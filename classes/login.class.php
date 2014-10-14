@@ -1,17 +1,17 @@
-<?php
-if(!defined('CMS'))die('Сюда нельзя');
+п»ї<?php
+if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
 class Login {
 	function CheckLogin() {
 		global $sec, $db;
-		$login = $sec->filter($_POST['login'], 25,'Не введено поле логин');
-		$pass = $sec->filter($_POST['pass'], 25,'Поле пароль не заполнено');
+		$login = $sec->filter($_POST['login'], 25,'РќРµ РІРІРµРґРµРЅРѕ РїРѕР»Рµ Р»РѕРіРёРЅ');
+		$pass = $sec->filter($_POST['pass'], 25,'РџРѕР»Рµ РїР°СЂРѕР»СЊ РЅРµ Р·Р°РїРѕР»РЅРµРЅРѕ');
 		$check = ((int)$_POST['alien']==2) ? '2' : '1';
 		
 		$login = strtolower($login);
 		$pass = $sec->salt($pass);
 		$query = $db->query('SELECT id,pass FROM user WHERE login="' . $login . '" LIMIT 1');
 		if ($db->num_rows($query) == 0) {
-			return 'Неверное имя пользователя или пароль.';
+			return 'РќРµРІРµСЂРЅРѕРµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР»Рё РїР°СЂРѕР»СЊ.';
 		} 
 		else {
 			$query = $db->fetch_array($query);
@@ -24,7 +24,7 @@ class Login {
 				setcookie('pass', $query['pass'], $time);
 				$sec->head('home.php');
 			}
-			return 'Неверное имя пользователя или пароль.';
+			return 'РќРµРІРµСЂРЅРѕРµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР»Рё РїР°СЂРѕР»СЊ.';
 		}
 	}
 	

@@ -1,8 +1,8 @@
-<?php
-if(!defined('CMS'))die('Ñþäà íåëüçÿ');
+ï»¿<?php
+if(!defined('CMS'))die('Ð¡ÑŽÐ´Ð° Ð½ÐµÐ»ÑŒÐ·Ñ');
 class err {
     public function GNC($message) {
-        $this->setVar('title','Ïðîèçîøëà îøèáêà');
+        $this->setVar('title','ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°');
         $this->setVar('message',$message);
         $this->parse('critError');
         exit();

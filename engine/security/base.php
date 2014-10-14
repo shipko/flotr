@@ -1,11 +1,11 @@
-<?php
+ï»¿<?php
 class Security {
     function head($s='index.php') {
         header("Location: $s");
         exit();
     }
     /*
-     * $l - äëèíà ñòðîêè
+     * $l - Ð´Ð»Ð¸Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ¸
      */
     function filter($str,$l=false,$err_str=false) {
         global $err,$tmp;

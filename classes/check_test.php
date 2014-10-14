@@ -1,7 +1,7 @@
-<?php
+п»ї<?php
 
 /*
- * @author Муковкин Дмитрий
+ * @author РњСѓРєРѕРІРєРёРЅ Р”РјРёС‚СЂРёР№
  */
 
 class check_test {
@@ -14,7 +14,7 @@ class check_test {
         return $str;
     }
 
-    /* Проверка теста */
+    /* РџСЂРѕРІРµСЂРєР° С‚РµСЃС‚Р° */
 
     function TestId($id) {
         global $db, $sec;
@@ -26,12 +26,12 @@ class check_test {
                 $this->retBool($c['question'],($c['correct'] == '2'));
                 break;
             case '2':
-                //переведем и кодировку
+                //РїРµСЂРµРІРµРґРµРј Рё РєРѕРґРёСЂРѕРІРєСѓ
                 $value = $this->charseTrue($_POST['value'], 'utf-8', 'cp1251');
-                // т.к. очищаем
+                // С‚.Рє. РѕС‡РёС‰Р°РµРј
 				
                 $value = $sec->filter($this->st2lower(trim($value)));
-                // а теперь защитимся
+                // Р° С‚РµРїРµСЂСЊ Р·Р°С‰РёС‚РёРјСЃСЏ
                 
                 $answer = $db->query('SELECT title,question FROM answers WHERE id="' . $id . '"');
                 if ($db->num_rows($answer) == 0) {
@@ -44,13 +44,13 @@ class check_test {
 				
                 break;
 			case '3':
-				// Считываем id теста
+				// РЎС‡РёС‚С‹РІР°РµРј id С‚РµСЃС‚Р°
 				$id = $sec->ClearInt($_POST['test'],'Security breach: test id');
 				
 				foreach($_POST['id'] as $k => $v) {
 					$array[$sec->ClearInt($v,'Security breach: id')] = true;
 				}
-				// Защита от не множественного выбора
+				// Р—Р°С‰РёС‚Р° РѕС‚ РЅРµ РјРЅРѕР¶РµСЃС‚РІРµРЅРЅРѕРіРѕ РІС‹Р±РѕСЂР°
 				if(count($array) < 2) {
 					exit('Security breach: count array');
 				}
@@ -86,12 +86,12 @@ class check_test {
 	}
 
     function st2lower($st) {
-        return(strtolower(strtr($st, "АБВГДЕЁЖЗИЙКЛМHОРПСТУФХЦЧШЩЪЬЫЭЮЯ", "абвгдеёжзийклмнорпстуфхцчшщъьыэюя")));
+        return(strtolower(strtr($st, "РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњHРћР РџРЎРўРЈР¤РҐР¦Р§РЁР©РЄР¬Р«Р­Р®РЇ", "Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕСЂРїСЃС‚СѓС„С…С†С‡С€С‰СЉСЊС‹СЌСЋСЏ")));
     }
 
     function countPlus($id) {
         global $db, $sec;
-        $query = $db->query('SELECT count_pass FROM nametest WHERE id = ' . $id . '', 'Тест не найден', true);
+        $query = $db->query('SELECT count_pass FROM nametest WHERE id = ' . $id . '', 'РўРµСЃС‚ РЅРµ РЅР°Р№РґРµРЅ', true);
 
         $db->query('UPDATE nametest SET count_pass = count_pass + 1 WHERE id = ' . $id . '');
     }
@@ -136,14 +136,14 @@ class check_test {
     function getBall($percent,$id) {
         global $db, $sec;
         $percent = $sec->ClearInt($percent);
-        $id = $sec->ClearInt($id,'Нет идентификатора');
+        $id = $sec->ClearInt($id,'РќРµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°');
 		
 		if ($percent > 100 || $percent < 0) {
 			exit('Security breach: range of numbers');
 		}
 		
-        $test = $db->query('SELECT subject FROM nametest WHERE id = '.$id.'','Тест отсутствует',true);
-        $f = $db->query('SELECT factor FROM factors WHERE (test_id = '.$id.' AND subject_id = '.$test['subject'].') OR subject_id = '.$test['subject'].' ORDER BY id DESC','Критерии не найдены',true);
+        $test = $db->query('SELECT subject FROM nametest WHERE id = '.$id.'','РўРµСЃС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚',true);
+        $f = $db->query('SELECT factor FROM factors WHERE (test_id = '.$id.' AND subject_id = '.$test['subject'].') OR subject_id = '.$test['subject'].' ORDER BY id DESC','РљСЂРёС‚РµСЂРёРё РЅРµ РЅР°Р№РґРµРЅС‹',true);
         
         $fac = json_decode($f['factor']);
         

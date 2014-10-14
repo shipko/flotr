@@ -9,7 +9,7 @@ bin/
 tmp/
 lab/
 nbproject/
-uploads/tests/
+uploads/tests/*
 config.php
 *.tmp
 *.bak

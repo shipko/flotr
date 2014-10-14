@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 require('header.php');
 require('classes/login.class.php');
 if ($_GET['act'] == 'login') {
@@ -6,20 +6,20 @@ if ($_GET['act'] == 'login') {
 } else if ($_GET['act'] == 'logout') {
 	$l->LogOut();
 }
-    /* Ïîñ÷èòàåì âñå òåñòû */
+    /* ĞŸĞ¾ÑÑ‡Ğ¸Ñ‚Ğ°ĞµĞ¼ Ğ²ÑĞµ Ñ‚ĞµÑÑ‚Ñ‹ */
     $count_tests=$db->query('SELECT id,subject FROM nametest WHERE `status`=2 AND `delete` != "2" ORDER BY subject');
     $arr_count=array();
     while($count_t=$db->fetch_array($count_tests)) {
             $arr_count[$count_t['subject']]['count']++;
     }
 
-    /* Âûáèğàåì âñå ïğåäìåòû è ïîäñòàëÿåì çíà÷åíèå */
+    /* Ğ’Ñ‹Ğ±Ğ¸Ñ€Ğ°ĞµĞ¼ Ğ²ÑĞµ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñ‹ Ğ¸ Ğ¿Ğ¾Ğ´ÑÑ‚Ğ°Ğ»ÑĞµĞ¼ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ */
     $subject=$db->query('SELECT id,title FROM subject ORDER BY title');
     while($sub=$db->fetch_array($subject)) {
        $e.='<li class="header"><a href="subject.php?sec=subject&id='.$sub['id'].'"><span class="lead">'.$sub['title'].' ('.(isset($arr_count[$sub['id']]['count']) ? $arr_count[$sub['id']]['count'] : '0').')</span></a></li>';
     }
 
-$tmp->setVar('title','Âõîä â ëè÷íûé êàáèíåò');
+$tmp->setVar('title','Ğ’Ñ…Ğ¾Ğ´ Ğ² Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğ¹ ĞºĞ°Ğ±Ğ¸Ğ½ĞµÑ‚');
 
 if (!empty($message))
 	$tmp->setVar('message','<div class="alert alert-error">'.$message.'</div>');
