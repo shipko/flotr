@@ -9,7 +9,7 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 /* Как никак, но завершим */
 ignore_user_abort(true);
-//error_reporting(0);
+error_reporting(0);
 require 'config.php';
 require 'engine/template/base.php';
 require 'engine/db/mysql.php';
