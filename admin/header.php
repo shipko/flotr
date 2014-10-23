@@ -1,13 +1,13 @@
-<?php
+ï»¿<?php
 $time = microtime();
 define('CMS', true);
 define('ADMIN','../');
-/* Ïîñûëàåì çàãîëîâêè, ÷òîáû ñòðàíèöà íå êåøèðîâàëàñü */
+/* ÐŸÐ¾ÑÑ‹Ð»Ð°ÐµÐ¼ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ð° Ð½Ðµ ÐºÐµÑˆÐ¸Ñ€Ð¾Ð²Ð°Ð»Ð°ÑÑŒ */
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
-/* Êàê íèêàê, íî çàâåðøèì */
+/* ÐšÐ°Ðº Ð½Ð¸ÐºÐ°Ðº, Ð½Ð¾ Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ð¼ */
 ignore_user_abort(true);
 error_reporting(0);
 //error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
