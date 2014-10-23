@@ -1,26 +1,26 @@
-п»ї<?php
+<?php
 /*
- * Р­С‚РѕС‚ РєР»Р°СЃСЃ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РІСЂРµРјРµРЅРё РЅР° СЃР°Р№С‚Рµ
+ * Этот класс предназначен для правильного отображения времени на сайте
  */
 class time {
     public $date = array(
-        '1' => array('СЏРЅРІР°СЂСЏ'),
-        '2' => array('С„РµРІСЂР°Р»СЏ'),
-        '3' => array('РјР°СЂС‚Р°'),
-        '4' => array('Р°РїСЂРµР»СЏ'),
-        '5' => array('РјР°СЏ'),
-        '6' => array('РёСЋРЅСЏ'),
-        '7' => array('РёСЋР»СЏ'),
-        '8' => array('Р°РІРіСѓСЃС‚Р°'),
-        '9' => array('СЃРµРЅС‚СЏР±СЂСЏ'),
-        '10' => array('РѕРєС‚СЏР±СЂСЏ'),
-        '11' => array('РЅРѕСЏР±СЂСЏ'),
-        '12' => array('РґРµРєР°Р±СЂСЏ'),
+        '1' => array('января'),
+        '2' => array('февраля'),
+        '3' => array('марта'),
+        '4' => array('апреля'),
+        '5' => array('мая'),
+        '6' => array('июня'),
+        '7' => array('июля'),
+        '8' => array('августа'),
+        '9' => array('сентября'),
+        '10' => array('октября'),
+        '11' => array('ноября'),
+        '12' => array('декабря'),
         );
     /*
-     * array[0] = РѕС‚РІРµС‚
-     * array[1] = РѕС‚РІРµС‚Р°
-     * array[2] = РѕС‚РІРµС‚РѕРІ
+     * array[0] = ответ
+     * array[1] = ответа
+     * array[2] = ответов
      */
     function rulesTime($number,$array) {
         $cases = array(2, 0, 1, 1, 1, 2);  
@@ -31,24 +31,24 @@ class time {
      */
     function fullDate($int) {
         if ($int == 0) {
-            return 'РќРµРёР·РІРµСЃС‚РЅРѕ';
+            return 'Неизвестно';
         }
         $nowdate=getdate();
 	$date=getdate($int);
         if($nowdate['year']==$date['year']&&$nowdate['mon']==$date['mon']&&$nowdate['mday']==$date['mday']) {
-                return 'СЃРµРіРѕРґРЅСЏ РІ '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
+                return 'сегодня в '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
         }elseif($nowdate['year']==$date['year']&&$nowdate['mon']==$date['mon']&&($nowdate['mday']-1)==$date['mday']) {
-                return 'РІС‡РµСЂР° РІ '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
+                return 'вчера в '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
         }
         else {
-                return $date['mday'].' '.$this->date[$date['mon']][0].' '.$date['year'].' РІ '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
+                return $date['mday'].' '.$this->date[$date['mon']][0].' '.$date['year'].' в '.$date['hours'].':'.($date['minutes'] < 10 ? '0'.$date['minutes'] : $date['minutes']);
 
         }
     }
 	
 	
 	function sumTime($seconds) {
-		$array = array('seconds' => array('СЃРµРєСѓРЅРґСѓ','СЃРµРєСѓРЅРґС‹','СЃРµРєСѓРЅРґ'),'minutes' => array('РјРёРЅСѓС‚Сѓ','РјРёРЅСѓС‚С‹','РјРёРЅСѓС‚'));
+		$array = array('seconds' => array('секунду','секунды','секунд'),'minutes' => array('минуту','минуты','минут'));
 		
 		$minutes = floor($seconds / 60);
 		$seconds = $seconds % 60;

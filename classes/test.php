@@ -126,15 +126,18 @@ class test extends Type {
  * Функция отвечающая за выборку теста и предмета, к которому он принадлежит
  */
     function getTest($id) {
-        global $db,$err;
+        global $db,$tmp,$m;
         
-        $this->arr=$db->query('SELECT n.title, n.user, n.count_pass, n.shuffle, s.title AS sub_title, u.name, u.surname, sc.title AS s_title FROM nametest AS n 
+        $this->arr=$db->query('SELECT n.title, n.user, n.count_pass, n.priv, n.shuffle, s.title AS sub_title, u.name, u.surname, sc.title AS s_title FROM nametest AS n 
             INNER JOIN subject AS s ON n.subject=s.id 
             LEFT JOIN user AS u ON n.user = u.id 
             LEFT JOIN subject_category AS sc ON n.category = sc.id 
             WHERE n.id='.$id.' AND n.status="2" AND n.delete != 2',
         'Тест не найден',true);
-        $this->title=$this->arr['title'];
+        if ($this->arr['priv'] == 2 && !$m->user['isset']) {
+			$tmp->GNC('Чтобы пройти тест нужно <a href="login.php">войти</a> или <a href="signup.php">зарегистрироваться</a>');
+		}		
+		$this->title=$this->arr['title'];
         
         if (!empty($this->arr['s_title'])) {
             $this->cat = '<h3 class="page-header" style="padding: 0; margin-bottom: 7px;">Категория:</h3>

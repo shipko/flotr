@@ -180,7 +180,7 @@ class add extends someFunction {
             return $sec->head('test.php?sec=add&cat=question&id='.$id.'&m=5&ret');
     }
     function Tr($input='',$check=false,$i) {
-        return '<div class="answer" id="input'.$i.'"><input type="checkbox" name="ok'.$i.'" '.($check=='2' ? 'checked' : '').' value="2" class="big_checkbox" /><textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeyup="dynamicTextarea(this)" style="width: 445px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($input).'</textarea></div>';
+        return '<div class="answer" id="input'.$i.'"><input type="checkbox" name="ok'.$i.'" '.($check=='2' ? 'checked' : '').' value="2" class="big_checkbox" /><textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeydown="textAreaHeight(this)" rows="2" style="width: 445px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($input).'</textarea></div>';
     }
     
 }

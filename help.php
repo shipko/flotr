@@ -1,12 +1,12 @@
-ï»¿<?php
+<?php
 require 'header.php';
 switch ($_GET['sec']) {
     case 'copyright':
-        $tmp->setVar('title','ĞŸÑ€Ğ°Ğ²Ğ¸Ğ»Ğ° Ğ¿ĞµÑ€ĞµĞ¿ĞµÑ‡Ğ°Ñ‚ĞºĞ¸');
+        $tmp->setVar('title','Ïğàâèëà ïåğåïå÷àòêè');
         $tmp->parse('copyright');
         break;
     case 'addtest':
-        $tmp->setVar('title','Ğ¡Ğ¾Ğ²ĞµÑ‚Ñ‹ Ğ¿Ğ¾ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ñ Ñ‚ĞµÑÑ‚Ğ° Ğ½Ğ° ÑĞ°Ğ¹Ñ‚');
+        $tmp->setVar('title','Ñîâåòû ïî äîáàâëåíèş òåñòà íà ñàéò');
         $tmp->parse('help_addtest');
         break;
     default:

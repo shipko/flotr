@@ -12,7 +12,7 @@
     {message}
     <div id="error_message"></div>
     <div class="wrapper">
-    <div class="wr"><a href="index.php"><img src="../template/images/loog.png" /></a></div>
+    <div class="wr"><a href="index.php"><img src="../template/images/logo_new1.png" /></a></div>
     <div class="wrapper_without_img">
   <table width="100%">
     <tr>

@@ -1,9 +1,9 @@
-п»ї<?php
-if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
+<?php
+if(!defined('CMS'))die('Сюда нельзя');
 require_once 'engine/template/error.php';
 /*
- * РљР»Р°СЃСЃ РґР»СЏ РІСЃС‚Р°РІРєРё РїРµСЂРµРјРµРЅРЅС‹С… РІ С€Р°Р±Р»РѕРЅ
- * РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ - parse()
+ * Класс для вставки переменных в шаблон
+ * Обязательная функция - parse()
  */
 class baseTemplate extends err {
     private $array_replace = array(),
@@ -11,18 +11,18 @@ class baseTemplate extends err {
             $array_replace_css = array(),
             $path = 'template/';
 
-    /* Р’СЃС‚Р°РІРєР° РїРµСЂРµРјРµРЅРЅС‹С… РІ С€Р°Р±Р»РѕРЅ */
+    /* Вставка переменных в шаблон */
     function setVar($key,$value) {
         $this->array_replace[$key] = $value;
     }
-    /* Р—Р°РјРµРЅР° РїРµСЂРµРјРµРЅРЅС‹С… Рё РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ */
+    /* Замена переменных и вывод на экран */
     function parse($filename) {
         if (!file_exists($this->path.$filename.'.tpl')) {
-            exit('РЁР°Р±Р»РѕРЅР° '.$filename.' РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');
+            exit('Шаблона '.$filename.' не существует');
         }
 
         $getFile = file_get_contents($this->path.$filename.'.tpl');
-        /* РџРѕРґРєР»СЋС‡Р°РµРј С€Р°РїРєСѓ Рё РЅРёР· */
+        /* Подключаем шапку и низ */
         $getFile = str_replace('{HEADER}', file_get_contents($this->path.'header.tpl'), $getFile);
         $getFile = str_replace('{FOOTER}', file_get_contents($this->path.'footer.tpl'), $getFile);
 
@@ -34,19 +34,19 @@ class baseTemplate extends err {
         echo $getFile;
         $this->genTime();
     }
-    /* Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІСЃС‚Р°РІРєРё РІ РјР°СЃСЃРёРІ СЃСЃС‹Р»РѕРє javascript С„Р°Р№Р»РѕРІ */
+    /* Функция для вставки в массив ссылок javascript файлов */
     function setJS($array) {
         foreach ($array as $k) {
             $this->array_replace_js[] = $k;
         }
     }
-    /* Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІСЃС‚Р°РІРєРё РІ РјР°СЃСЃРёРІ СЃСЃС‹Р»РѕРє css С„Р°Р№Р»РѕРІ */
+    /* Функция для вставки в массив ссылок css файлов */
     function setCSS($array) {
         foreach ($array as $k) {
             $this->array_replace_css[] = $k;
         }
     }
-    /* Р¤СѓРЅРєС†РёРё РґР»СЏ РіРµРЅРµСЂР°С†РёРё html РєРѕРґР° */
+    /* Функции для генерации html кода */
     function generateJS () {
         foreach ($this->array_replace_js as $key => $value) {
             $js.='<script type="text/javascript" src="../script/'.$value.'.js"></script>'."\n";
@@ -60,9 +60,9 @@ class baseTemplate extends err {
         }
         return $css;
     }
-    /* РљРѕРЅРµС† С„СѓРЅРєС†РёР№ РґР»СЏ РіРµРЅРµСЂРёСЂРѕРІР°РЅРёСЏ html РєРѕРґР° */
+    /* Конец функций для генерирования html кода */
 
-    /* Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РІ РєРѕРЅС†Рµ РґРѕРєСѓРјРµРЅС‚Р° РІСЂРµРјРµРЅРё РіРµРЅРµСЂР°С†РёРё СЃС‚СЂР°РЅРёС†С‹ */
+    /* Функция для вывода в конце документа времени генерации страницы */
     function genTime() {
         global $time;
 	$stime = explode(" ",$time);

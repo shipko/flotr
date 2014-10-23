@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
 require 'header.php';
 if(isset($_GET['act']) && $_GET['act']=='test') {
     require './classes/check_test.php';
@@ -14,7 +14,7 @@ $t->Go();
 $tmp->setJS(array('jquery','lang','test/second','test/test','bootstrap'));
 $tmp->setCSS(array('test'));
 $tmp->setVar('title',$t->title);
-$tmp->setVar('description','Ð¢ÐµÑÑ‚ Ð¿Ð¾ Ñ‚ÐµÐ¼Ðµ '.$t->title.', Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚ '.$t->arr['sub_title']);
+$tmp->setVar('description','Òåñò ïî òåìå '.$t->title.', ïðåäìåò '.$t->arr['sub_title']);
 $tmp->setVar('JS_test',$t->generateJSTest($t->js));
 $tmp->setVar('subject',$t->arr['sub_title']);
 $tmp->setVar('category',$t->cat);

@@ -1,4 +1,4 @@
-﻿lang['test_complete']='Тест закончен';
+lang['test_complete']='Тест закончен';
 lang['enter_answer']='Введите ответ';
 lang['reply']='Ответить';
 lang['arr_seconds']=['секунду','секунды','секунд'];

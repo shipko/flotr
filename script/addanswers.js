@@ -1,4 +1,4 @@
-п»ї$(document).ready(function(){
+$(document).ready(function(){
         var i_old = i,
         table=$('#right_bar'),
         input_hidden=$('#valans');
@@ -44,7 +44,7 @@
             var id = $(this).attr('id');
             $('#file_'+id).remove();
             $('#img_'+id+'').remove();
-            $('#'+id).append('<div id="restore_'+id+'" style="margin-top: 30px; cursor: pointer;">Р’РѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ</div>'); 
+            $('#'+id).append('<div id="restore_'+id+'" style="margin-top: 30px; cursor: pointer;">Восстановить</div>'); 
             $('#'+ id).removeClass('done');
             $('#'+ id).addClass('restore');
             $('#'+id+' .progressHolder').css('display','none');
@@ -69,25 +69,34 @@
         
         window.onbeforeunload = function() {
             if (numChange > 0) {
-                return "Р’С‹ РЅРµ СЃРѕС…СЂР°РЅРёР»Рё РёР·РјРµРЅРµРЅРёСЏ. РР·РјРµРЅРµРЅРёСЏ РЅРµ РІСЃС‚СѓРїСЏС‚ РІ СЃРёР»Сѓ.";
+                return "Вы не сохранили изменения. Изменения не вступят в силу.";
             };
         };        
 		
 });
 
-var heightTextarea = 0;
-function dynamicTextarea(t) {
-    // get value
-	var content = t.value;
-		heightText = $('#'+t.id);
-	// Replace special text
-	content = content.replace(/\n$/, '<br/>&nbsp;')
-    .replace(/\n/g, '<br/>')
-    .replace(/\s/g, '&nbsp;');
-	
-    $('.textAreanone').html(content).width($('#'+t.id).width());//.append('<br/>&nbsp;');
-	// РџСЂРё РѕС‡РµРЅСЊ Р±С‹СЃС‚СЂРѕРј РЅР°Р±РѕСЂРµ animate СЃСЂР°Р±Р°С‚С‹РІР°РµС‚ СЃ Р·Р°РїРѕР·РґР°РЅРёРµ. РСЃРїСЂР°РІР»СЏРµРј.
-	if ($('#'+t.id).height() != $('.textAreanone').height()) {
-		heightText.animate({height:$('.textAreanone').height()},100);
-	}
+function textAreaHeight(textarea) {
+		// Minimum height
+        if (!textarea._tester) {
+            var ta = textarea.cloneNode();
+			ta.style.position = 'absolute';
+            ta.style.zIndex = -2000000;
+            ta.style.visibility = 'hidden'; 
+            ta.style.height = '1px';
+            ta.id = '';
+            ta.name = '';
+            textarea.parentNode.appendChild(ta);
+            textarea._tester = ta;
+			textarea._tester.first = textarea.clientHeight;
+            textarea._offset = ta.clientHeight - 1;
+        }
+        if (textarea._timer) clearTimeout(textarea._timer);
+        textarea._timer = setTimeout(function () {
+            textarea._tester.style.width = textarea.clientWidth + 'px';
+            textarea._tester.value = textarea.value;
+			if (parseInt(textarea._tester.first) < parseInt(textarea.scrollHeight)) {
+				 textarea.style.height = textarea._tester.scrollHeight + 'px';
+			}
+            textarea._timer = false;
+        }, 1);
 }

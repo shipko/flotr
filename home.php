@@ -1,22 +1,22 @@
-ï»¿<?php
+<?php
 require('header.php');
 require('classes/home.class.php');
-// ĞÑ‚ÑĞµĞºĞ°ĞµĞ¼ Ğ²ÑĞµÑ… Ğ½ĞµĞ·Ğ°Ñ€ĞµĞ³Ğ¸ÑÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ĞµĞ¹
+// Îòñåêàåì âñåõ íåçàğåãèñòèğîâàííûõ ïîëüçîâàòåëåé
 if(!$m->isUser()) {
 	$sec->head('login.php');
 }
-/* Ajax Ğ·Ğ°Ğ¿Ñ€Ğ¾ÑÑ‹ */
+/* Ajax çàïğîñû */
 if(isset($_GET['act']) && $_GET['act'] == 'get_result') {
 	$home->getResult($_POST['id']);
 }
-// ĞĞ¿Ñ€ĞµĞ´ĞµĞ»ÑĞµĞ¼ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚
+// Îïğåäåëÿåì ïğåäìåò
 $home->setSubject($_GET['sid']);
-/* Ğ’Ñ‹Ğ±Ğ¸Ñ€Ğ°ĞµĞ¼ Ğ²ÑĞµ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñ‹ Ğ¸ Ğ¿Ğ¾Ğ´ÑÑ‚Ğ°Ğ»ÑĞµĞ¼ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ */
+/* Âûáèğàåì âñå ïğåäìåòû è ïîäñòàëÿåì çíà÷åíèå */
 $subject=$db->query('SELECT id,title FROM subject ORDER BY title');
 while($sub=$db->fetch_array($subject)) {
 	$e.='<li '.($home->getSubject() == $sub['id'] ? 'class="active"' : '').'><a href="home.php?sid='.$sub['id'].'"><span class="lead">'.$sub['title'].'</span></a></li>';
 }
-// Ğ’Ñ‹Ğ±Ğ¾Ñ€ Ğ»Ğ¸Ñ‡Ğ½Ğ¾Ğ³Ğ¾ ĞºĞ°Ğ±Ğ¸Ğ½ĞµÑ‚Ğ° ÑƒÑ‡ĞµĞ½Ğ¸ĞºĞ° Ğ¸Ğ»Ğ¸ ÑƒÑ‡Ğ¸Ñ‚ĞµĞ»Ñ 
+// Âûáîğ ëè÷íîãî êàáèíåòà ó÷åíèêà èëè ó÷èòåëÿ 
 if (($m->user['priv'] < 3)) {
 		$html_result = $home->getPupilsResult();
 }
@@ -27,9 +27,9 @@ else {
 	
 	
 $tmp->setJS(array('bootstrap-tooltip','bootstrap-popover','home'));
-$tmp->setVar('title','Ğ›Ğ¸Ñ‡Ğ½Ñ‹Ğ¹ ĞºĞ°Ğ±Ğ¸Ğ½ĞµÑ‚');
+$tmp->setVar('title','Ëè÷íûé êàáèíåò');
 $tmp->setVar('rightBar',$e);
-
+$tmp->setVar('username',$m->user['name']);
 $tmp->setVar('result',$html_result);
 $tmp->setVar('JS_CODE',"");
 $tmp->setVar('rand',$count['id']);

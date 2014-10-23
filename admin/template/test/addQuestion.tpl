@@ -10,8 +10,7 @@
                 <div class="left" id="right_bar">
                     <h1 class="head">Вопрос</h1>
                     <div class="table_text"> 
-                        <textarea name="title" class="big_input textArea" id="TitleTextarea" onkeyup="dynamicTextarea(this)" style="width: 470px; min-height: 50px; overflow: hidden; " /></textarea>
-                        <div class="textAreanone"></div>  
+                        <textarea name="title" class="big_input textArea" id="TitleTextarea" onkeydown="textAreaHeight(this)" rows="3" style="width: 470px; min-height: 50px; overflow: hidden; " /></textarea>
                     </div>
                     <h1 class="head" style="-moz-user-select: none; -webkit-user-select: none; ">
                         Варианты ответа 

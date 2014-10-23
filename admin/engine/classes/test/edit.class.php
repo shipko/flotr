@@ -48,7 +48,7 @@ class edit extends someFunction {
         
         $id=$sec->ClearInt($_GET['id'],'ѕараметр задан неверно');
         
-        $quest=$db->query('SELECT * FROM question WHERE `test`="'.$id.'" AND `delete` != "2"','¬опросов нет, но вы можете <a href="test.php?sec=add&cat=question&ret&id='.$id.'" style="color: #2D76B9;">добавить</a> их в любое врем€');
+        $quest=$db->query('SELECT * FROM question WHERE `test`="'.$id.'" AND `delete` != "2" ORDER BY id','¬опросов нет, но вы можете <a href="test.php?sec=add&cat=question&ret&id='.$id.'" style="color: #2D76B9;">добавить</a> их в любое врем€');
         $sub=$db->query('SELECT * FROM nametest WHERE id="'.$id.'" LIMIT 1',false,true);
         while($subject=$db->fetch_array($quest)) {
             $list_sub.='
@@ -140,7 +140,7 @@ class edit extends someFunction {
             $answers.='
                 <div class="answer" id="input'.$i.'">
                     <input name="ok'.$i.'" '.($arr['correct']==2 ? 'checked="checked"' : '').' value="2"  type="checkbox" class="big_checkbox" />
-                    <textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeyup="dynamicTextarea(this)" style="width: 440px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($arr['title']).'</textarea>
+                    <textarea name="answer'.$i.'" class="big_input answerInput" id="answer'.$i.'" onkeydown="textAreaHeight(this)" rows="2" style="width: 440px; min-height: 25px; height: 25px; resize: none;overflow: hidden; " />'.stripslashes($arr['title']).'</textarea>
                     <input type="hidden" name="answerid'.$i.'" value="'.$arr['id'].'">
                 </div>';
         }

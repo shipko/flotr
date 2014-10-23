@@ -10,8 +10,7 @@
             <div class="left">
                 <h1 class="head">Вопрос</h1>
                 <div class="table_text"> 
-                    <textarea name="title" class="big_input textArea" id="TitleTextarea" style="width: 470px; min-height: 50px; overflow: hidden; " />{TextAsk}</textarea>
-                    <div class="textAreanone"></div>
+                    <textarea name="title" class="big_input textArea" id="TitleTextarea" onkeydown="textAreaHeight(this)" rows="3" style="width: 470px; min-height: 50px; overflow: hidden; " />{TextAsk}</textarea>
                 </div>
                 <h1 class="head">Ответ</h1>
                 <div class="answer">

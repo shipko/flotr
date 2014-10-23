@@ -1,7 +1,7 @@
-ï»¿<?php
-if(!defined('CMS'))die('Ð¡ÑŽÐ´Ð° Ð½ÐµÐ»ÑŒÐ·Ñ');
+<?php
+if(!defined('CMS'))die('Ñþäà íåëüçÿ');
 /*
- * @author ÐœÑƒÐºÐ¾Ð²ÐºÐ¸Ð½ Ð”Ð¼Ð¸Ñ‚Ñ€Ð¸Ð¹
+ * @author Ìóêîâêèí Äìèòðèé
  */
 class js {
     function getJS($array) {

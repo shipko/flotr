@@ -1,5 +1,5 @@
-п»ї<?php
-if(!defined('CMS'))die('РЎСЋРґР° РЅРµР»СЊР·СЏ');
+<?php
+if(!defined('CMS'))die('Сюда нельзя');
 
 class home {
 	private $subject=false;
@@ -33,12 +33,13 @@ class home {
 	}
 	function getResult($id) {
 		global $sec,$db,$other,$m;
+		header("Content-type: text/html; charset=windows-1251");
 		$id = $sec->ClearInt($id);
 		if (empty($id)) {
 			exit('empty');
 		}
 		if($m->user['priv'] < 3) {
-			$result = $db->query('SELECT r.*,u.name,u.surname FROM result AS r LEFT JOIN user AS u ON r.user = u.id WHERE r.id = '.$id.' AND r.user = '.$m->user['id'].' LIMIT 1');
+			$result = $db->query('SELECT r.*,u.name,u.surname FROM result AS r LEFT JOIN user AS u ON r.user = u.id WHERE r.id = '.$id.' LIMIT 1');
 		}
 		else {
 			$result = $db->query('SELECT * FROM result WHERE id = '.$id.' AND user = '.$m->user['id'].' LIMIT 1');
@@ -55,14 +56,14 @@ class home {
 			$h .= '<button class="btn btn-mini btn-'.($v == 'true' ? 'success' : 'danger').'" title="'.$arrAnswerTitle[$k].'">&nbsp;&nbsp;</button>';
 		}
 		$html = '
-			'.($m->user['priv'] < 3 ? '<strong>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ:</strong>
+			'.($m->user['priv'] < 3 ? '<strong>Пользователь:</strong>
 			<span class="badge badge-success">'.$arr['surname'].' '.$arr['name'].'</span> <br> ' : '').'
-			<strong>РћС†РµРЅРєР°:</strong>
+			<strong>Оценка:</strong>
 			<span class="badge badge-success">'.$j->ball.'</span> <br> 
-			<strong>РџСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚РѕРІ:</strong> '.$j->true_answer.' ('.$j->percent.'%)<br>
-			<strong>РўРµСЃС‚ РїСЂРѕР№РґРµРЅ</strong> Р·Р° '.$other->time->sumTime($arr['time']).'. </br >
-			<strong>Р”Р°С‚Р° РїСЂРѕС…РѕР¶РґРµРЅРёСЏ:</strong> '.$other->time->fullDate($arr['time_exec']).'. </br >
-			<strong>РћС‚РІРµС‚С‹:</strong></br >
+			<strong>Правильный ответов:</strong> '.$j->true_answer.' ('.$j->percent.'%)<br>
+			<strong>Тест пройден</strong> за '.$other->time->sumTime($arr['time']).'. </br >
+			<strong>Дата прохождения:</strong> '.$other->time->fullDate($arr['time_exec']).'. </br >
+			<strong>Ответы:</strong></br >
 			<div class="btn-group">
 				'.$h.'
 			</div>';
@@ -75,7 +76,7 @@ class home {
 		if ($this->getSubject()) {
 			$where_mysql = 'WHERE nt.subject = '.$this->getSubject();
 		}
-		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id '.$where_mysql.' ORDER BY id DESC ');	
+		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id '.$where_mysql.' ORDER BY id DESC LIMIT 50');	
 		if ($db->num_rows($result) > 0) {
 			while($r = $db->fetch_array($result)) {
 				$r['json']=json_decode($r['result']);
@@ -84,7 +85,7 @@ class home {
 							  <td>'.$r['title'].'</td>
 							  <td>'.$r['json']->ball.'</td>
 							  <td>
-								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">РџРѕРґСЂРѕР±РЅРµРµ</button>
+								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">Подробнее</button>
 							  </td>
 							</tr>';
 				}
@@ -92,7 +93,7 @@ class home {
 					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
 							  
 							  <td colspan="4">
-									РџРѕ СЌС‚РѕРјСѓ РїСЂРµРґРјРµС‚Сѓ РµС‰Рµ РЅРµ С‚РµСЃС‚РёСЂРѕРІР°Р»РёСЃСЊ
+									По этому предмету еще не тестировались
 							  </td>
 							</tr>';
 			}
@@ -104,7 +105,7 @@ class home {
 		if ($this->getSubject()) {
 			$where_mysql = 'AND nt.subject = '.$this->getSubject();
 		}
-		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id WHERE r.user = '.$m->user['id'].' '.$where_mysql.' ORDER BY id DESC ');	
+		$result = $db->query('SELECT r.*, nt.title FROM result AS r LEFT JOIN nametest AS nt ON r.test = nt.id WHERE r.user = '.$m->user['id'].' '.$where_mysql.' ORDER BY id DESC LIMIT 25');	
 		if ($db->num_rows($result) > 0) {
 			while($r = $db->fetch_array($result)) {
 				$r['json']=json_decode($r['result']);
@@ -113,7 +114,7 @@ class home {
 							  <td>'.$r['title'].'</td>
 							  <td>'.$r['json']->ball.'</td>
 							  <td>
-								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">РџРѕРґСЂРѕР±РЅРµРµ</button>
+								<button class="full_result btn btn-small btn-info" type="button" rel="popover" data-id="'.$r['id'].'">Подробнее</button>
 							  </td>
 							</tr>';
 				}
@@ -121,7 +122,7 @@ class home {
 					$html_result .= '<tr class="'.$this->classTable($r['json']->ball).'">
 							  
 							  <td colspan="4">
-									РџРѕ СЌС‚РѕРјСѓ РїСЂРµРґРјРµС‚Сѓ Р’С‹ РµС‰Рµ РЅРµ С‚РµСЃС‚РёСЂРѕРІР°Р»РёСЃСЊ
+									По этому предмету Вы еще не тестировались
 							  </td>
 							</tr>';
 			}

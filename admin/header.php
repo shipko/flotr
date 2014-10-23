@@ -19,4 +19,5 @@ require '../engine/other/main.class.php';
 require '../engine/mainclass.php';
 require '../engine/other/time.class.php';
 $other->time=new time;
+$tmp->setJS(array('jquery'));
 ?>

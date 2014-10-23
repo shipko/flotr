@@ -1,11 +1,11 @@
-п»ї      <div class="row">
+      <div class="row">
         
       </div>
 
 <hr>
 
       <footer>
-            <p class="pull-right"><a href="http://vk.com/mukovkin">РњСѓРєРѕРІРєРёРЅ Р”РјРёС‚СЂРёР№</a></p>
+            <p class="pull-right"><a href="http://vk.com/mukovkin" target="_blank">Муковкин Дмитрий</a></p>
             <p><small>&copy; sfml.tom.ru 2012</small></p>
         
       </footer>
@@ -15,7 +15,7 @@
     {JS}
     <script src="script/bootstrap-dropdown.js"></script>
     <script src="script/bootstrap-collapse.js"></script>
-<!-- Yandex.Metrika counter 
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 (function (d, w, c) {
     (w[c] = w[c] || []).push(function() {

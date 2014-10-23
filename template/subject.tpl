@@ -1,4 +1,4 @@
-п»ї{HEADER}
+{HEADER}
 
     <div class="container">
         <div class="row">
@@ -15,7 +15,7 @@
 
             </div>
             <div class="span4">
-                <h3>РЎРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ</h3>
+                <h3>Список предметов</h3>
                 <ul class="nav nav-list">
                     {ListSubject}
                 </ul>

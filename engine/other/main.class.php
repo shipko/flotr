@@ -1,12 +1,12 @@
-ï»¿<?php
+<?php
 /*
- * @author Ð”Ð¼Ð¸Ñ‚Ñ€Ð¸Ð¹ ÐœÑƒÐºÐ¾Ð²ÐºÐ¸Ð½
+ * @author Äìèòðèé Ìóêîâêèí
  */
 function __autoload($class_name) {
 	global $other;
     $class_name=strtolower($class_name);
     if(!file_exists(ADMIN.'engine/other/'.$class_name.'.class.php')) {
-        exit('ÐšÐ»Ð°ÑÑ '.$class_name.' Ð½Ðµ Ð½Ð°ÑˆÐµÐ»ÑÑ');
+        exit('Êëàññ '.$class_name.' íå íàøåëñÿ');
     }
     require($class_name.'.class.php');
     return $other->$class_name = new $class_name();

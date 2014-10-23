@@ -1,4 +1,4 @@
-п»ї{HEADER}
+{HEADER}
 {JS}
 <style type="text/css">
 	.popover {
@@ -13,16 +13,16 @@
         <div class="row">
          <div class="span8">
 
-                <h3>Р”РѕР±СЂС‹Р№ РґРµРЅСЊ, Р”РјРёС‚СЂРёР№</h3>
+                <h3>Добрый день, {username}</h3>
 
-                <p>РџРѕСЃР»РµРґРЅРёРµ РїСЂРѕР№РґРµРЅРЅС‹Рµ С‚РµСЃС‚С‹</p>
+                <p>Последние пройденные тесты</p>
                 <table class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th>Р”Р°С‚Р°</th>
-                  <th>РќР°Р·РІР°РЅРёРµ С‚РµСЃС‚Р°</th>
-                  <th>РћС†РµРЅРєР°</th>
-                  <th>РћРїС†РёРё</th>
+                  <th>Дата</th>
+                  <th>Название теста</th>
+                  <th>Оценка</th>
+                  <th>Опции</th>
                 </tr>
               </thead>
 
@@ -36,7 +36,7 @@
 
             </div>
             <div class="span4">
-                <h3>РџСЂРµРґРјРµС‚С‹</h3>
+                <h3>Предметы</h3>
                 <div class="well">
 					<ul class="nav nav-list nav-stacked">
 						{rightBar}

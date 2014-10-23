@@ -1,11 +1,11 @@
-ï»¿<?php
+<?php
 class Security {
     function head($s='index.php') {
         header("Location: $s");
         exit();
     }
     /*
-     * $l - Ð´Ð»Ð¸Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ¸
+     * $l - äëèíà ñòðîêè
      */
     function filter($str,$l=false,$err_str=false) {
         global $err,$tmp;
@@ -14,7 +14,7 @@ class Security {
                 $tmp->GNC($err_str);
             }
         }
-        $str=mysql_real_escape_string(htmlspecialchars(addslashes(trim($str))));
+        $str=mysql_real_escape_string(addslashes(htmlspecialchars(trim($str))));
         if($l) {
             $str=substr($str,0,$l);
         }

@@ -1,4 +1,4 @@
-﻿var iName = $("#inputName"),
+var iName = $("#inputName"),
 	cName = $("#controlName"),
 	iSurname = $("#inputSurname"),
 	cSurname = $("#controlSurname"),

@@ -1,4 +1,4 @@
-ï»¿$('.oneMark').live('click', function() {
+$('.oneMark').live('click', function() {
     id = parseInt($(this).attr('id'), 10);
     if(id != 1) {
         if (id < ballOpt['3'][1]) {
@@ -56,16 +56,16 @@ function cycle(start, end, param,toggle) {
     }
 }
 function changeNumber(num,params) {
-    // Ð˜Ð·Ð¼ÐµÐ½ÑÐµÐ¼ Ð»Ð¸Ð½Ð¸ÑŽ
+    // Èçìåíÿåì ëèíèþ
     $('#lines_'+num).addClass('selectLine');
     $('#lines_'+ballOpt[params][1]).removeClass('selectLine');
     $('#lines_'+num).text(num);
     $('#lines_'+ballOpt[params][1]).empty();
-    // Ð˜Ð·Ð¼ÐµÐ½ÑÐµÐ¼ Ñ†Ð¸Ñ„Ñ€Ñƒ Ð² Ñ†Ð²ÐµÑ‚Ð½Ð¾Ð¼ ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ðµ
+    // Èçìåíÿåì öèôðó â öâåòíîì êâàäðàòå
     $('#'+num).text(params);
     $('#'+ballOpt[params][1]).empty();
     
-    // ÐœÐµÐ½ÑÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ
+    // Ìåíÿåì çíà÷åíèå
     ballOpt[params][1] = num;
     $('#factor'+params).val(num);
     $('#is_edit').val('true');

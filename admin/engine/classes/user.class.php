@@ -77,7 +77,7 @@ class user {
 
     function adminsList() {
         global $db;
-        $query=$db->query('SELECT id,name,surname FROM user ORDER BY id','Произошла ошибка в выборке администраторов');
+        $query=$db->query('SELECT id,name,surname FROM user WHERE priv=1 OR priv = 2 ORDER BY id','Произошла ошибка в выборке администраторов');
         while($admin=$db->fetch_array($query)) {
             $list_sub.='<li class="sub"><a href="user.php?sec=profile&id='.$admin['id'].'">'.$admin['surname'].' '.$admin['name'].'</a></li>';
         }
@@ -86,7 +86,7 @@ class user {
 
     function Profile($id) {
         global $db;
-        $query=$db->query('SELECT id,name,surname,lastvisit, login, priv FROM user WHERE id = '.$id.'','Произошла ошибка в выборке администратора',true);
+        $query=$db->query('SELECT id,name,surname,lastvisit, registered, login, priv FROM user WHERE id = '.$id.'','Произошла ошибка в выборке администратора',true);
         return $query;
     }
 
