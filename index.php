@@ -1,23 +1,23 @@
-<?php
+ï»¿<?php
 require('header.php');
-    /* Ñëó÷àéíûé òåñò */
+    /* Ğ¡Ğ»ÑƒÑ‡Ğ°Ğ¹Ğ½Ñ‹Ğ¹ Ñ‚ĞµÑÑ‚ */
     $count=$db->query('SELECT id FROM nametest WHERE `status`="2" AND `delete` != 2 ORDER BY rand() LIMIT 1',false,true);
 
-    /* Ïîñ÷èòàåì âñå òåñòû */
+    /* ĞŸĞ¾ÑÑ‡Ğ¸Ñ‚Ğ°ĞµĞ¼ Ğ²ÑĞµ Ñ‚ĞµÑÑ‚Ñ‹ */
     $count_tests=$db->query('SELECT id,subject FROM nametest WHERE `status`=2 AND `delete` != "2" ORDER BY subject');
     $arr_count=array();
     while($count_t=$db->fetch_array($count_tests)) {
             $arr_count[$count_t['subject']]['count']++;
     }
 
-    /* Âûáèğàåì âñå ïğåäìåòû è ïîäñòàëÿåì çíà÷åíèå */
+    /* Ğ’Ñ‹Ğ±Ğ¸Ñ€Ğ°ĞµĞ¼ Ğ²ÑĞµ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñ‹ Ğ¸ Ğ¿Ğ¾Ğ´ÑÑ‚Ğ°Ğ»ÑĞµĞ¼ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ */
     $subject=$db->query('SELECT id,title FROM subject ORDER BY title');
     while($sub=$db->fetch_array($subject)) {
         $e.='<li class="header"><a href="subject.php?sec=subject&id='.$sub['id'].'"><span class="lead">'.$sub['title'].' ('.(isset($arr_count[$sub['id']]['count']) ? $arr_count[$sub['id']]['count'] : '0').')</span></a></li>';
     }
-$tmp->setVar('title','Ãëàâíàÿ');
-$tmp->setVar('description','Ñàéò ïîçâîëÿåò ïğîéòè òåñòèğîâàíèå ëşáîìó æåëàşùåìó, à òàêæå ïîëó÷èòü îöåíêó çà ïğîéäåííûé òåñò');
-$tmp->setVar('keywords','òåñòû, ñôìë, ñåâåğñê, ñåâåğñêèé ôèçèêî-ìàòåìàòè÷åñêèé ëèöåé, 194 øêîëà, èñòîğèÿ, øêîëà, ïğåäìåòû, òåñòû ïî ïğåäìåòó, Ìóêîâêèí Äìèòğèé, òåñòèğîâàíèå, ÅÃİ, ÃÈÀ, âûñòàâëåíèå îöåíêè, sfml, ïğîñòîòà');
+$tmp->setVar('title','Ğ“Ğ»Ğ°Ğ²Ğ½Ğ°Ñ');
+$tmp->setVar('description','Ğ¡Ğ°Ğ¹Ñ‚ Ğ¿Ğ¾Ğ·Ğ²Ğ¾Ğ»ÑĞµÑ‚ Ğ¿Ñ€Ğ¾Ğ¹Ñ‚Ğ¸ Ñ‚ĞµÑÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ»ÑĞ±Ğ¾Ğ¼Ñƒ Ğ¶ĞµĞ»Ğ°ÑÑ‰ĞµĞ¼Ñƒ, Ğ° Ñ‚Ğ°ĞºĞ¶Ğµ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒ Ğ¾Ñ†ĞµĞ½ĞºÑƒ Ğ·Ğ° Ğ¿Ñ€Ğ¾Ğ¹Ğ´ĞµĞ½Ğ½Ñ‹Ğ¹ Ñ‚ĞµÑÑ‚');
+$tmp->setVar('keywords','Ñ‚ĞµÑÑ‚Ñ‹, ÑÑ„Ğ¼Ğ», ÑĞµĞ²ĞµÑ€ÑĞº, ÑĞµĞ²ĞµÑ€ÑĞºĞ¸Ğ¹ Ñ„Ğ¸Ğ·Ğ¸ĞºĞ¾-Ğ¼Ğ°Ñ‚ĞµĞ¼Ğ°Ñ‚Ğ¸Ñ‡ĞµÑĞºĞ¸Ğ¹ Ğ»Ğ¸Ñ†ĞµĞ¹, 194 ÑˆĞºĞ¾Ğ»Ğ°, Ğ¸ÑÑ‚Ğ¾Ñ€Ğ¸Ñ, ÑˆĞºĞ¾Ğ»Ğ°, Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñ‹, Ñ‚ĞµÑÑ‚Ñ‹ Ğ¿Ğ¾ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñƒ, ĞœÑƒĞºĞ¾Ğ²ĞºĞ¸Ğ½ Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹, Ñ‚ĞµÑÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ, Ğ•Ğ“Ğ­, Ğ“Ğ˜Ğ, Ğ²Ñ‹ÑÑ‚Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ¾Ñ†ĞµĞ½ĞºĞ¸, sfml, Ğ¿Ñ€Ğ¾ÑÑ‚Ğ¾Ñ‚Ğ°');
 $tmp->setVar('rightBar',$e);
 $tmp->setVar('rand',$count['id']);
 $tmp->parse('index');

@@ -1,4 +1,4 @@
-$(document).ready(function() 
+п»ї$(document).ready(function() 
 {
 	var oldText, newText;
   	$(".editable").hover(
@@ -48,7 +48,7 @@ $(document).ready(function()
 										 .replace(/"/g, "&quot;");
 						$(this).addClass("noPad")
 							   .html("")
-							   .html("<div style=\"float: left;\"><input type=\"text\" id=\"editBox\" class=\"editBox\" value=\"" + oldText + "\" /></div><div class=\"okbox\"><a href=\"#\" class=\"btnSave\">Сохранить</a> <a href=\"#\" class=\"btnDiscard\">Отмена</a></div>")
+							   .html("<div style=\"float: left;\"><input type=\"text\" id=\"editBox\" class=\"editBox\" value=\"" + oldText + "\" /></div><div class=\"okbox\"><a href=\"#\" class=\"btnSave\">РЎРѕС…СЂР°РЅРёС‚СЊ</a> <a href=\"#\" class=\"btnDiscard\">РћС‚РјРµРЅР°</a></div>")
 							   .unbind('dblclick', replaceHTML);
 			
 					}

@@ -1,11 +1,11 @@
-<?php
-if(!defined('CMS'))die('Ñþäà íåëüçÿ');
+ï»¿<?php
+if(!defined('CMS'))die('Ð¡ÑŽÐ´Ð° Ð½ÐµÐ»ÑŒÐ·Ñ');
 class Type {
-    /* Ôóíêöèè äëÿ ïåðâîãî òèïà (âîïðîñà ñ âîçìîæíîñòüþ âûáîðà âàðèàíòîâ îòâåòà) */
+    /* Ð¤ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð´Ð»Ñ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð° (Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ° Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð²Ñ‹Ð±Ð¾Ñ€Ð° Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð¾Ð² Ð¾Ñ‚Ð²ÐµÑ‚Ð°) */
     function typeOne($array) {
         global $test_mode;
         $ask = $this->charseTrue(stripslashes($array['ask']));
-		// Äåëàåì êðàñèâûå ôîðìóëû
+		// Ð”ÐµÐ»Ð°ÐµÐ¼ ÐºÑ€Ð°ÑÐ¸Ð²Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼ÑƒÐ»Ñ‹
 		$ask = $this->formula($ask);
         $title=$this->formula($this->charseTrue(stripslashes($array['title'])));
         $arr = array('id' => $array['aid'], 'text' => $title, 'add_class' => 'a a1');
@@ -27,7 +27,7 @@ class Type {
             'text' => $ask,
             'path' => $images,
             'count_images' => $count_images,
-            // ìàññèâ âîïðîñîâ
+            // Ð¼Ð°ÑÑÐ¸Ð² Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð²
             'answers' => array(
                 $arr
             )
@@ -48,12 +48,12 @@ class Type {
         return $a;
     }
 	
-    /* Êîíåö */
+    /* ÐšÐ¾Ð½ÐµÑ† */
     
-    /*  Ôóíêöèÿ äëÿ âòîðîãî òèïà (âîïðîñ ñ âîçìîæíîñòüþ ââîäà ñâîåãî îòâåòà)  */
+    /*  Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð»Ñ Ð²Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð° (Ð²Ð¾Ð¿Ñ€Ð¾Ñ Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð²Ð²Ð¾Ð´Ð° ÑÐ²Ð¾ÐµÐ³Ð¾ Ð¾Ñ‚Ð²ÐµÑ‚Ð°)  */
     function typeTwo($array) {
         $ask = $this->charseTrue(stripslashes($array['ask']));
-        // Äåëàåì êðàñèâûå ôîðìóëû
+        // Ð”ÐµÐ»Ð°ÐµÐ¼ ÐºÑ€Ð°ÑÐ¸Ð²Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼ÑƒÐ»Ñ‹
 		$ask = $this->formula($ask);
 		
         $images = (empty($array['code']) ? '' : json_decode($array['code']) );
@@ -64,18 +64,18 @@ class Type {
             'text' => $ask,
             'path' => $images,
             'count_images' => $count_images,
-            // ìàññèâ id ïî êîòîðîìó áóäåò ïðîâåðÿòñÿ îòâåò
+            // Ð¼Ð°ÑÑÐ¸Ð² id Ð¿Ð¾ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼Ñƒ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÑ‚ÑÑ Ð¾Ñ‚Ð²ÐµÑ‚
             'answers' => array(
                 array('id' => $array['aid'])
             )
         );
     }
-    /* Êîíåö */
-	/* Ôóíêöèè äëÿ òðåòüåãî òèïà (âîïðîñà ñ âîçìîæíîñòüþ ìíîæåñòâåííîãî âûáîðà âàðèàíòîâ îòâåòà) */
+    /* ÐšÐ¾Ð½ÐµÑ† */
+	/* Ð¤ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð´Ð»Ñ Ñ‚Ñ€ÐµÑ‚ÑŒÐµÐ³Ð¾ Ñ‚Ð¸Ð¿Ð° (Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ° Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð²Ñ‹Ð±Ð¾Ñ€Ð° Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð¾Ð² Ð¾Ñ‚Ð²ÐµÑ‚Ð°) */
     function typeThree($array) {
         global $test_mode;
         $ask = $this->charseTrue(stripslashes($array['ask']));
-		// Äåëàåì êðàñèâûå ôîðìóëû
+		// Ð”ÐµÐ»Ð°ÐµÐ¼ ÐºÑ€Ð°ÑÐ¸Ð²Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼ÑƒÐ»Ñ‹
 		$ask = $this->formula($ask);
 		
         $title=$this->charseTrue(stripslashes($array['title']));
@@ -98,7 +98,7 @@ class Type {
             'text' => $ask,
             'path' => $images,
             'count_images' => $count_images,
-            // ìàññèâ âîïðîñîâ
+            // Ð¼Ð°ÑÑÐ¸Ð² Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð²
             'answers' => array(
                 $arr
             )
@@ -118,7 +118,7 @@ class Type {
         }
         return $a;
     }
-	/* Êîíåö */
+	/* ÐšÐ¾Ð½ÐµÑ† */
 }
 
 ?>

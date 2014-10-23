@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+п»ї<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
@@ -23,21 +23,21 @@ var lang = new Array();
     <tr>
       <td><div class="header">
 <div class="menu">
-<ul class="list"><li><a href="index.php">Главная</a></li></ul>
+<ul class="list"><li><a href="index.php">Р“Р»Р°РІРЅР°СЏ</a></li></ul>
 </div>
 </div></td>
     </tr>
     <tr>
         <td style="background-color: #fff; border-radius: 5px;">
-            <div class="cat">Руководство по добавлению тестов на сайт</div>
-            <div style="width: 800px; margin-left: 15px;"><p>Все права на материалы, выложенные на сайте (тесты, изображения) принадлежат Северскому Физико-математическому лицею.</p>
-                <p>Любая перепечатка запрещена</p>
-            <p>Права на тесты в категориях История и Обществознание принадлежат <b>Виноградовой Светлане Вячеславовне</b></p></div>
+            <div class="cat">Р СѓРєРѕРІРѕРґСЃС‚РІРѕ РїРѕ РґРѕР±Р°РІР»РµРЅРёСЋ С‚РµСЃС‚РѕРІ РЅР° СЃР°Р№С‚</div>
+            <div style="width: 800px; margin-left: 15px;"><p>Р’СЃРµ РїСЂР°РІР° РЅР° РјР°С‚РµСЂРёР°Р»С‹, РІС‹Р»РѕР¶РµРЅРЅС‹Рµ РЅР° СЃР°Р№С‚Рµ (С‚РµСЃС‚С‹, РёР·РѕР±СЂР°Р¶РµРЅРёСЏ) РїСЂРёРЅР°РґР»РµР¶Р°С‚ РЎРµРІРµСЂСЃРєРѕРјСѓ Р¤РёР·РёРєРѕ-РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕРјСѓ Р»РёС†РµСЋ.</p>
+                <p>Р›СЋР±Р°СЏ РїРµСЂРµРїРµС‡Р°С‚РєР° Р·Р°РїСЂРµС‰РµРЅР°</p>
+            <p>РџСЂР°РІР° РЅР° С‚РµСЃС‚С‹ РІ РєР°С‚РµРіРѕСЂРёСЏС… РСЃС‚РѕСЂРёСЏ Рё РћР±С‰РµСЃС‚РІРѕР·РЅР°РЅРёРµ РїСЂРёРЅР°РґР»РµР¶Р°С‚ <b>Р’РёРЅРѕРіСЂР°РґРѕРІРѕР№ РЎРІРµС‚Р»Р°РЅРµ Р’СЏС‡РµСЃР»Р°РІРѕРІРЅРµ</b></p></div>
             
         </td>
     </tr>
 <tr>
-    <td><div class="footer"><span class="foo left"><a href="copyright.php">Правила перепечатки</a></span><span class="foo right">© sfml.tom.ru 2011</span></div></td>
+    <td><div class="footer"><span class="foo left"><a href="copyright.php">РџСЂР°РІРёР»Р° РїРµСЂРµРїРµС‡Р°С‚РєРё</a></span><span class="foo right">В© sfml.tom.ru 2011</span></div></td>
     </tr>
   </table>
 </div>

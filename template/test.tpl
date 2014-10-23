@@ -1,4 +1,4 @@
-{HEADER}
+п»ї{HEADER}
 {JS_test}
 <style type="text/css">
 		@media (max-width: 979px) {
@@ -40,12 +40,12 @@
     <div class="container">
         <div class="row">
             <div class="span3" style="text-align: right">
-				<h3 class="page-header" style="padding: 0; margin: 0px 0 7px 0;">Тема теста</h3>
+				<h3 class="page-header" style="padding: 0; margin: 0px 0 7px 0;">РўРµРјР° С‚РµСЃС‚Р°</h3>
                 <p class="lead" id="theme">{theme}</p>
-                <h3 class="page-header" style="padding: 0; margin-bottom: 7px;">Тест по предмету:</h3>
+                <h3 class="page-header" style="padding: 0; margin-bottom: 7px;">РўРµСЃС‚ РїРѕ РїСЂРµРґРјРµС‚Сѓ:</h3>
                 <p class="lead">{subject}</p>
                 {category}               
-                <h3 class="page-header" style="padding: 0; margin-bottom: 7px;">Тест пройден:</h3>
+                <h3 class="page-header" style="padding: 0; margin-bottom: 7px;">РўРµСЃС‚ РїСЂРѕР№РґРµРЅ:</h3>
                 <p class="lead">{count_test}</p>
             </div>
             <div class="span9">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 					<div class="span7" id="btn-enter" style="text-align: center; height: 0px;">
-                         <button class="btn btn-large btn-success" style="display: none;" id="a3" type="button">Ответить</button>
+                         <button class="btn btn-large btn-success" style="display: none;" id="a3" type="button">РћС‚РІРµС‚РёС‚СЊ</button>
                     </div>
                 </div>
                 <div class="btn-group" id="testScale">

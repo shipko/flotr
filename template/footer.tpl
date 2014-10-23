@@ -1,11 +1,11 @@
-      <div class="row">
+п»ї      <div class="row">
         
       </div>
 
 <hr>
 
       <footer>
-            <p class="pull-right"><a href="http://vk.com/mukovkin" target="_blank">Муковкин Дмитрий</a></p>
+            <p class="pull-right"><a href="http://vk.com/mukovkin" target="_blank">РњСѓРєРѕРІРєРёРЅ Р”РјРёС‚СЂРёР№</a></p>
             <p><small>&copy; sfml.tom.ru 2012</small></p>
         
       </footer>

@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 require('header.php');
 require('classes/login.class.php');
 	if(isset($_GET['act']) && $_GET['act'] == 'ajax') {
@@ -12,23 +12,23 @@ require('classes/login.class.php');
 		}
 	
 	} else if (isset($_GET['act']) && $_GET['act'] == 'do') {
-		$name=$sec->filter($_POST['name'],30,'Íåîáõîäèìî ââåñòè èìÿ');
-		$surname=$sec->filter($_POST['surname'],30,'Íåîáõîäèìî ââåñòè ôàìèëèş');
-		$login=$sec->filter($_POST['login'],25,'Íåîáõîäèìî ââåñòè ôàìèëèş');
-		$pass=$sec->filter($_POST['pass'],32,'Íåîáõîäèìî ââåñòè ïàğîëü');
-		$mail=$sec->filter($_POST['email'],32,'Íåîáõîäèìî ââåñòè e-mail');
+		$name=$sec->filter($_POST['name'],30,'ĞĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸ Ğ¸Ğ¼Ñ');
+		$surname=$sec->filter($_POST['surname'],30,'ĞĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸ Ñ„Ğ°Ğ¼Ğ¸Ğ»Ğ¸Ñ');
+		$login=$sec->filter($_POST['login'],25,'ĞĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸ Ñ„Ğ°Ğ¼Ğ¸Ğ»Ğ¸Ñ');
+		$pass=$sec->filter($_POST['pass'],32,'ĞĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸ Ğ¿Ğ°Ñ€Ğ¾Ğ»ÑŒ');
+		$mail=$sec->filter($_POST['email'],32,'ĞĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸ e-mail');
 		
 		if (!$m->isIssetLogin($login)) {
-			exit('Òàêîé ëîãèí óæå ñóùåñòâóåò');
+			exit('Ğ¢Ğ°ĞºĞ¾Ğ¹ Ğ»Ğ¾Ğ³Ğ¸Ğ½ ÑƒĞ¶Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
 		}
 		
 		if (!$m->isIssetMail($mail)) {
-			exit('Òàêîé e-mail óæå ñóùåñòâóåò');
+			exit('Ğ¢Ğ°ĞºĞ¾Ğ¹ e-mail ÑƒĞ¶Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
 		}
 		
 		$pass=$sec->salt($pass);
 		$db->query('INSERT INTO user (`login`,`name`,`surname`,`pass`,`mail`,`priv`,`lastvisit`,`registered`,`ip`) VALUES ("'.$login.'","'.$name.'","'.$surname.'","'.$pass.'","'.$mail.'",3,'.time().','.time().',"'.$_SERVER['REMOTE_ADDR'].'")');
-		// Çàõîäèì ïîä ïîëüçîâàòåëåì
+		// Ğ—Ğ°Ñ…Ğ¾Ğ´Ğ¸Ğ¼ Ğ¿Ğ¾Ğ´ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ĞµĞ¼
 		$time = time() + 31536000;
 		setcookie('id', mysql_insert_id(), $time);
 		setcookie('pass', $pass, $time);
@@ -36,20 +36,20 @@ require('classes/login.class.php');
 	}
 
     $tmp->setJS(array('jquery', 'reg'));
-    /* Ïîñ÷èòàåì âñå òåñòû */
+    /* ĞŸĞ¾ÑÑ‡Ğ¸Ñ‚Ğ°ĞµĞ¼ Ğ²ÑĞµ Ñ‚ĞµÑÑ‚Ñ‹ */
     $count_tests=$db->query('SELECT id,subject FROM nametest WHERE `status`=2 AND `delete` != "2" ORDER BY subject');
     $arr_count=array();
     while($count_t=$db->fetch_array($count_tests)) {
             $arr_count[$count_t['subject']]['count']++;
     }
 
-    /* Âûáèğàåì âñå ïğåäìåòû è ïîäñòàëÿåì çíà÷åíèå */
+    /* Ğ’Ñ‹Ğ±Ğ¸Ñ€Ğ°ĞµĞ¼ Ğ²ÑĞµ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ñ‹ Ğ¸ Ğ¿Ğ¾Ğ´ÑÑ‚Ğ°Ğ»ÑĞµĞ¼ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ */
     $subject=$db->query('SELECT id,title FROM subject ORDER BY title');
     while($sub=$db->fetch_array($subject)) {
         $e.='<li class="header"><a href="subject.php?sec=subject&id='.$sub['id'].'"><span class="lead">'.$sub['title'].' ('.(isset($arr_count[$sub['id']]['count']) ? $arr_count[$sub['id']]['count'] : '0').')</span></a></li>';
     }
 
-$tmp->setVar('title','Ğåãèñòğàöèÿ');
+$tmp->setVar('title','Ğ ĞµĞ³Ğ¸ÑÑ‚Ñ€Ğ°Ñ†Ğ¸Ñ');
    
 if (!empty($message))
 	$tmp->setVar('message','<div class="alert alert-error">'.$message.'</div>');

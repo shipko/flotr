@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+п»ї<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="windows-1251">
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{description}">
     <meta name="keywords" content="{keywords}">
-    <meta name="author" content="Муковкин Дмитрий">
+    <meta name="author" content="РњСѓРєРѕРІРєРёРЅ Р”РјРёС‚СЂРёР№">
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <!-- Le styles -->
     <link href="template/css/bootstrap.css" rel="stylesheet">
@@ -37,12 +37,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./"><img src="template/images/loog.png" alt="Перейти на главную" width="30" height="30"></a>
+          <a class="brand" href="./"><img src="template/images/loog.png" alt="РџРµСЂРµР№С‚Рё РЅР° РіР»Р°РІРЅСѓСЋ" width="30" height="30"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-				<li class="active"><a href="index.php">Главная</a></li>
+				<li class="active"><a href="index.php">Р“Р»Р°РІРЅР°СЏ</a></li>
 				{header_user}
-				<li><a href="about.php">О проекте</a></li>
+				<li><a href="about.php">Рћ РїСЂРѕРµРєС‚Рµ</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

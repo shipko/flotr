@@ -1,4 +1,4 @@
-$(function(){
+п»ї$(function(){
 	var dropbox = $('#dropbox'),
 		message = $('.message', dropbox);
                 count_files = 1;
@@ -17,23 +17,23 @@ $(function(){
     	error: function(err, file) {
 			switch(err) {
 				case 'BrowserNotSupported':
-					showMessage('<span style="font-size: 18px; color: #CD1B1B">Ваш браузер устарел.</br></br>Загрузка файлов невозможна</span>');
+					showMessage('<span style="font-size: 18px; color: #CD1B1B">Р’Р°С€ Р±СЂР°СѓР·РµСЂ СѓСЃС‚Р°СЂРµР».</br></br>Р—Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ РЅРµРІРѕР·РјРѕР¶РЅР°</span>');
 					break;
 				case 'TooManyFiles':
-					alert('Можно загрузить до 8 файлов');
+					alert('РњРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РёС‚СЊ РґРѕ 8 С„Р°Р№Р»РѕРІ');
 					break;
 				case 'FileTooLarge':
-					alert(file.name+' слишком большой! Пожалуйста, загрузите файл меньшего размера (до 2 мб.)');
+					alert(file.name+' СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РіСЂСѓР·РёС‚Рµ С„Р°Р№Р» РјРµРЅСЊС€РµРіРѕ СЂР°Р·РјРµСЂР° (РґРѕ 2 РјР±.)');
 					break;
 				default:
 					break;
 			}
 		},
 		
-		// Функция вызываемая перед загрузкой
+		// Р¤СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµРјР°СЏ РїРµСЂРµРґ Р·Р°РіСЂСѓР·РєРѕР№
 		beforeEach: function(file){
 			if(!file.type.match(/^image\//)){
-				alert('Можно загрузить только картинки');
+				alert('РњРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РёС‚СЊ С‚РѕР»СЊРєРѕ РєР°СЂС‚РёРЅРєРё');
 				return false;
 			}
 		},

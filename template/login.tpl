@@ -1,43 +1,43 @@
-{HEADER}
+п»ї{HEADER}
      <div class="container">
         <div class="row">
             <div class="span8">
                 <div class="hero-unit">
 					<form class="form-horizontal" action="login.php?act=login" method="post">
-						<h2>Вход</h2>
+						<h2>Р’С…РѕРґ</h2>
 						{message}
 						<div class="control-group">
-							<label class="control-label" for="inputEmail">Логин</label>
+							<label class="control-label" for="inputEmail">Р›РѕРіРёРЅ</label>
 							<div class="controls">
-							  <input type="text" id="inputEmail" name="login" placeholder="Введите логин">
+							  <input type="text" id="inputEmail" name="login" placeholder="Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ">
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="inputPassword">Пароль</label>
+							<label class="control-label" for="inputPassword">РџР°СЂРѕР»СЊ</label>
 							<div class="controls">
-							  <input type="password" id="inputPassword" name="pass" placeholder="Введите пароль">
+							  <input type="password" id="inputPassword" name="pass" placeholder="Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ">
 							</div>
 						</div>
 						<div class="control-group">
 							<div class="controls">
 							  <label class="checkbox">
-								<input type="checkbox" name="alien" value="2"> Чужой компьютер
+								<input type="checkbox" name="alien" value="2"> Р§СѓР¶РѕР№ РєРѕРјРїСЊСЋС‚РµСЂ
 							  </label>
-							  <button type="submit" class="btn">Вход</button>
+							  <button type="submit" class="btn">Р’С…РѕРґ</button>
 							</div>
 						</div>
                     </form>	
                 </div>
                 <div class="span4">
-          <h2>Регистрация</h2>
-           <p>После регистрации Вам будет доступен личный кабинет.</p>
-          <p><a class="btn" href="signup.php">Регистрация</a></p>
+          <h2>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h2>
+           <p>РџРѕСЃР»Рµ СЂРµРіРёСЃС‚СЂР°С†РёРё Р’Р°Рј Р±СѓРґРµС‚ РґРѕСЃС‚СѓРїРµРЅ Р»РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚.</p>
+          <p><a class="btn" href="signup.php">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a></p>
         </div>
 
         
             </div>
             <div class="span4">
-                <h1>Список предметов</h1>
+                <h1>РЎРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ</h1>
                 
                 <ul class="nav nav-list">
                     {rightBar}

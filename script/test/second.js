@@ -1,4 +1,4 @@
-// Âòîğîñòåïåííûå ôóíêöèè
+ï»¿// Ğ’Ñ‚Ğ¾Ñ€Ğ¾ÑÑ‚ĞµĞ¿ĞµĞ½Ğ½Ñ‹Ğµ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸
 function rulesTime(number,arr) {
 	cases = [2, 0, 1, 1, 1, 2];  
 	return number + ' ' + arr[ (number%100 > 4 && number%100<20) ? 2 : cases[(number%10<5)?number%10 : 5] ];

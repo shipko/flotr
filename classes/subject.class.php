@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -7,21 +7,21 @@
 /**
  * Description of subject
  *
- * @author Дмитрий
+ * @author Р”РјРёС‚СЂРёР№
  */
 class subject {
     function SubjectId($id) {
         global $sec, $db, $tmp;
-        $id=$sec->ClearInt($id,'Параметр не найден');
+        $id=$sec->ClearInt($id,'РџР°СЂР°РјРµС‚СЂ РЅРµ РЅР°Р№РґРµРЅ');
 
-        $subject=$db->query('SELECT title FROM subject WHERE id="'.$id.'" LIMIT 1','Предмет не найден',true);
+        $subject=$db->query('SELECT title FROM subject WHERE id="'.$id.'" LIMIT 1','РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ',true);
 
         $category = $db->query('SELECT id,title FROM subject_category WHERE subject = '.$id.'');
         
         $s=$db->query('SELECT * FROM nametest WHERE `subject`="'.$id.'" AND `status`="2" AND `delete` !=2 ORDER BY title');
         
         if($db->num_rows($s) == 0) {
-            $subject['text'].='<h2>Тесты не найдены</h2>';
+            $subject['text'].='<h2>РўРµСЃС‚С‹ РЅРµ РЅР°Р№РґРµРЅС‹</h2>';
         } else {
             $subject['text']='<ul class="unstyled">';
             while($arr=$db->fetch_array($s)) {
@@ -41,7 +41,7 @@ class subject {
                 }
             }
             if (!empty($array[0])) {
-                $subject['text'].='<h4>Без категории</h4>
+                $subject['text'].='<h4>Р‘РµР· РєР°С‚РµРіРѕСЂРёРё</h4>
                     <ul style="list-style-type: none">';
                 foreach($array[0] as $k => $v) {
                     $subject['text'].='<li class="sub" style="font-size: 14px;"><a href="test.php?id='.$v['id'].'">'.$v['title'].'</a></li>';
@@ -49,7 +49,7 @@ class subject {
                 $subject['text'].='</ul>';
             }
         }
-		$tmp->setVar('description','Все добавленные тесты по предмету '.$subject['title']);
+		$tmp->setVar('description','Р’СЃРµ РґРѕР±Р°РІР»РµРЅРЅС‹Рµ С‚РµСЃС‚С‹ РїРѕ РїСЂРµРґРјРµС‚Сѓ '.$subject['title']);
 
 		$tmp->setVar('keywords',implode(',',(!$array_keywords ? array() : $array_keywords)));
         return $subject;
@@ -61,7 +61,7 @@ class subject {
         $subject=$db->query('SELECT n.id,n.title, s.title AS sub_title FROM nametest AS n INNER JOIN subject AS s ON n.subject=s.id WHERE n.status="2" AND n.delete!=2 ORDER BY id DESC LIMIT 50');
 
         if($db->num_rows($subject) == 0) {
-            $c='<h2>Тесты не найдены</h2>';
+            $c='<h2>РўРµСЃС‚С‹ РЅРµ РЅР°Р№РґРµРЅС‹</h2>';
         } else {
             $c.='<ul class="unstyled">';
         while($arr=$db->fetch_array($subject)) {
@@ -70,7 +70,7 @@ class subject {
         }
             $c.='</ul>';
         }
-		$tmp->setVar('description','Последние 50 добавленных тестов.');
+		$tmp->setVar('description','РџРѕСЃР»РµРґРЅРёРµ 50 РґРѕР±Р°РІР»РµРЅРЅС‹С… С‚РµСЃС‚РѕРІ.');
 		$tmp->setVar('keywords',implode(',',$array_keywords));
         return $c;
     }

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+п»ї$(document).ready(function(){
         var i_old = i,
         table=$('#right_bar'),
         input_hidden=$('#valans');
@@ -44,7 +44,7 @@ $(document).ready(function(){
             var id = $(this).attr('id');
             $('#file_'+id).remove();
             $('#img_'+id+'').remove();
-            $('#'+id).append('<div id="restore_'+id+'" style="margin-top: 30px; cursor: pointer;">Восстановить</div>'); 
+            $('#'+id).append('<div id="restore_'+id+'" style="margin-top: 30px; cursor: pointer;">Р’РѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ</div>'); 
             $('#'+ id).removeClass('done');
             $('#'+ id).addClass('restore');
             $('#'+id+' .progressHolder').css('display','none');
@@ -69,7 +69,7 @@ $(document).ready(function(){
         
         window.onbeforeunload = function() {
             if (numChange > 0) {
-                return "Вы не сохранили изменения. Изменения не вступят в силу.";
+                return "Р’С‹ РЅРµ СЃРѕС…СЂР°РЅРёР»Рё РёР·РјРµРЅРµРЅРёСЏ. РР·РјРµРЅРµРЅРёСЏ РЅРµ РІСЃС‚СѓРїСЏС‚ РІ СЃРёР»Сѓ.";
             };
         };        
 		

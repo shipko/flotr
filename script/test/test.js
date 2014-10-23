@@ -1,4 +1,4 @@
-    function calcBall(percent,id,time) {
+﻿    function calcBall(percent,id,time) {
         $.ajax({ type: 'POST', async: false, cache: false, url: "./test.php?act=getBall",
             data: ({ 
 				'percent': percent, 

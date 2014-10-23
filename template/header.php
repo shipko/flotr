@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+п»ї<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<title><?php if(!isset($title)) { echo 'Произошла ошибка';} else echo $title?></title>
+<title><?php if(!isset($title)) { echo 'РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°';} else echo $title?></title>
 <noscript><meta http-equiv="refresh" content="0; URL=/badbrowser.php" /></noscript>
 <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -22,7 +22,7 @@ echo $t->js;?>
     <tr>
       <td><div class="header">
 <div class="menu">
-<ul class="list"><li><a href="index.php">Главная</a></li></ul>
+<ul class="list"><li><a href="index.php">Р“Р»Р°РІРЅР°СЏ</a></li></ul>
 </div>
 </div></td>
     </tr>
