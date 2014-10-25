@@ -45,18 +45,11 @@ class mainclassAdmin {
                     $this->UpdateLastVisit();
 					$this->UpdateCookie();
                     return true;
-                } else {
-                    $sec->ClearCookie();
-                    $sec->head('login.php?from=' . urlencode($_SERVER['REQUEST_URI']));
                 }
-            } else {
-                $sec->ClearCookie();
-                $sec->head('login.php?from=' . urlencode($_SERVER['REQUEST_URI']));
             }
-        } else {
-            $sec->ClearCookie();
-            $sec->head('login.php?from=' . urlencode($_SERVER['REQUEST_URI']));
         }
+        $sec->ClearCookie();
+        $sec->head('login.php?from=' . urlencode($_SERVER['REQUEST_URI']));
     }
 
     function LogOut() {
