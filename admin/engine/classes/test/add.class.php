@@ -1,30 +1,30 @@
-<?php
+п»ї<?php
 /**
  * Description of test
  *
- * @author Дмитрий
+ * @author Р”РјРёС‚СЂРёР№
  */
 require(PATH.'engine/classes/other/other.class.php');
 class add extends someFunction {
     function testAdd() {
         global $sec,$db,$mainclass;
 
-        $title=$sec->filter($_POST['title'],150,'Вы забыли ввести заголовок');
-        $subject=$sec->ClearInt($_POST['subject'],'Предмет не заполнен');
+        $title=$sec->filter($_POST['title'],150,'Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРѕРє');
+        $subject=$sec->ClearInt($_POST['subject'],'РџСЂРµРґРјРµС‚ РЅРµ Р·Р°РїРѕР»РЅРµРЅ');
         $category=$sec->ClearInt($_POST['category']);
         $status=((int)$_POST['status']==2) ? '2' : '1';
 		$shuffle=((int)$_POST['shuffle']==2) ? '2' : '1';
         $is_edit = $sec->filter($_POST['is_edit_factor']);
-        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id предмета неверен');
+        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id РїСЂРµРґРјРµС‚Р° РЅРµРІРµСЂРµРЅ');
         if ($category != 0) {
-            $cat_subject=$db->query('SELECT id FROM subject_category WHERE id="'.$category.'"','id категории неверен');
+            $cat_subject=$db->query('SELECT id FROM subject_category WHERE id="'.$category.'"','id РєР°С‚РµРіРѕСЂРёРё РЅРµРІРµСЂРµРЅ');
         }
         $db->query('INSERT INTO nametest (`title`,`subject`,`category`,`status`,`user`,`date_create`,`shuffle`) VALUES ("'.$title.'","'.$subject.'","'.$category.'","'.$status.'","'.$mainclass->user['id'].'","'.time().'","'.$shuffle.'")');
         $last_insert = mysql_insert_id();
         if ($is_edit == 'true') {
-            $factor3 = $sec->ClearInt($_POST['factor1'],'Первый критерий неверен');
-            $factor4 = $sec->ClearInt($_POST['factor2'],'Второй критерий неверен');
-            $factor5 = $sec->ClearInt($_POST['factor3'],'Третий критерий неверен');
+            $factor3 = $sec->ClearInt($_POST['factor1'],'РџРµСЂРІС‹Р№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+            $factor4 = $sec->ClearInt($_POST['factor2'],'Р’С‚РѕСЂРѕР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+            $factor5 = $sec->ClearInt($_POST['factor3'],'РўСЂРµС‚РёР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
             
             $arr['factor'] = array($factor3,$factor4,$factor5);
             
@@ -37,8 +37,8 @@ class add extends someFunction {
 
     function testMain() {
         global $db,$sec,$tmp;
-            $tmp->setVar('title','Добавление теста');
-            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+            $tmp->setVar('title','Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµСЃС‚Р°');
+            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
             $sid = $sec->ClearInt($_GET['sid']);
             
             while($subject=$db->fetch_array($sub_query)) {
@@ -61,9 +61,9 @@ class add extends someFunction {
                 $catId = $sec->ClearInt($_GET['categoryId']);
                 $sub_query=$db->query('SELECT id,title FROM subject_category WHERE subject = '.$id.' ORDER BY title');   
                 if ($db->num_rows($sub_query) == 0) {
-                    exit('<option value="0">Категории не найдены</option>');
+                    exit('<option value="0">РљР°С‚РµРіРѕСЂРёРё РЅРµ РЅР°Р№РґРµРЅС‹</option>');
                 }
-                $str = '<option value="">Выберите категорию</option>';
+                $str = '<option value="">Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚РµРіРѕСЂРёСЋ</option>';
                 while($query = $db->fetch_array($sub_query)) {
                     $str .= '<option value="'.$query['id'].'"'.($query['id'] == $catId ? ' selected' : '').'>'.$query['title'].'</option>';
                 }
@@ -74,33 +74,33 @@ class add extends someFunction {
     function testQuestion($id=false,$message=false,$number_quest=4,$array=false) {
         global $db,$err,$sec,$m,$tmp;
         
-        $tmp->setVar('title','Добавление вопросов');
+        $tmp->setVar('title','Р”РѕР±Р°РІР»РµРЅРёРµ РІРѕРїСЂРѕСЃРѕРІ');
         $tmp->setJS(array('addanswers','jquery.filedrop','fileupload'));
         $tmp->setVar('return','');
         $tmp->setVar('checkedAnswer','');
         
-        $id=$sec->ClearInt($_GET['id'],'Пустой id');
-        /* Выводим сообщение, если это нужно */
+        $id=$sec->ClearInt($_GET['id'],'РџСѓСЃС‚РѕР№ id');
+        /* Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ, РµСЃР»Рё СЌС‚Рѕ РЅСѓР¶РЅРѕ */
         if($message) {
             $_GET['m'] = $message;
         }
-        /* Проверка на существование теста */
-        $arr=$db->query('SELECT id,title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого теста не нашлось',true);
+        /* РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С‚РµСЃС‚Р° */
+        $arr=$db->query('SELECT id,title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ С‚РµСЃС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ',true);
         $i=20;
         if (strlen($arr['title']) > $i) {
             $arr['title']=substr($arr['title'], 0, $i).'...';
         }
         if(isset($_GET['ret'])) {
-            $tmp->setVar('return','(назад)');
+            $tmp->setVar('return','(РЅР°Р·Р°Рґ)');
             $arr['link']='&ret=from_edit';
         }
-        /* Создаем уникальный индентификатор */
+        /* РЎРѕР·РґР°РµРј СѓРЅРёРєР°Р»СЊРЅС‹Р№ РёРЅРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ */
         $arr['uid'] = uniqid();
 
         if($array) {
             $a=1;
             $tmp->setVar('checkedAnswer','checked');
-            $tmp->setVar('return','(назад)');
+            $tmp->setVar('return','(РЅР°Р·Р°Рґ)');
 
             foreach($array as $k=>$v) {
                 $arr_td.=$this->Tr($v['input'], $v['check'], $a);
@@ -119,39 +119,39 @@ class add extends someFunction {
         $tmp->setVar('countAnswer',$number_quest);
         $tmp->setVar('answers',$arr_td);
     }
-    /* Обновленная функция
-     * Совмещает сохранение 1 и 2 типа вопроса
-     * Если ответов больше чем 1, то 1 тип.
+    /* РћР±РЅРѕРІР»РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ
+     * РЎРѕРІРјРµС‰Р°РµС‚ СЃРѕС…СЂР°РЅРµРЅРёРµ 1 Рё 2 С‚РёРїР° РІРѕРїСЂРѕСЃР°
+     * Р•СЃР»Рё РѕС‚РІРµС‚РѕРІ Р±РѕР»СЊС€Рµ С‡РµРј 1, С‚Рѕ 1 С‚РёРї.
     */
     public function testAddQuestion() {
         global $err,$sec,$db,$mainclass;
         $type = 1;
-        $id = $sec->ClearInt($_GET['id'],'Параметр задан неверно');
-        /* Проверка на существование теста */        
-        $query = $db->query('SELECT id, title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого теста не нашлось',true);
+        $id = $sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');
+        /* РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С‚РµСЃС‚Р° */        
+        $query = $db->query('SELECT id, title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ С‚РµСЃС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ',true);
         
         $this->test_id = $query['id'];
         
         //print_r($_POST);
-        /* Собираем параметры */
-        $title = $sec->filter($_POST['title'],false,'Вы случайно не забыли ввести название?');
+        /* РЎРѕР±РёСЂР°РµРј РїР°СЂР°РјРµС‚СЂС‹ */
+        $title = $sec->filter($_POST['title'],false,'Р’С‹ СЃР»СѓС‡Р°Р№РЅРѕ РЅРµ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё РЅР°Р·РІР°РЅРёРµ?');
         
-        /* Проверим реальное количество ответов */
+        /* РџСЂРѕРІРµСЂРёРј СЂРµР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РѕРІ */
         $array_answers = $this->RealCountAnswers(8,false,1);
         
-        /* Определяем тип */
-		// Тип 2
+        /* РћРїСЂРµРґРµР»СЏРµРј С‚РёРї */
+		// РўРёРї 2
         if (count($array_answers) == 1) {
             $type = 2;
         }
-		// Тип 1 или 3
+		// РўРёРї 1 РёР»Рё 3
         else {
             if (count($array_answers) > 8) {
-                return $err->GNC('Очень очень очень много вопросов');
+                return $err->GNC('РћС‡РµРЅСЊ РѕС‡РµРЅСЊ РѕС‡РµРЅСЊ РјРЅРѕРіРѕ РІРѕРїСЂРѕСЃРѕРІ');
             }
-            /* Проверяем, есть ли в ответах правильный ответ */
+            /* РџСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё РІ РѕС‚РІРµС‚Р°С… РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ */
             if (!$this->isIssetTrueAnswer($array_answers)) {
-                return $err->GNC('Вы не указали правильный ответ');
+                return $err->GNC('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚');
             }
 			if ($this->countTrueAnswer($array_answers) >= 2) {
 				$type = 3;

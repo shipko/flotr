@@ -1,19 +1,19 @@
-<?php
+п»ї<?php
 /**
  * Description of test
  *
- * @author Дмитрий
+ * @author Р”РјРёС‚СЂРёР№
  */
 require('other/other.class.php');
 class test extends someFunction {
     private $type_watch=false;
     function AddTest() {
         global $sec,$err,$db,$mainclass;
-        $title=$sec->filter($_POST['title'],255,'Вы забыли ввести заголовок');
-        $subject=$sec->ClearInt($_POST['subject'],'Предмет не заполнен');
+        $title=$sec->filter($_POST['title'],255,'Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРѕРє');
+        $subject=$sec->ClearInt($_POST['subject'],'РџСЂРµРґРјРµС‚ РЅРµ Р·Р°РїРѕР»РЅРµРЅ');
         $status=((int)$_POST['status']==2) ? '2' : '1';
 
-        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id теста неверен');
+        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         $db->query('INSERT INTO nametest (`title`,`subject`,`status`,`user`) VALUES ("'.$title.'","'.$subject.'","'.$status.'","'.$mainclass->user['id'].'")');
 
         return $sec->head('test.php?sec=add&cat=question&id='.mysql_insert_id().'&m=6');
@@ -21,30 +21,30 @@ class test extends someFunction {
 
     function AddTestWrite() {
         global $db,$err,$sec;
-            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
             $sid = $sec->ClearInt($_GET['sid']);
 
             while($subject=$db->fetch_array($sub_query)) {
                 $list_sub.='<option value="'.$subject['id'].'" '.($subject['id'] == $sid ? 'selected' : '').'>'.$subject['title'].'</option>';
             }
             $content='<form action="test.php?act=addtest" method="post">
-   <div class="headi" style="margin: 10px;">Добавление теста     </div>
+   <div class="headi" style="margin: 10px;">Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµСЃС‚Р°     </div>
    <table width="100%" border="0">
      <tr>
-         <td width="26%" class="ListTableLeftBar">Тема теста</td>
+         <td width="26%" class="ListTableLeftBar">РўРµРјР° С‚РµСЃС‚Р°</td>
          <td width="74%"><input name="title" type="text" style="width: 400px" maxlength="150" />&nbsp;</td>
        </tr>
        <tr>
-         <td class="ListTableLeftBar">Предмет</td>
+         <td class="ListTableLeftBar">РџСЂРµРґРјРµС‚</td>
          <td><select name="subject">'.$list_sub.'</select></td>
        </tr>
        <tr>
-         <td class="ListTableLeftBar">Будет ли показываться?</td>
+         <td class="ListTableLeftBar">Р‘СѓРґРµС‚ Р»Рё РїРѕРєР°Р·С‹РІР°С‚СЊСЃСЏ?</td>
          <td><input name="status" type="checkbox" value="2" />&nbsp;</td>
        </tr>
        <tr>
          <td class="ListTableLeftBar">&nbsp;</td>
-         <td><input name="ok" type="submit" value="Сохранить" />&nbsp;</td>
+         <td><input name="ok" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" />&nbsp;</td>
        </tr>
    </table>
      <p>&nbsp;</p>
@@ -55,13 +55,13 @@ class test extends someFunction {
 
     function AddQuestion($id,$message=false,$number_quest=2,$array=false) {
         global $db,$err,$sec,$m;
-        $id=$sec->ClearInt($id,'Пустой id');
-        /* Выводим сообщение, если это нужно */
+        $id=$sec->ClearInt($id,'РџСѓСЃС‚РѕР№ id');
+        /* Р’С‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ, РµСЃР»Рё СЌС‚Рѕ РЅСѓР¶РЅРѕ */
         if($message) {
             $mes=$m->GetError($message);
         }
-        /* Проверка на существование теста */
-        $arr=$db->query('SELECT id,title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого теста не нашлось',true);
+        /* РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С‚РµСЃС‚Р° */
+        $arr=$db->query('SELECT id,title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ С‚РµСЃС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ',true);
 
         $i=20;
         if (strlen($arr['title']) > $i) {
@@ -71,7 +71,7 @@ class test extends someFunction {
             $arr['from_edit']=true;
             $arr['link']='&ret=from_edit';
         }
-        /* Создаем уникальный индентификатор */
+        /* РЎРѕР·РґР°РµРј СѓРЅРёРєР°Р»СЊРЅС‹Р№ РёРЅРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ */
         $arr['uid'] = uniqid();
 
         if($array) {
@@ -92,7 +92,7 @@ class test extends someFunction {
         $type=(int)$_GET['type'];
 
         if(empty($id)) {
-            return $err->GNC('Пустой id');
+            return $err->GNC('РџСѓСЃС‚РѕР№ id');
         }
         switch ($type) {
             case '1':
@@ -102,7 +102,7 @@ class test extends someFunction {
                 $this->AddQuestionSecondType2($id);
                 break;
             default:
-                return $err->GNC('Тип вопроса не указан');
+                return $err->GNC('РўРёРї РІРѕРїСЂРѕСЃР° РЅРµ СѓРєР°Р·Р°РЅ');
                 break;
         }
 
@@ -110,20 +110,20 @@ class test extends someFunction {
     function AddQuestionSecondType1($id) {
         global $db,$err,$sec;
         $this->test_id = $id;
-        $query=$db->query('SELECT title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого теста не нашлось');
+        $query=$db->query('SELECT title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ С‚РµСЃС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ');
         
-        $title=$sec->filter($_POST['title'],false,'Вы случайно не забыли ввести название?');
+        $title=$sec->filter($_POST['title'],false,'Р’С‹ СЃР»СѓС‡Р°Р№РЅРѕ РЅРµ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё РЅР°Р·РІР°РЅРёРµ?');
         $number=$sec->ClearInt($_POST['number'],'Security breach 1');
         
         if($number > 8) {
             return $err->GNC('Security breach 2');
         }
-        /* Проверим реальное количество ответов */
+        /* РџСЂРѕРІРµСЂРёРј СЂРµР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РѕРІ */
         $array_answers = $this->RealCountAnswers($number);
 
-        /* Проверяем, есть ли в ответах правильный ответ */
+        /* РџСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё РІ РѕС‚РІРµС‚Р°С… РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ */
         if (!$this->isIssetTrueAnswer($array_answers)) {
-            return $err->GNC('Вы не указали правильный ответ');
+            return $err->GNC('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚');
         }
 
         $link=$this->pasteLink();
@@ -147,10 +147,10 @@ class test extends someFunction {
     function AddQuestionSecondType2($id) {
         global $db,$err,$sec;
 
-        $query=$db->query('SELECT title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого теста не нашлось');
+        $query=$db->query('SELECT title FROM nametest WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ С‚РµСЃС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ');
 
-        $title=$sec->filter($_POST['title'],false,'Вы случайно не забыли ввести название?');
-        $input=strtolower($sec->filter($_POST['answer'],255,'Поле Ответ не заполнен'));
+        $title=$sec->filter($_POST['title'],false,'Р’С‹ СЃР»СѓС‡Р°Р№РЅРѕ РЅРµ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё РЅР°Р·РІР°РЅРёРµ?');
+        $input=strtolower($sec->filter($_POST['answer'],255,'РџРѕР»Рµ РћС‚РІРµС‚ РЅРµ Р·Р°РїРѕР»РЅРµРЅ'));
 
         $link=$this->pasteLink();
 
@@ -165,48 +165,48 @@ class test extends someFunction {
     function Tr($input='',$check=false,$i) {
         return '<div class="answer" id="input'.$i.'"><input type="checkbox" name="ok'.$i.'" '.($check=='2' ? 'checked' : '').' value="2" class="big_checkbox" /><input name="answer'.$i.'" type="text" value="'.stripslashes($input).'" class="big_input" style="width: 400px" /></div>';
     }
-    // Функция для вывода строки с заглавием и input
+    // Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° СЃС‚СЂРѕРєРё СЃ Р·Р°РіР»Р°РІРёРµРј Рё input
     function askHTML() {
         return '<tr>
-         <td width="25%" align="right" class="ListTableLeftBar">Вопрос:</td>
+         <td width="25%" align="right" class="ListTableLeftBar">Р’РѕРїСЂРѕСЃ:</td>
          <td width="75%"><input name="title" type="text" style="width: 400px" /></td>
        </tr>';
     }
     function TemplateQuestion($arr,$m='',$i=2,$answers) {
         
         return $m.'<script type="text/javascript">var i = '.$i.', test_id = '.$arr['id'].', uid = "'.$arr['uid'].'";</script>
-        <div class="headi" style="margin: 10px 0 0 10px;">Добавление вопросов к тесту на тему "'.$arr['title'].'" '.($arr['from_edit']==true ? '<a href="test.php?sec=edit&cat=test&id='.$arr['id'].'">(назад)</a>' : '').'</div>
+        <div class="headi" style="margin: 10px 0 0 10px;">Р”РѕР±Р°РІР»РµРЅРёРµ РІРѕРїСЂРѕСЃРѕРІ Рє С‚РµСЃС‚Сѓ РЅР° С‚РµРјСѓ "'.$arr['title'].'" '.($arr['from_edit']==true ? '<a href="test.php?sec=edit&cat=test&id='.$arr['id'].'">(РЅР°Р·Р°Рґ)</a>' : '').'</div>
         
-        <div class="toogle'.($this->type_watch ? ' on' : '').'" to="groups_input_type_1">Добавить вопрос с возможностью выбора нескольких ответов (первый тип)</div>
+        <div class="toogle'.($this->type_watch ? ' on' : '').'" to="groups_input_type_1">Р”РѕР±Р°РІРёС‚СЊ РІРѕРїСЂРѕСЃ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ РІС‹Р±РѕСЂР° РЅРµСЃРєРѕР»СЊРєРёС… РѕС‚РІРµС‚РѕРІ (РїРµСЂРІС‹Р№ С‚РёРї)</div>
         <div id="groups_input_type_1" style="'.($this->type_watch ? '' : 'display: none').'">
         <div style="margin-left: 10px;">
             <form action="test.php?act=addquestion&ret=from_edit&id='.$arr['id'].'&type=1" method="post">
     <div class="table">
         <div class="left">
-            <h1 class="head">Вопрос</h1>
+            <h1 class="head">Р’РѕРїСЂРѕСЃ</h1>
             <div class="table_text"> 
                 <textarea name="title" class="big_input textArea" id="TitleTextarea" style="width: 465px; min-height: 50px; overflow: hidden; " /></textarea>
                 <div class="textAreanone"></div>
-                <div class="table_input" style="width: 300px; text-align: left">Изображение (не обязательно)</div>
+                <div class="table_input" style="width: 300px; text-align: left">РР·РѕР±СЂР°Р¶РµРЅРёРµ (РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)</div>
                 <div class="dropbox_top">&nbsp;</div>
                 <div class="file_upload" id="dropbox">
                 <span class="message">
-                    Перенесите изображения сюда. <br />
-                    <i>(они сразу же появятся в тесте)</i>
+                    РџРµСЂРµРЅРµСЃРёС‚Рµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃСЋРґР°. <br />
+                    <i>(РѕРЅРё СЃСЂР°Р·Сѓ Р¶Рµ РїРѕСЏРІСЏС‚СЃСЏ РІ С‚РµСЃС‚Рµ)</i>
                 </span>
                 
                 <input type="hidden" name="count_files" value="0" id="count_files">
             </div>
         </div>
         <div class="right_bar">
-            <h1 class="head" style="-moz-user-select: none; -webkit-user-select: none; ">Варианты ответа <span class="hint" ><span id="addans" class="addansact" style="color: #69C;">добавить</span> | <span id="delans">удалить</span> </span></h1>
-                <div class="hint" style="margin: 0 0 10px 10px;">Поставьте галочку рядом с ответом, который правильный.</div>
+            <h1 class="head" style="-moz-user-select: none; -webkit-user-select: none; ">Р’Р°СЂРёР°РЅС‚С‹ РѕС‚РІРµС‚Р° <span class="hint" ><span id="addans" class="addansact" style="color: #69C;">РґРѕР±Р°РІРёС‚СЊ</span> | <span id="delans">СѓРґР°Р»РёС‚СЊ</span> </span></h1>
+                <div class="hint" style="margin: 0 0 10px 10px;">РџРѕСЃС‚Р°РІСЊС‚Рµ РіР°Р»РѕС‡РєСѓ СЂСЏРґРѕРј СЃ РѕС‚РІРµС‚РѕРј, РєРѕС‚РѕСЂС‹Р№ РїСЂР°РІРёР»СЊРЅС‹Р№.</div>
     '.$answers.'
         </div>
         <table width="100%" border="0" style="margin-top: 30px;">
         <tr>
-            <td width="225px" align="right" class="ListTableLeftBar"><input type="checkbox" name="answers_next" value="2" '.($this->type_watch ? 'checked' : '').'>Оставить ответы</td>
-            <td><input type="hidden" name="number" id="valans" value="'.$i.'"><input name="ok" type="submit" value="Сохранить и добавить еще один вопрос" /> &nbsp;</td>
+            <td width="225px" align="right" class="ListTableLeftBar"><input type="checkbox" name="answers_next" value="2" '.($this->type_watch ? 'checked' : '').'>РћСЃС‚Р°РІРёС‚СЊ РѕС‚РІРµС‚С‹</td>
+            <td><input type="hidden" name="number" id="valans" value="'.$i.'"><input name="ok" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ Рё РґРѕР±Р°РІРёС‚СЊ РµС‰Рµ РѕРґРёРЅ РІРѕРїСЂРѕСЃ" /> &nbsp;</td>
         </tr>
     </table>
     </div>
@@ -216,13 +216,13 @@ class test extends someFunction {
 
    </div>
    </div>
-   <div class="toogle" to="groups_input_type_2" style="margin-top: 20px;">Добавить вопрос с возможностью заполнения ответа с клавиатуры (второй тип)</div>
+   <div class="toogle" to="groups_input_type_2" style="margin-top: 20px;">Р”РѕР±Р°РІРёС‚СЊ РІРѕРїСЂРѕСЃ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ Р·Р°РїРѕР»РЅРµРЅРёСЏ РѕС‚РІРµС‚Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ (РІС‚РѕСЂРѕР№ С‚РёРї)</div>
    <div id="groups_input_type_2" style="display: none;">
       <form action="test.php?act=addquestion'.$arr['link'].'&id='.$arr['id'].'&type=2&ret" method="post">
    <table width="100%" border="0" id="table">
     '.$this->askHTML().'
        <tr style="-moz-user-select: none; -webkit-user-select: none; ">
-         <td align="right" class="ListTableLeftBar" >Ответ:<br /></td>
+         <td align="right" class="ListTableLeftBar" >РћС‚РІРµС‚:<br /></td>
          <td><input type="text" style="width: 400px" name="answer" maxlength="255" /></td>
        </tr>
 
@@ -230,7 +230,7 @@ class test extends someFunction {
      <table width="100%" border="0" style="margin-top: 30px;">
        <tr>
          <td width="225px" align="right" class="ListTableLeftBar">&nbsp;</td>
-         <td><input type="hidden" name="id" value="'.$arr['id'].'"><input name="ok" type="submit" value="Сохранить и добавить еще один вопрос" /> &nbsp;</td>
+         <td><input type="hidden" name="id" value="'.$arr['id'].'"><input name="ok" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ Рё РґРѕР±Р°РІРёС‚СЊ РµС‰Рµ РѕРґРёРЅ РІРѕРїСЂРѕСЃ" /> &nbsp;</td>
        </tr>
    </table>
 

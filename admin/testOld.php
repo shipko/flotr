@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 define('CMS', true);
 define('A', '../admin/');
 require A.'engine/classes/mainclass.php';
@@ -17,7 +17,7 @@ if (isset($_GET['act'])) {
                 break;
             case 'addquestion':
                 require A.'engine/classes/testadd.class.php';
-                $title='Добавление вопросов';
+                $title='Р”РѕР±Р°РІР»РµРЅРёРµ РІРѕРїСЂРѕСЃРѕРІ';
                 $tmp->setJS(array('addanswers','spisok'));
                 $content.=$test->AddQuestionSecond($_GET['id']);
                 break;
@@ -38,7 +38,7 @@ if (isset($_GET['act'])) {
                 $content.=$test->EditTest($_GET['id']);
                 break;
             default:
-                $content.='По идее здесь должен выводиться какой-то текст, но т.к. это ранняя версия, то мы ограничимся только этим';
+                $content.='РџРѕ РёРґРµРµ Р·РґРµСЃСЊ РґРѕР»Р¶РµРЅ РІС‹РІРѕРґРёС‚СЊСЃСЏ РєР°РєРѕР№-С‚Рѕ С‚РµРєСЃС‚, РЅРѕ С‚.Рє. СЌС‚Рѕ СЂР°РЅРЅСЏСЏ РІРµСЂСЃРёСЏ, С‚Рѕ РјС‹ РѕРіСЂР°РЅРёС‡РёРјСЃСЏ С‚РѕР»СЊРєРѕ СЌС‚РёРј';
                 break;
     }
 }
@@ -51,12 +51,12 @@ else {
                     $content.=$test->AddTestWrite();
                     break;
                 case 'question':
-                    $title='Добавление вопросов';
+                    $title='Р”РѕР±Р°РІР»РµРЅРёРµ РІРѕРїСЂРѕСЃРѕРІ';
                     $tmp->setJS(array('addanswers','jquery.filedrop','fileupload','file'));
                     $content.=$test->AddQuestion($_GET['id']);
                     break;
                 default:
-                    $title='Добавление теста';
+                    $title='Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµСЃС‚Р°';
                     $content.=$test->AddTestWrite();
                     break;
                 }
@@ -66,24 +66,24 @@ else {
             $tmp->setCSS(array('li'));
             switch ($_GET['cat']) {
                 case 'list':
-                    $title='Редактирование теста | Cписок тестов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р° | CРїРёСЃРѕРє С‚РµСЃС‚РѕРІ';
                     $content.=$test->ListTest($_GET['sid']);
                     break;
                 case 'test':
-                    $title='Редактирование вопросов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРѕРїСЂРѕСЃРѕРІ';
                     $content.=$test->TestId($_GET['id']);
                     break;
                 case 'answer':
-                    $title='Редактирование ответов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕС‚РІРµС‚РѕРІ';
                     $tmp->setJS(array('jquery.filedrop','fileupload','addanswers'));
                     $content.=$test->EditQuestion($_GET['id']);
                     break;
                 case 'nametest':
-                    $title='Редактирование теста';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р°';
                     $content.=$test->NameTest($_GET['id']);
                     break;
                 default:
-                    $title='Редактирование теста | Cписок предметов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р° | CРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ';
                     $content.=$test->ListSubject();
                     break;
                 }
@@ -95,32 +95,32 @@ else {
 
             switch ($_GET['cat']) {
                 case 'list':
-                    $title='Редактирование теста | Cписок тестов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р° | CРїРёСЃРѕРє С‚РµСЃС‚РѕРІ';
                     $content.=$test->ListTest($_GET['sid']);
                     break;
                 case 'test':
                     $tmp->setJS(array('edittest'));
-                    $title='Редактирование вопросов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРѕРїСЂРѕСЃРѕРІ';
                     $content.=$test->TestId($_GET['id']);
                     break;
                 case 'answer':
-                    $title='Редактирование ответов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕС‚РІРµС‚РѕРІ';
                     $tmp->setJS(array('addanswers'));
                     $content.=$test->EditQuestion($_GET['id']);
                     break;
                 case 'nametest':
-                    $title='Редактирование теста';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р°';
                     $content.=$test->NameTest($_GET['id']);
                     break;
                 default:
-                    $title='Редактирование теста | Cписок предметов';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р° | CРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ';
                     $content.=$test->ListSubject();
                     break;
                 }
             break;
             break;
         default:
-            $content.='По идее здесь должен выводиться какой-то текст, но т.к. это ранняя версия, то мы ограничимся только этим';
+            $content.='РџРѕ РёРґРµРµ Р·РґРµСЃСЊ РґРѕР»Р¶РµРЅ РІС‹РІРѕРґРёС‚СЊСЃСЏ РєР°РєРѕР№-С‚Рѕ С‚РµРєСЃС‚, РЅРѕ С‚.Рє. СЌС‚Рѕ СЂР°РЅРЅСЏСЏ РІРµСЂСЃРёСЏ, С‚Рѕ РјС‹ РѕРіСЂР°РЅРёС‡РёРјСЃСЏ С‚РѕР»СЊРєРѕ СЌС‚РёРј';
             break;
     }
 }

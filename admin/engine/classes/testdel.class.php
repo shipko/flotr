@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -7,14 +7,14 @@
 /**
  * Description of test
  *
- * @author Äìèòğèé
+ * @author Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹
  */
 class test {
     function DelOneQuest($id) {
         global $db,$sec,$err;
-        $id=$sec->ClearInt($id,'Ïàğàìåòğ id íå çàäàí');
+        $id=$sec->ClearInt($id,'ĞŸĞ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€ id Ğ½Ğµ Ğ·Ğ°Ğ´Ğ°Ğ½');
 
-        $question=$db->query('SELECT id,test FROM question WHERE id='.$id.'','Òàêîãî âîïğîñà íå ñóùåñòâóåò');
+        $question=$db->query('SELECT id,test FROM question WHERE id='.$id.'','Ğ¢Ğ°ĞºĞ¾Ğ³Ğ¾ Ğ²Ğ¾Ğ¿Ñ€Ğ¾ÑĞ° Ğ½Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
         $question=$db->fetch_array($question);
         $db->query('UPDATE `question` SET  `delete` =  2 WHERE  `id`="'.$id.'"');
         $answer_in_quest=$db->query('UPDATE `answers` SET `delete` = 2 WHERE `question`='.$id.'');
@@ -24,9 +24,9 @@ class test {
     function DelOneTest() {
         global $db,$sec,$err;
         
-        $id = $sec->ClearInt($_GET['id'],'Ïàğàìåòğ id íå çàäàí');
+        $id = $sec->ClearInt($_GET['id'],'ĞŸĞ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€ id Ğ½Ğµ Ğ·Ğ°Ğ´Ğ°Ğ½');
 
-        $test_name=$db->query('SELECT id,subject FROM nametest WHERE id='.$id.'','Òàêîãî òåñòà íå ñóùåñòâóåò');
+        $test_name=$db->query('SELECT id,subject FROM nametest WHERE id='.$id.'','Ğ¢Ğ°ĞºĞ¾Ğ³Ğ¾ Ñ‚ĞµÑÑ‚Ğ° Ğ½Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
 
      
         $test_name=$db->fetch_array($test_name);

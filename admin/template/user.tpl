@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+п»ї<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
@@ -24,7 +24,7 @@ var lang = new Array();
     <tr>
       <td><div class="header">
 <div class="menu">
-<ul class="list"><li><a href="index.php">Главная</a></li><li><a href="../">Перейти к сайту</a></li></ul>
+<ul class="list"><li><a href="index.php">Р“Р»Р°РІРЅР°СЏ</a></li><li><a href="../">РџРµСЂРµР№С‚Рё Рє СЃР°Р№С‚Сѓ</a></li></ul>
 </div>
 </div></td>
     </tr>
@@ -34,7 +34,7 @@ var lang = new Array();
        </td>
     </tr>      
 <tr>
-    <td><div class="footer"><span class="foo left"><a href="../copyright.php">Правила перепечатки</a></span><span class="foo right">© sfml.tom.ru 2011</span></div></td>
+    <td><div class="footer"><span class="foo left"><a href="../copyright.php">РџСЂР°РІРёР»Р° РїРµСЂРµРїРµС‡Р°С‚РєРё</a></span><span class="foo right">В© sfml.tom.ru 2011</span></div></td>
     </tr>
   </table>
 </div>

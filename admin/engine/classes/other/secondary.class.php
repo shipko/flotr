@@ -1,18 +1,18 @@
-<?php
+ï»¿<?php
 
 /*
- * Êëàññ ïğåäíàçíà÷åí äëÿ âòîğîñòåïåííûõ ôóíêöèé, îáñëóæèâàşùèå êëàññû òåñòîâ
+ * ĞšĞ»Ğ°ÑÑ Ğ¿Ñ€ĞµĞ´Ğ½Ğ°Ğ·Ğ½Ğ°Ñ‡ĞµĞ½ Ğ´Ğ»Ñ Ğ²Ñ‚Ğ¾Ñ€Ğ¾ÑÑ‚ĞµĞ¿ĞµĞ½Ğ½Ñ‹Ñ… Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¹, Ğ¾Ğ±ÑĞ»ÑƒĞ¶Ğ¸Ğ²Ğ°ÑÑ‰Ğ¸Ğµ ĞºĞ»Ğ°ÑÑÑ‹ Ñ‚ĞµÑÑ‚Ğ¾Ğ²
  */
 
 /**
  * Description of secondary
  *
- * @author Äìèòğèé
+ * @author Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹
  */
 class secondary {
     function GetSubject() {
         global $db;
-        $sub_query=$db->query('SELECT * FROM subject','Ïğîèçîøëà îøèáêà â âûáîğêå ïğåäìåòîâ');
+        $sub_query=$db->query('SELECT * FROM subject','ĞŸÑ€Ğ¾Ğ¸Ğ·Ğ¾ÑˆĞ»Ğ° Ğ¾ÑˆĞ¸Ğ±ĞºĞ° Ğ² Ğ²Ñ‹Ğ±Ğ¾Ñ€ĞºĞµ Ğ¿Ñ€ĞµĞ´Ğ¼ĞµÑ‚Ğ¾Ğ²');
 
         while($subject=$db->fetch_array($sub_query)) {
         $list_sub.='<option value="'.$subject['id'].'">'.$subject['title'].'</option>';

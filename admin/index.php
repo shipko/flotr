@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 define('CMS', true);
 define('PA', '../admin/');
@@ -8,35 +8,35 @@ $other->count = new Count;
 $mainclass->isAdmin();
 $mainclass->setSettings();
 $array_tablets = array(
-    'Äîáàâèòü òåñò' => array(
+    'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ñ‚ÐµÑÑ‚' => array(
         'link' => 'test.php?sec=add',
         'color_tablet' => '1'
     ),
-    'Èçìåíèòü òåñò' => array(
+    'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚ÐµÑÑ‚' => array(
         'link' => 'test.php?sec=edit',
         'color_tablet' => '2'
     ),
-    'Ïðåäìåòû è ðàçäåëû' => array(
+    'ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚Ñ‹ Ð¸ Ñ€Ð°Ð·Ð´ÐµÐ»Ñ‹' => array(
         'link' => 'subject.php',
         'color_tablet' => '3',
         'priv' => '1'
     ),
-    'Âîññòàíîâèòü òåñò' => array(
+    'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ‚ÐµÑÑ‚' => array(
         'link' => 'test.php?sec=delete',
         'color_tablet' => '4',
         'priv' => '1'
     ),
-    'Ñïèñîê àäìèíîâ' => array(
+    'Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¾Ð²' => array(
         'link' => 'user.php',
         'color_tablet' => '5',
         'priv' => '1'
     ),
-    'Îòâåòû ê òåñòàì' => array(
+    'ÐžÑ‚Ð²ÐµÑ‚Ñ‹ Ðº Ñ‚ÐµÑÑ‚Ð°Ð¼' => array(
         'link' => 'answer.php',
         'color_tablet' => '4',
         'priv' => '1'
     ),
-    'Ðåçóëüòàòû' => array(
+    'Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹' => array(
         'link' => 'result.php',
         'color_tablet' => '3',
         'priv' => '1'
@@ -60,7 +60,7 @@ $tmp->setVar('TestMode', $testMode);
 $tmp->setVar('CountTest', $other->count->countTestWrite());
 $tmp->setVar('CountPass', $other->count->countTestPass());
 $tmp->setVar('CountAdmin', $other->count->countAdmin());
-$tmp->setVar('title', 'Àäìèí-ïàíåëü');
+$tmp->setVar('title', 'ÐÐ´Ð¼Ð¸Ð½-Ð¿Ð°Ð½ÐµÐ»ÑŒ');
 $tmp->setCSS(array('main'));
 $tmp->parse('main');
 ?>

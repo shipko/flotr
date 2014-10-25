@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 define('CMS', true);
 define('PATH', '../admin/');
 require PATH.'engine/classes/mainclass.php';

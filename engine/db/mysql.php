@@ -15,7 +15,7 @@ class DB  {
 		if (!mysql_select_db($s['name'],$mysql_c)) {
 			die('Невозможно сделать выборку из бд');
 		}
-                //$this->query('SET NAMES CP1251');
+                $this->query('SET NAMES utf8');
 	}
         /*
          * $string - Сам mysql запрос

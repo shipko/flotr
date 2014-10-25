@@ -1,4 +1,4 @@
-{HEADER}
+п»ї{HEADER}
 <script type="text/javascript">
     var cat_id = {categoryId},
     ballOpt = {
@@ -10,14 +10,14 @@
     };
 </script>
 <form action="test.php?sec=edit&cat=updateTest&id={TestId}" method="post">
-    <div class="headi" style="margin: 10px;">Редактирование теста <a href="test.php?sec=edit&cat=list&id={TestId}">(назад)</a></div>
+    <div class="headi" style="margin: 10px;">Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р° <a href="test.php?sec=edit&cat=list&id={TestId}">(РЅР°Р·Р°Рґ)</a></div>
     <div class="container">
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Тема теста</div>
+            <div class="rowTitle ListTableLeftBar">РўРµРјР° С‚РµСЃС‚Р°</div>
             <div class="rowBlock"><input name="title" type="text" style="width: 400px" maxlength="150" value="{InputTitle}" /></div>
         </div>
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Предмет</div>
+            <div class="rowTitle ListTableLeftBar">РџСЂРµРґРјРµС‚</div>
             <div class="rowBlock">
                 <select name="subject" id="subjectAction">
                    {ListSubject}
@@ -26,30 +26,30 @@
         </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
-                Категория
-                <div class="hint">Необязательно</div>
+                РљР°С‚РµРіРѕСЂРёСЏ
+                <div class="hint">РќРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ</div>
             </div>
             <div class="rowBlock">
                 <select name="category"  id="catAction">
-                   <option value="">Загрузка</option>
+                   <option value="">Р—Р°РіСЂСѓР·РєР°</option>
                 </select>
             </div>
         </div>
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Будет ли показываться?</div>
+            <div class="rowTitle ListTableLeftBar">Р‘СѓРґРµС‚ Р»Рё РїРѕРєР°Р·С‹РІР°С‚СЊСЃСЏ?</div>
             <div class="rowBlock"><input name="status" type="checkbox" value="2" {Checked} /></div>
         </div>
 		<!--<div class="row">
-            <div class="rowTitle ListTableLeftBar">Не перемешивать вопросы</div>
+            <div class="rowTitle ListTableLeftBar">РќРµ РїРµСЂРµРјРµС€РёРІР°С‚СЊ РІРѕРїСЂРѕСЃС‹</div>
             <div class="rowBlock"><input name="shuffle" type="checkbox" value="2" {Checked-Shuffle} /></div>
         </div>-->
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
-                Критерии оценки
-                <div class="hint">По умолчанию используются критерии предмета</div>
+                РљСЂРёС‚РµСЂРёРё РѕС†РµРЅРєРё
+                <div class="hint">РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РєСЂРёС‚РµСЂРёРё РїСЂРµРґРјРµС‚Р°</div>
             </div>
             <div class="rowBlock">
-                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Задать &#8595;</span>
+                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Р—Р°РґР°С‚СЊ &#8595;</span>
             </div>
             <div class="blockBall" style="display: none;">
                 <div class="blockLines">
@@ -115,7 +115,7 @@
                 <input name="factor2" id="factor4" type="hidden" value="{factor4}" />
                 <input name="factor3" id="factor5" type="hidden" value="{factor5}" />
                 <input name="is_edit_factor" id="is_edit" type="hidden" value="false" />
-               <input name="ok" type="submit" value="Обновить" />
+               <input name="ok" type="submit" value="РћР±РЅРѕРІРёС‚СЊ" />
             </div>
         </div>
     </div>

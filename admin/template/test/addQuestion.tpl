@@ -1,35 +1,35 @@
-{HEADER}
+п»ї{HEADER}
 <script type="text/javascript">var i = {countAnswer}, test_id = {testId}, uid = "{testUnique}";</script>
 <div class="headi" style="margin: 10px 0 0 10px;">
-    Добавление вопросов к тесту на тему "{testTitle}"
+    Р”РѕР±Р°РІР»РµРЅРёРµ РІРѕРїСЂРѕСЃРѕРІ Рє С‚РµСЃС‚Сѓ РЅР° С‚РµРјСѓ "{testTitle}"
     <a href="test.php?sec=edit&cat=list&id={testId}">{return}</a>
 </div>
     <div style="margin-left: 10px;">
         <form action="test.php?sec=add&cat=addQuestion&id={testId}" method="post">
             <div class="table">
                 <div class="left" id="right_bar">
-                    <h1 class="head">Вопрос</h1>
+                    <h1 class="head">Р’РѕРїСЂРѕСЃ</h1>
                     <div class="table_text"> 
                         <textarea name="title" class="big_input textArea" id="TitleTextarea" onkeydown="textAreaHeight(this)" rows="3" style="width: 470px; min-height: 50px; overflow: hidden; " /></textarea>
                     </div>
                     <h1 class="head" style="-moz-user-select: none; -webkit-user-select: none; ">
-                        Варианты ответа 
+                        Р’Р°СЂРёР°РЅС‚С‹ РѕС‚РІРµС‚Р° 
                         <span class="hint">
-                            <span id="addans" class="addansact" style="color: #69C;">добавить</span>
+                            <span id="addans" class="addansact" style="color: #69C;">РґРѕР±Р°РІРёС‚СЊ</span>
                              | 
-                            <span id="delans">удалить</span> 
+                            <span id="delans">СѓРґР°Р»РёС‚СЊ</span> 
                         </span>
                     </h1>
-                    <div class="hint" style="margin: 0 0 10px 10px;">Поставьте галочку рядом с ответом, который правильный.</div>
+                    <div class="hint" style="margin: 0 0 10px 10px;">РџРѕСЃС‚Р°РІСЊС‚Рµ РіР°Р»РѕС‡РєСѓ СЂСЏРґРѕРј СЃ РѕС‚РІРµС‚РѕРј, РєРѕС‚РѕСЂС‹Р№ РїСЂР°РІРёР»СЊРЅС‹Р№.</div>
                         {answers}
                  </div>
                     <div class="right_bar">
-                        <h1 class="head">Изображение (не обязательно)</h1>
+                        <h1 class="head">РР·РѕР±СЂР°Р¶РµРЅРёРµ (РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)</h1>
                         <div class="dropbox_top">&nbsp;</div>
                         <div class="file_upload" id="dropbox">
                             <span class="message">
-                                Перенесите изображения сюда. <br />
-                                <i>(они сразу же появятся в тесте)</i>
+                                РџРµСЂРµРЅРµСЃРёС‚Рµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃСЋРґР°. <br />
+                                <i>(РѕРЅРё СЃСЂР°Р·Сѓ Р¶Рµ РїРѕСЏРІСЏС‚СЃСЏ РІ С‚РµСЃС‚Рµ)</i>
                             </span>
 
                             <input type="hidden" name="count_files" value="0" id="count_files">
@@ -39,11 +39,11 @@
                     <table width="100%" border="0" style="margin-top: 30px;">
                         <tr>
                             <td width="225px" align="right" class="ListTableLeftBar">
-                                <input type="checkbox" name="answers_next" value="2" {checkedAnswer} >Оставить ответы
+                                <input type="checkbox" name="answers_next" value="2" {checkedAnswer} >РћСЃС‚Р°РІРёС‚СЊ РѕС‚РІРµС‚С‹
                             </td>
                             <td>
                                 <input type="hidden" name="number" id="valans" value="{countAnswer}">
-                                <input name="ok" id="submit" type="submit" value="Сохранить" /> &nbsp;
+                                <input name="ok" id="submit" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" /> &nbsp;
                             </td>
                         </tr>
                     </table>

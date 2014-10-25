@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
     define('CMS', true);
     define('PA', '../admin/');
 require PA.'engine/classes/mainclass.php';
@@ -18,19 +18,19 @@ if(isset($_GET['from'])) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-        <title>Вход в админ-панель</title>
+        <title>Р’С…РѕРґ РІ Р°РґРјРёРЅ-РїР°РЅРµР»СЊ</title>
         <link href="template/css/login.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="table">
-            <div class="header">Вход в админ панель</div>
-            <div class="back"><a href="../index.php">Назад на сайт</a></div>
+            <div class="header">Р’С…РѕРґ РІ Р°РґРјРёРЅ РїР°РЅРµР»СЊ</div>
+            <div class="back"><a href="../index.php">РќР°Р·Р°Рґ РЅР° СЃР°Р№С‚</a></div>
                 <div class="main">
                 
                 <form action="../admin/login.php?act=login&to=<?php echo $from; ?>" method="post">
-                <div> &nbsp;Логин:       <input type="text" class="inp" name="login" maxlenght="25" > </div>
-                <div>Пароль:      <input type="password" class="inp" name="pass" maxlenght="25" ></div> </div>
-            <div class="footer"><button type="submit">Войти</button></div>
+                <div> &nbsp;Р›РѕРіРёРЅ:       <input type="text" class="inp" name="login" maxlenght="25" > </div>
+                <div>РџР°СЂРѕР»СЊ:      <input type="password" class="inp" name="pass" maxlenght="25" ></div> </div>
+            <div class="footer"><button type="submit">Р’РѕР№С‚Рё</button></div>
             </form>
         </div>
     </body>

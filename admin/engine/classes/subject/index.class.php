@@ -1,31 +1,31 @@
-<?php
+п»ї<?php
 class index {
     public
         $arrayText = array();
     function subjectMain() {
         global $db,$tmp;
-            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
             while($subject=$db->fetch_array($sub_query)) {
                 $list_sub.='
                 <li class="sub">
                     <a href="subject.php?cat=sub&id='.$subject['id'].'">'.$subject['title'].'</a>
-                    <a href="subject.php?cat=sedit&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(изменить)</a>
+                    <a href="subject.php?cat=sedit&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(РёР·РјРµРЅРёС‚СЊ)</a>
                 </li>';
             }
-            $tmp->setVar('title','Список предметов');
+            $tmp->setVar('title','РЎРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ');
             $tmp->setVar('ListSubject',$list_sub);
     }
     
     function subjectSub() {
         global $db,$sec,$tmp;
-            $id = $sec->ClearInt($_GET['id'],'Параметр задан неверно');
-            $subject = $db->query('SELECT title FROM subject WHERE id = "'.$id.'"','Такого предмета не существеут',true);
+            $id = $sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');
+            $subject = $db->query('SELECT title FROM subject WHERE id = "'.$id.'"','РўР°РєРѕРіРѕ РїСЂРµРґРјРµС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІРµСѓС‚',true);
 
-            $query_cat = $db->query('SELECT id,title FROM subject_category WHERE subject = "'.$id.'"','Категорий в предмете не существует</br><a href="subject.php?cat=add&sid='.$id.'" style="color: #2D76B9">Добавить</a>');
+            $query_cat = $db->query('SELECT id,title FROM subject_category WHERE subject = "'.$id.'"','РљР°С‚РµРіРѕСЂРёР№ РІ РїСЂРµРґРјРµС‚Рµ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚</br><a href="subject.php?cat=add&sid='.$id.'" style="color: #2D76B9">Р”РѕР±Р°РІРёС‚СЊ</a>');
             while($cat = $db->fetch_array($query_cat)) {
-                $html.='<li class="sub"><a href="subject.php?cat=edit&id='.$cat['id'].'">'.$cat['title'].'</a> <a href="subject.php?cat=delete&id='.$cat['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(удалить)</a></li>';
+                $html.='<li class="sub"><a href="subject.php?cat=edit&id='.$cat['id'].'">'.$cat['title'].'</a> <a href="subject.php?cat=delete&id='.$cat['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(СѓРґР°Р»РёС‚СЊ)</a></li>';
             }
-            $tmp->setVar('title','Список категорий');
+            $tmp->setVar('title','РЎРїРёСЃРѕРє РєР°С‚РµРіРѕСЂРёР№');
             $tmp->setVar('subject',$subject['title']);
             $tmp->setVar('ListCat',$html);
             $tmp->setVar('id',$id);
@@ -35,8 +35,8 @@ class index {
         if (isset($_GET['do'])) {
             $this->EditSubject();
         }
-        $id = $sec->ClearInt($_GET['id'], 'Ошибка параметра');
-        $sub_query=$db->query('SELECT * FROM subject WHERE id = '.$id.'','Произошла ошибка в выборке предмета',true);
+        $id = $sec->ClearInt($_GET['id'], 'РћС€РёР±РєР° РїР°СЂР°РјРµС‚СЂР°');
+        $sub_query=$db->query('SELECT * FROM subject WHERE id = '.$id.'','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚Р°',true);
         $factor = $db->query('SELECT id,factor FROM factors WHERE subject_id = '.$id.' LIMIT 1');
             
             if ($db->num_rows($factor) == 0) {
@@ -52,7 +52,7 @@ class index {
         $tmp->setVar('factor4',$f->factor[1]);
         $tmp->setVar('factor5',$f->factor[2]);
         $tmp->setVar('ListSubject',$list_sub);
-        $tmp->setVar('title','Редактирование предмета');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°');
         $tmp->setVar('i_title',$sub_query['title']);
         $tmp->setVar('id',$sec->ClearInt($_GET['id']));
         $tmp->setCSS(array('mark'));
@@ -63,7 +63,7 @@ class index {
         if (isset($_GET['do'])) {
             $this->AddCat();
         }
-        $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+        $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
         
         $sid = $sec->ClearInt($_GET['sid']);
         
@@ -72,7 +72,7 @@ class index {
         }
         
         $tmp->setVar('ListSubject',$list_sub);
-        $tmp->setVar('title','Добавление категории');
+        $tmp->setVar('title','Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё');
         $tmp->setVar('id',$sec->ClearInt($_GET['sid']));
     }
     function subjectEdit() {
@@ -81,12 +81,12 @@ class index {
             $this->EditCat();
         }
         else if (isset($_GET['id'])) {
-            $id = $sec->ClearInt($_GET['id'],'Нет требуемых параметров');
-            $sub_query=$db->query('SELECT * FROM subject_category WHERE id='.$id.'','Произошла ошибка в выборке предметов',true);
+            $id = $sec->ClearInt($_GET['id'],'РќРµС‚ С‚СЂРµР±СѓРµРјС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ');
+            $sub_query=$db->query('SELECT * FROM subject_category WHERE id='.$id.'','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ',true);
             $sid = $sub_query['subject'];
             $title = $sub_query['title'];
             $act = 'edit_cat&id='.$id;
-            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
             
             $factor = $db->query('SELECT id,factor FROM factors WHERE subject_id = '.$sid.' LIMIT 1');
             
@@ -120,9 +120,9 @@ class index {
     }
     function subjectDelete() {
         global $db,$sec,$tmp;
-        $id=$sec->ClearInt($_GET['id'],'Параметр id не задан');
+        $id=$sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ id РЅРµ Р·Р°РґР°РЅ');
 
-        $question=$db->query('SELECT id,subject FROM subject_category WHERE id='.$id.'','Такой категории не существует',true);
+        $question=$db->query('SELECT id,subject FROM subject_category WHERE id='.$id.'','РўР°РєРѕР№ РєР°С‚РµРіРѕСЂРёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚',true);
 
         $answer_in_quest=$db->query('UPDATE subject_category SET `delete` = 2 WHERE `id`='.$id.'');
             
@@ -130,22 +130,22 @@ class index {
     }
     protected function AddCat() {
         global $sec,$err,$db,$mainclass;
-        $title=$sec->filter($_POST['title'],150,'Вы забыли ввести заголовок');
-        $subject=$sec->ClearInt($_POST['subject'],'Предмет не выбран');
+        $title=$sec->filter($_POST['title'],150,'Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРѕРє');
+        $subject=$sec->ClearInt($_POST['subject'],'РџСЂРµРґРјРµС‚ РЅРµ РІС‹Р±СЂР°РЅ');
 
-        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id теста неверен');
+        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         $db->query('INSERT INTO subject_category (`title`,`subject`) VALUES ("'.$title.'","'.$subject.'")');
 
         return $sec->head('subject.php?cat=sub&id='.$subject.'&m=14');
     }
     protected function EditCat() {
         global $sec,$err,$db,$mainclass;
-        $id = $sec->ClearInt($_GET['id'],'Пустой id');
-        $title=$sec->filter($_POST['title'],150,'Вы забыли ввести заголовок');
-        $subject=$sec->ClearInt($_POST['subject'],'Предмет не выбран');
+        $id = $sec->ClearInt($_GET['id'],'РџСѓСЃС‚РѕР№ id');
+        $title=$sec->filter($_POST['title'],150,'Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРѕРє');
+        $subject=$sec->ClearInt($_POST['subject'],'РџСЂРµРґРјРµС‚ РЅРµ РІС‹Р±СЂР°РЅ');
 
-        $db->query('SELECT id FROM subject_category WHERE id="'.$id.'"','Категории не существует');
-        $db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id теста неверен');
+        $db->query('SELECT id FROM subject_category WHERE id="'.$id.'"','РљР°С‚РµРіРѕСЂРёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');
+        $db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         $db->query('UPDATE subject_category SET `title` = "'.$title.'",`subject` = "'.$subject.'" WHERE id = '.$id.'');
         
         $factor = $db->query('SELECT id,factor FROM factors WHERE subject_id = 1 LIMIT 1');
@@ -162,13 +162,13 @@ class index {
     }
     protected function EditSubject() {
         global $sec,$err,$db,$mainclass;
-        $id = $sec->ClearInt($_GET['id'],'Пустой id');
-        $title=$sec->filter($_POST['title'],70,'Вы забыли ввести заголовок');
-        $factor3 = $sec->ClearInt($_POST['factor1'],'Первый критерий неверен');
-        $factor4 = $sec->ClearInt($_POST['factor2'],'Второй критерий неверен');
-        $factor5 = $sec->ClearInt($_POST['factor3'],'Третий критерий неверен');
+        $id = $sec->ClearInt($_GET['id'],'РџСѓСЃС‚РѕР№ id');
+        $title=$sec->filter($_POST['title'],70,'Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё Р·Р°РіРѕР»РѕРІРѕРє');
+        $factor3 = $sec->ClearInt($_POST['factor1'],'РџРµСЂРІС‹Р№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+        $factor4 = $sec->ClearInt($_POST['factor2'],'Р’С‚РѕСЂРѕР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+        $factor5 = $sec->ClearInt($_POST['factor3'],'РўСЂРµС‚РёР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
         
-        $db->query('SELECT id FROM subject WHERE id="'.$id.'"','id теста неверен');
+        $db->query('SELECT id FROM subject WHERE id="'.$id.'"','id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         
         $arr['factor'] = array($factor3,$factor4,$factor5);
         $factor = $db->query('SELECT id,factor FROM factors WHERE subject_id = '.$id.' LIMIT 1');

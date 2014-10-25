@@ -1,8 +1,8 @@
-<?php
+п»ї<?php
 /**
  * Description of index
  *
- * @author Дом
+ * @author Р”РѕРј
  */
 class index {
     
@@ -11,7 +11,7 @@ class index {
     }
     public function testMain() {
         global $tmp;
-        $tmp->setVar('title','Тесты');
+        $tmp->setVar('title','РўРµСЃС‚С‹');
     }
 }
 

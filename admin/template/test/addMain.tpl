@@ -1,4 +1,4 @@
-{HEADER}
+п»ї{HEADER}
 <script type="text/javascript">
     var ballOpt = {
         '2' : ['two',1],
@@ -9,15 +9,15 @@
     };
 </script>
 <form action="test.php?sec=add&cat=add" method="post">
-    <div class="headi" style="margin: 10px;">Добавление теста</div>
+    <div class="headi" style="margin: 10px;">Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµСЃС‚Р°</div>
     <script type="text/javascript">var cat_id = 0;</script>
     <div class="container">
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Тема теста</div>
+            <div class="rowTitle ListTableLeftBar">РўРµРјР° С‚РµСЃС‚Р°</div>
             <div class="rowBlock"><input name="title" type="text" style="width: 400px" maxlength="150" /></div>
         </div>
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Предмет</div>
+            <div class="rowTitle ListTableLeftBar">РџСЂРµРґРјРµС‚</div>
             <div class="rowBlock">
                 <select name="subject" id="subjectAction">
                    {ListSubject}
@@ -26,26 +26,26 @@
         </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
-                Категория
-                <div class="hint">Необязательно</div>
+                РљР°С‚РµРіРѕСЂРёСЏ
+                <div class="hint">РќРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ</div>
             </div>
             <div class="rowBlock">
                 <select name="category"  id="catAction">
-                   <option value="">Загрузка</option>
+                   <option value="">Р—Р°РіСЂСѓР·РєР°</option>
                 </select>
             </div>
         </div>
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Будет ли показываться?</div>
+            <div class="rowTitle ListTableLeftBar">Р‘СѓРґРµС‚ Р»Рё РїРѕРєР°Р·С‹РІР°С‚СЊСЃСЏ?</div>
             <div class="rowBlock"><input name="status" type="checkbox" value="2" /></div>
         </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
-                Критерии оценки
-                <div class="hint">По умолчанию используются критерии предмета</div>
+                РљСЂРёС‚РµСЂРёРё РѕС†РµРЅРєРё
+                <div class="hint">РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РєСЂРёС‚РµСЂРёРё РїСЂРµРґРјРµС‚Р°</div>
             </div>
             <div class="rowBlock">
-                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Задать &#8595;</span>
+                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Р—Р°РґР°С‚СЊ &#8595;</span>
             </div>
             <div class="blockBall" style="display: none;">
                 <div class="blockLines">
@@ -111,7 +111,7 @@
                 <input name="factor2" id="factor4" type="hidden" value="{factor4}" />
                 <input name="factor3" id="factor5" type="hidden" value="{factor5}" />
                 <input name="is_edit_factor" id="is_edit" type="hidden" value="false" />
-                <input name="ok" type="submit" value="Сохранить" />
+                <input name="ok" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" />
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 define('CMS', true);
 define('A', '../admin/');
 require A.'engine/classes/mainclass.php';
@@ -21,11 +21,11 @@ if(array_key_exists('pic',$_FILES) && $_FILES['pic']['error'] == 0 ){
             exit_status('Is not image');
         }
         
-        /* Проверка существует ли тест */
+        /* РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё С‚РµСЃС‚ */
         if (!$secondary->issetTest($test_id)) {
             exit_status('Error! Test not found!');
         }
-        /* Проверяем есть ли папка, если нет, то создаем её */
+        /* РџСЂРѕРІРµСЂСЏРµРј РµСЃС‚СЊ Р»Рё РїР°РїРєР°, РµСЃР»Рё РЅРµС‚, С‚Рѕ СЃРѕР·РґР°РµРј РµС‘ */
         if (!is_dir($upload_dir.$test_id)) {
             mkdir($upload_dir.$test_id, 0755);
         }

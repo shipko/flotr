@@ -1,23 +1,23 @@
-<?php
+ï»¿<?php
 class message {
     public $array_mess=array(
-        1 => array('class' => 'update', 'text' => 'Îáíîâëåíî'),
-        2 => array('class' => 'update', 'text' => 'Ñîõðàíåíî'),
-        3 => array('class' => 'update', 'text' => 'Óäàëåíî'),
-        4 => array('class' => 'error', 'text' => 'Ïðîèçîøëà îøèáêà'),
-        5 => array('class' => 'update', 'text' => 'Âîïðîñ äîáàâëåí'),
-        6 => array('class' => 'ready', 'text' => 'Òåñò ñîçäàí.', 'small' => 'Òåïåðü äîáàâüòå âîïðîñû.'),
-        7 => array('class' => 'ready', 'text' => 'Àäìèíèñòðàòîð äîáàâëåí'),
-        8 => array('class' => 'ready', 'text' => 'Ïðîôèëü îáíîâëåí'),
-        9 => array('class' => 'ready', 'text' => 'Àäìèíèñòðàòîð óäàëåí'),
-        10 => array('class' => 'error', 'text' => 'Íåëüçÿ óäàëèòü ñàìîãî ñåáÿ'),
-        11 => array('class' => 'ready', 'text' => 'Êàòåãîðèÿ ñîçäàíà'),
-        12 => array('class' => 'update', 'text' => 'Âîïðîñ óäàëåí'),
-        13 => array('class' => 'update', 'text' => 'Òåñò óäàëåí'),
-        14 => array('class' => 'update', 'text' => 'Êàòåãîðèÿ äîáàâëåíà'),
-        15 => array('class' => 'update', 'text' => 'Êàòåãîðèÿ îáíîâëåíà'),
-        16 => array('class' => 'update', 'text' => 'Êàòåãîðèÿ óäàëåíà'),
-        17 => array('class' => 'update', 'text' => 'Ïðåäìåò îáíîâëåí'),
+        1 => array('class' => 'update', 'text' => 'ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾'),
+        2 => array('class' => 'update', 'text' => 'Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¾'),
+        3 => array('class' => 'update', 'text' => 'Ð£Ð´Ð°Ð»ÐµÐ½Ð¾'),
+        4 => array('class' => 'error', 'text' => 'ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°'),
+        5 => array('class' => 'update', 'text' => 'Ð’Ð¾Ð¿Ñ€Ð¾Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½'),
+        6 => array('class' => 'ready', 'text' => 'Ð¢ÐµÑÑ‚ ÑÐ¾Ð·Ð´Ð°Ð½.', 'small' => 'Ð¢ÐµÐ¿ÐµÑ€ÑŒ Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹.'),
+        7 => array('class' => 'ready', 'text' => 'ÐÐ´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½'),
+        8 => array('class' => 'ready', 'text' => 'ÐŸÑ€Ð¾Ñ„Ð¸Ð»ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½'),
+        9 => array('class' => 'ready', 'text' => 'ÐÐ´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€ ÑƒÐ´Ð°Ð»ÐµÐ½'),
+        10 => array('class' => 'error', 'text' => 'ÐÐµÐ»ÑŒÐ·Ñ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ°Ð¼Ð¾Ð³Ð¾ ÑÐµÐ±Ñ'),
+        11 => array('class' => 'ready', 'text' => 'ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð°'),
+        12 => array('class' => 'update', 'text' => 'Ð’Ð¾Ð¿Ñ€Ð¾Ñ ÑƒÐ´Ð°Ð»ÐµÐ½'),
+        13 => array('class' => 'update', 'text' => 'Ð¢ÐµÑÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½'),
+        14 => array('class' => 'update', 'text' => 'ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð°'),
+        15 => array('class' => 'update', 'text' => 'ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð°'),
+        16 => array('class' => 'update', 'text' => 'ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ ÑƒÐ´Ð°Ð»ÐµÐ½Ð°'),
+        17 => array('class' => 'update', 'text' => 'ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½'),
         );
     function GetError($id) {
         $id=(int)$id;

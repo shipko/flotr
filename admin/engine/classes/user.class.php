@@ -1,28 +1,28 @@
-<?php
+ï»¿<?php
 /*
  * Description of test
  *
- * @author Äìèòğèé
+ * @author Ğ”Ğ¼Ğ¸Ñ‚Ñ€Ğ¸Ğ¹
  */
 class user {
     function AddUser() {
         global $sec,$err,$db,$mainclass;
-        $name=$sec->filter($_POST['name'],30,'Âû íå çàïîëíèëè ïîëå èìÿ');
-        $surname=$sec->filter($_POST['surname'],30,'Âû íå çàïîëíèëè ïîëå ôàìèëèÿ');
-        $login=strtolower($sec->filter($_POST['login'],25, 'Âû íå ââåëè ëîãèí'));
-        $mail=strtolower($sec->filter($_POST['mail'],32, 'Âû íå ââåëè e-mail'));
-        $pass=$sec->filter($_POST['pass'],20,'Ïàğîëü íå ââåäåí');
+        $name=$sec->filter($_POST['name'],30,'Ğ’Ñ‹ Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ğ»Ğ¸ Ğ¿Ğ¾Ğ»Ğµ Ğ¸Ğ¼Ñ');
+        $surname=$sec->filter($_POST['surname'],30,'Ğ’Ñ‹ Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ğ»Ğ¸ Ğ¿Ğ¾Ğ»Ğµ Ñ„Ğ°Ğ¼Ğ¸Ğ»Ğ¸Ñ');
+        $login=strtolower($sec->filter($_POST['login'],25, 'Ğ’Ñ‹ Ğ½Ğµ Ğ²Ğ²ĞµĞ»Ğ¸ Ğ»Ğ¾Ğ³Ğ¸Ğ½'));
+        $mail=strtolower($sec->filter($_POST['mail'],32, 'Ğ’Ñ‹ Ğ½Ğµ Ğ²Ğ²ĞµĞ»Ğ¸ e-mail'));
+        $pass=$sec->filter($_POST['pass'],20,'ĞŸĞ°Ñ€Ğ¾Ğ»ÑŒ Ğ½Ğµ Ğ²Ğ²ĞµĞ´ĞµĞ½');
 
         if (!$sec->isMail($mail)) {
-            return $err->GNC('E-mail íå âàëèäíûé');
+            return $err->GNC('E-mail Ğ½Ğµ Ğ²Ğ°Ğ»Ğ¸Ğ´Ğ½Ñ‹Ğ¹');
         }
 
         if ($mainclass->testMail($mail)) {
-            return $err->GNC('Òàêîé e-mail óæå çàğåãèñòğèğîâàí â ñèñòåìå');
+            return $err->GNC('Ğ¢Ğ°ĞºĞ¾Ğ¹ e-mail ÑƒĞ¶Ğµ Ğ·Ğ°Ñ€ĞµĞ³Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½ Ğ² ÑĞ¸ÑÑ‚ĞµĞ¼Ğµ');
         }
 
         if ($mainclass->testLogin($login)) {
-            return $err->GNC('Òàêîé ëîãèí óæå ñóùåñòâóåò');
+            return $err->GNC('Ğ¢Ğ°ĞºĞ¾Ğ¹ Ğ»Ğ¾Ğ³Ğ¸Ğ½ ÑƒĞ¶Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
         }
         $pass=$sec->salt($pass);
         $time = time();
@@ -32,10 +32,10 @@ class user {
 
     function EditUser($id) {
         global $sec,$err,$db,$mainclass;
-        $user = $db->query('SELECT name, surname, login, mail FROM user WHERE id = '.$id.'','Ïîëüçîâàòåëü íå íàéäåí',true);
-        $name=$sec->filter($_POST['name'],30,'Âû íå çàïîëíèëè ïîëå èìÿ');
-        $surname=$sec->filter($_POST['surname'],30,'Âû íå çàïîëíèëè ïîëå ôàìèëèÿ');
-        $login=strtolower($sec->filter($_POST['login'],25, 'Âû íå ââåëè ëîãèí'));
+        $user = $db->query('SELECT name, surname, login, mail FROM user WHERE id = '.$id.'','ĞŸĞ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒ Ğ½Ğµ Ğ½Ğ°Ğ¹Ğ´ĞµĞ½',true);
+        $name=$sec->filter($_POST['name'],30,'Ğ’Ñ‹ Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ğ»Ğ¸ Ğ¿Ğ¾Ğ»Ğµ Ğ¸Ğ¼Ñ');
+        $surname=$sec->filter($_POST['surname'],30,'Ğ’Ñ‹ Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ğ»Ğ¸ Ğ¿Ğ¾Ğ»Ğµ Ñ„Ğ°Ğ¼Ğ¸Ğ»Ğ¸Ñ');
+        $login=strtolower($sec->filter($_POST['login'],25, 'Ğ’Ñ‹ Ğ½Ğµ Ğ²Ğ²ĞµĞ»Ğ¸ Ğ»Ğ¾Ğ³Ğ¸Ğ½'));
         $mail=strtolower($sec->filter($_POST['mail'],32));
         $pass=$sec->filter($_POST['pass'],20);
         if (!empty($pass)) {
@@ -44,15 +44,15 @@ class user {
         }
 
         if (!$sec->isMail($mail)) {
-            return $err->GNC('E-mail íå âàëèäíûé');
+            return $err->GNC('E-mail Ğ½Ğµ Ğ²Ğ°Ğ»Ğ¸Ğ´Ğ½Ñ‹Ğ¹');
         }
 
         if ($user['mail'] != $mail && $mainclass->testMail($mail)) {
-            return $err->GNC('Òàêîé e-mail óæå çàğåãèñòğèğîâàí â ñèñòåìå');
+            return $err->GNC('Ğ¢Ğ°ĞºĞ¾Ğ¹ e-mail ÑƒĞ¶Ğµ Ğ·Ğ°Ñ€ĞµĞ³Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½ Ğ² ÑĞ¸ÑÑ‚ĞµĞ¼Ğµ');
         }
 
         if ($user['login'] != $login && $mainclass->testLogin($login) ) {
-            return $err->GNC('Òàêîé ëîãèí óæå ñóùåñòâóåò');
+            return $err->GNC('Ğ¢Ğ°ĞºĞ¾Ğ¹ Ğ»Ğ¾Ğ³Ğ¸Ğ½ ÑƒĞ¶Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚');
         }
 
         $db->query('UPDATE user SET name="'.$name.'", surname="'.$surname.'", login="'.$login.'", mail="'.$mail.'" '.$pass_query.' WHERE id = '.$id.'');
@@ -61,7 +61,7 @@ class user {
 
     function userEdit($id) {
         global $db,$tmp;
-        $query = $db->query('SELECT id, name, surname, login, mail FROM user WHERE id = '.$id.'','Îøèáêà âûáîğêè áàçû äàííûõ',true);
+        $query = $db->query('SELECT id, name, surname, login, mail FROM user WHERE id = '.$id.'','ĞÑˆĞ¸Ğ±ĞºĞ° Ğ²Ñ‹Ğ±Ğ¾Ñ€ĞºĞ¸ Ğ±Ğ°Ğ·Ñ‹ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…',true);
         $tmp->setVar('name',$query['name']);
         $tmp->setVar('id',$query['id']);
         $tmp->setVar('surname',$query['surname']);
@@ -77,7 +77,7 @@ class user {
 
     function adminsList() {
         global $db;
-        $query=$db->query('SELECT id,name,surname FROM user WHERE priv=1 OR priv = 2 ORDER BY id','Ïğîèçîøëà îøèáêà â âûáîğêå àäìèíèñòğàòîğîâ');
+        $query=$db->query('SELECT id,name,surname FROM user WHERE priv=1 OR priv = 2 ORDER BY id','ĞŸÑ€Ğ¾Ğ¸Ğ·Ğ¾ÑˆĞ»Ğ° Ğ¾ÑˆĞ¸Ğ±ĞºĞ° Ğ² Ğ²Ñ‹Ğ±Ğ¾Ñ€ĞºĞµ Ğ°Ğ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ°Ñ‚Ğ¾Ñ€Ğ¾Ğ²');
         while($admin=$db->fetch_array($query)) {
             $list_sub.='<li class="sub"><a href="user.php?sec=profile&id='.$admin['id'].'">'.$admin['surname'].' '.$admin['name'].'</a></li>';
         }
@@ -86,7 +86,7 @@ class user {
 
     function Profile($id) {
         global $db;
-        $query=$db->query('SELECT id,name,surname,lastvisit, registered, login, priv FROM user WHERE id = '.$id.'','Ïğîèçîøëà îøèáêà â âûáîğêå àäìèíèñòğàòîğà',true);
+        $query=$db->query('SELECT id,name,surname,lastvisit, registered, login, priv FROM user WHERE id = '.$id.'','ĞŸÑ€Ğ¾Ğ¸Ğ·Ğ¾ÑˆĞ»Ğ° Ğ¾ÑˆĞ¸Ğ±ĞºĞ° Ğ² Ğ²Ñ‹Ğ±Ğ¾Ñ€ĞºĞµ Ğ°Ğ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ°Ñ‚Ğ¾Ñ€Ğ°',true);
         return $query;
     }
 
@@ -94,7 +94,7 @@ class user {
         global $db;
         $query=$db->query('SELECT n.id,n.title,n.delete,s.id AS sid, s.title AS subject FROM nametest AS n INNER JOIN subject AS s ON n.subject = s.id WHERE n.user = '.$id.' ORDER BY s.title ');
         if ($db->num_rows($query) == 0) {
-            return 'Àäìèíèñòğàòîğ íè÷åãî íå äîáàâèë';
+            return 'ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ°Ñ‚Ğ¾Ñ€ Ğ½Ğ¸Ñ‡ĞµĞ³Ğ¾ Ğ½Ğµ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ğ»';
         }
         while($admin=$db->fetch_array($query)) {
             $ListTest[$admin['subject']][] = $admin;
@@ -105,7 +105,7 @@ class user {
             $list_sub1.='<div class="cat" style="margin-top: 8px; font-size: 16px;"><a href="test.php?sec=edit&cat=list&sid='.$v[0]['sid'].'">'.$k.'</a></div>';
 
             foreach ($v as $k1 => $v1 ) {
-                $list_sub1.= '<span style="font-size: 16px; margin-left: 10px; '.($v1['delete'] == '2' ? 'color: #CD1B1B;' : '').'"><a href="test.php?sec=edit&cat=test&id='.$v1['id'].'" style="'.($v1['delete'] == '2' ? 'color: #CD1B1B;' : '').'">'.stripslashes($v1['title']).'</a> '.($v1['delete'] == '2' ? '(óäàëåí)' : '').'</span></br>';
+                $list_sub1.= '<span style="font-size: 16px; margin-left: 10px; '.($v1['delete'] == '2' ? 'color: #CD1B1B;' : '').'"><a href="test.php?sec=edit&cat=test&id='.$v1['id'].'" style="'.($v1['delete'] == '2' ? 'color: #CD1B1B;' : '').'">'.stripslashes($v1['title']).'</a> '.($v1['delete'] == '2' ? '(ÑƒĞ´Ğ°Ğ»ĞµĞ½)' : '').'</span></br>';
             }
         }
         return $list_sub1;

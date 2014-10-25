@@ -1,11 +1,11 @@
-<?php
+п»ї<?php
 define('CMS', true);
 define('PA', '../admin/');
 require PA.'engine/classes/mainclass.php';
 $other->count=new Count;
 $mainclass->isAdmin();
 $mainclass->setSettings();
-$tablets = 'Для продолжения работы в админ-панели вам требуется ввести свой e-mail адрес.</br> Он потребуется нам для рассылки информации, а также для связи с Вами.';
+$tablets = 'Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ СЂР°Р±РѕС‚С‹ РІ Р°РґРјРёРЅ-РїР°РЅРµР»Рё РІР°Рј С‚СЂРµР±СѓРµС‚СЃСЏ РІРІРµСЃС‚Рё СЃРІРѕР№ e-mail Р°РґСЂРµСЃ.</br> РћРЅ РїРѕС‚СЂРµР±СѓРµС‚СЃСЏ РЅР°Рј РґР»СЏ СЂР°СЃСЃС‹Р»РєРё РёРЅС„РѕСЂРјР°С†РёРё, Р° С‚Р°РєР¶Рµ РґР»СЏ СЃРІСЏР·Рё СЃ Р’Р°РјРё.';
 if ($mainclass->user['priv']== '1') {
     $testMode='<div class="settings_table"><div class="title">Test mode:</div><div class="text">'.$mainclass->SetTestMode().'</div></div>';    
 }
@@ -15,7 +15,7 @@ $tmp->setVar('Tablets',$tablets);
 $tmp->setVar('TestMode',$testMode);
 $tmp->setVar('CountTest',$other->count->countTestWrite());
 $tmp->setVar('CountAdmin',$other->count->countAdmin());
-$tmp->setVar('title','Админ-панель');
+$tmp->setVar('title','РђРґРјРёРЅ-РїР°РЅРµР»СЊ');
 $tmp->setCSS(array('main'));
 $tmp->parse('main');
 ?>

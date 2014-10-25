@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 require(PATH.'engine/classes/other/other.class.php');
 class edit extends someFunction {
     public 
@@ -6,10 +6,10 @@ class edit extends someFunction {
     function testMain() {
         global $db,$tmp;
         
-        $tmp->setVar('title','Редактирование | Список предметов');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ | РЎРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ');
         $tmp->setCSS(array('li'));
         
-            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');
+            $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');
             while($subject=$db->fetch_array($sub_query)) {
                 $list_sub.='
                     <li class="sub">
@@ -22,18 +22,18 @@ class edit extends someFunction {
     function testSubject() {
         global $db,$sec,$tmp;
         
-        $tmp->setVar('title','Редактирование | Cписок тестов');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ | CРїРёСЃРѕРє С‚РµСЃС‚РѕРІ');
         $tmp->setCSS(array('li'));
         
-        $id=$sec->ClearInt($_GET['sid'],'Параметр задан неверно');
-        $sub_query=$db->query('SELECT * FROM nametest WHERE `subject` ="'.$id.'" AND `delete` != "2"','Тесты ещё не добавлены <br /> <a href="test.php?sec=add&sid='.$id.'">Добавьте</a> первым');
+        $id=$sec->ClearInt($_GET['sid'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');
+        $sub_query=$db->query('SELECT * FROM nametest WHERE `subject` ="'.$id.'" AND `delete` != "2"','РўРµСЃС‚С‹ РµС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅС‹ <br /> <a href="test.php?sec=add&sid='.$id.'">Р”РѕР±Р°РІСЊС‚Рµ</a> РїРµСЂРІС‹Рј');
         
         while($subject=$db->fetch_array($sub_query)) {
             $list_sub.='
                     <li class="sub">
                         <a href="test.php?sec=edit&cat=list&id='.$subject['id'].'">'.$subject['title'].'</a>
-                        <a href="test.php?sec=edit&cat=edit&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(изменить)</a>
-                        <a href="test.php?sec=delete&cat=test&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(удалить)</a>
+                        <a href="test.php?sec=edit&cat=edit&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(РёР·РјРµРЅРёС‚СЊ)</a>
+                        <a href="test.php?sec=delete&cat=test&id='.$subject['id'].'" style="font-size: 14px; color: #CD1B1B; margin-bottom: 3px;">(СѓРґР°Р»РёС‚СЊ)</a>
                     </li>';
         }
         $tmp->setVar('ListTest',$list_sub); 
@@ -43,18 +43,18 @@ class edit extends someFunction {
     function testList() {
         global $db,$sec,$tmp,$other;
         
-        $tmp->setVar('title','Редактирование теста');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р°');
         $tmp->setCSS(array('li'));
         
-        $id=$sec->ClearInt($_GET['id'],'Параметр задан неверно');
+        $id=$sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');
         
-        $quest=$db->query('SELECT * FROM question WHERE `test`="'.$id.'" AND `delete` != "2" ORDER BY id','Вопросов нет, но вы можете <a href="test.php?sec=add&cat=question&ret&id='.$id.'" style="color: #2D76B9;">добавить</a> их в любое время');
+        $quest=$db->query('SELECT * FROM question WHERE `test`="'.$id.'" AND `delete` != "2" ORDER BY id','Р’РѕРїСЂРѕСЃРѕРІ РЅРµС‚, РЅРѕ РІС‹ РјРѕР¶РµС‚Рµ <a href="test.php?sec=add&cat=question&ret&id='.$id.'" style="color: #2D76B9;">РґРѕР±Р°РІРёС‚СЊ</a> РёС… РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ');
         $sub=$db->query('SELECT * FROM nametest WHERE id="'.$id.'" LIMIT 1',false,true);
         while($subject=$db->fetch_array($quest)) {
             $list_sub.='
                 <li class="editable">
                     <a href="test.php?sec=edit&cat=answer&id='.$subject['id'].'">'.stripslashes($subject['ask']).'</a>
-                    <a href="test.php?sec=delete&cat=question&id='.$subject['id'].'" style="color: #CD1B1B; ">(удалить)</a>
+                    <a href="test.php?sec=delete&cat=question&id='.$subject['id'].'" style="color: #CD1B1B; ">(СѓРґР°Р»РёС‚СЊ)</a>
                 </li>';
         }
         $i=40;
@@ -62,7 +62,7 @@ class edit extends someFunction {
             $sub['title']=substr($sub['title'], 0, $i).'...';
         }
         
-        $countAnswer = $other->time->rulesTime($db->num_rows($quest),array('вопрос','вопроса','вопросов'));
+        $countAnswer = $other->time->rulesTime($db->num_rows($quest),array('РІРѕРїСЂРѕСЃ','РІРѕРїСЂРѕСЃР°','РІРѕРїСЂРѕСЃРѕРІ'));
         
         $tmp->setVar('ListTest',$list_sub); 
         $tmp->setVar('CountAnswer',$countAnswer);
@@ -75,11 +75,11 @@ class edit extends someFunction {
         
         require 'engine/classes/file.class.php';
         
-        $tmp->setVar('title','Редактирование ответов');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕС‚РІРµС‚РѕРІ');
         $tmp->setJS(array('jquery.filedrop','fileupload','addanswers'));
         
-        $id=$sec->ClearInt($_GET['id'],'Параметр задан неверно');        
-        $question=$db->query('SELECT * FROM question WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого вопроса не нашлось',true);
+        $id=$sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');        
+        $question=$db->query('SELECT * FROM question WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ РІРѕРїСЂРѕСЃР° РЅРµ РЅР°С€Р»РѕСЃСЊ',true);
         
         $html = $this->addFilesInHTML($question['code']);
         
@@ -99,20 +99,20 @@ class edit extends someFunction {
         global $db,$sec,$tmp;
         $tmp->setJS(array('add','mark'));
         $tmp->setCSS(array('mark'));
-        $tmp->setVar('title','Редактирование теста');
+        $tmp->setVar('title','Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµСЃС‚Р°');
         
-        $id=$sec->ClearInt($_GET['id'],'Параметр задан неверно');
+        $id=$sec->ClearInt($_GET['id'],'РџР°СЂР°РјРµС‚СЂ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅРѕ');
        
-        $sub=$db->query('SELECT * FROM nametest WHERE `id`="'.$id.'" AND `delete` != "2" LIMIT 1','Тест не нашелся',true);
+        $sub=$db->query('SELECT * FROM nametest WHERE `id`="'.$id.'" AND `delete` != "2" LIMIT 1','РўРµСЃС‚ РЅРµ РЅР°С€РµР»СЃСЏ',true);
         
-        $sub_query=$db->query('SELECT * FROM subject ORDER BY title','Произошла ошибка в выборке предметов');  
+        $sub_query=$db->query('SELECT * FROM subject ORDER BY title','РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІ РІС‹Р±РѕСЂРєРµ РїСЂРµРґРјРµС‚РѕРІ');  
             while($subject=$db->fetch_array($sub_query)) {
                 $check = ($subject['id']==$sub['subject'] ? ' selected' : '');
                 $list_sub.='
                         <option value="'.$subject['id'].'"'.$check.'>'.$subject['title'].'</option>';
             }
 
-        $factor = $db->query('SELECT factor FROM factors WHERE (test_id = '.$id.' AND subject_id = '.$sub['subject'].') OR subject_id = '.$sub['subject'].' ORDER BY id DESC LIMIT 1','Ошибка с критериями',true);
+        $factor = $db->query('SELECT factor FROM factors WHERE (test_id = '.$id.' AND subject_id = '.$sub['subject'].') OR subject_id = '.$sub['subject'].' ORDER BY id DESC LIMIT 1','РћС€РёР±РєР° СЃ РєСЂРёС‚РµСЂРёСЏРјРё',true);
         $f = json_decode($factor['factor']);
         
         
@@ -180,34 +180,34 @@ class edit extends someFunction {
     }
 
 /*
- * Функции обработчики
- * testUpdateTest - изменение теста
- * testUpdateTypeOne - изменение вопроса 1 типа
- * testUpdateTypeTwo - изменение вопроса 2 типа
- * testUpdateTypeThree - изменение вопроса 3 типа
+ * Р¤СѓРЅРєС†РёРё РѕР±СЂР°Р±РѕС‚С‡РёРєРё
+ * testUpdateTest - РёР·РјРµРЅРµРЅРёРµ С‚РµСЃС‚Р°
+ * testUpdateTypeOne - РёР·РјРµРЅРµРЅРёРµ РІРѕРїСЂРѕСЃР° 1 С‚РёРїР°
+ * testUpdateTypeTwo - РёР·РјРµРЅРµРЅРёРµ РІРѕРїСЂРѕСЃР° 2 С‚РёРїР°
+ * testUpdateTypeThree - РёР·РјРµРЅРµРЅРёРµ РІРѕРїСЂРѕСЃР° 3 С‚РёРїР°
  */    
     
     
     function testUpdateTest() {
         global $db,$sec;
-        $id=$sec->ClearInt($_GET['id'],'id теста неверен');
+        $id=$sec->ClearInt($_GET['id'],'id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         
-        $query_for_test=$db->query('SELECT id FROM nametest WHERE `id`='.$id.' AND `delete` != "2"','Теста не существует');
+        $query_for_test=$db->query('SELECT id FROM nametest WHERE `id`='.$id.' AND `delete` != "2"','РўРµСЃС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');
 
-        $title=$sec->filter($_POST['title'],150,'Заголовок теста не заполнен');
-        $subject=$sec->ClearInt($_POST['subject'],'Предмет не указан');
+        $title=$sec->filter($_POST['title'],150,'Р—Р°РіРѕР»РѕРІРѕРє С‚РµСЃС‚Р° РЅРµ Р·Р°РїРѕР»РЅРµРЅ');
+        $subject=$sec->ClearInt($_POST['subject'],'РџСЂРµРґРјРµС‚ РЅРµ СѓРєР°Р·Р°РЅ');
         $category = $sec->ClearInt($_POST['category']);
         $status=($_POST['status'] == '2' ? (int)$_POST['status'] : '1');
 		$shuffle=($_POST['shuffle'] == '2' ? (int)$_POST['shuffle'] : '1');
         $is_edit = $sec->filter($_POST['is_edit_factor']);
         
-        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id предмета неверен');
+        $test_subject=$db->query('SELECT id FROM subject WHERE id="'.$subject.'"','id РїСЂРµРґРјРµС‚Р° РЅРµРІРµСЂРµРЅ');
         
         
         if ($is_edit == 'true') {
-            $factor3 = $sec->ClearInt($_POST['factor1'],'Первый критерий неверен');
-            $factor4 = $sec->ClearInt($_POST['factor2'],'Второй критерий неверен');
-            $factor5 = $sec->ClearInt($_POST['factor3'],'Третий критерий неверен');
+            $factor3 = $sec->ClearInt($_POST['factor1'],'РџРµСЂРІС‹Р№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+            $factor4 = $sec->ClearInt($_POST['factor2'],'Р’С‚РѕСЂРѕР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
+            $factor5 = $sec->ClearInt($_POST['factor3'],'РўСЂРµС‚РёР№ РєСЂРёС‚РµСЂРёР№ РЅРµРІРµСЂРµРЅ');
             
             $factor = $db->query('SELECT id,factor FROM factors WHERE subject_id = '.$subject.' AND test_id = '.$id.' LIMIT 1');
             $arr['factor'] = array($factor3,$factor4,$factor5);
@@ -227,15 +227,15 @@ class edit extends someFunction {
     
     function testUpdateAnswer() {
         global $sec,$db;
-        $id=$sec->ClearInt($_GET['id'],'id теста неверен');
+        $id=$sec->ClearInt($_GET['id'],'id С‚РµСЃС‚Р° РЅРµРІРµСЂРµРЅ');
         
         if($id != $_POST['id']) {
             exit('Hacker :(');
         }
         
-        $title = $sec->filter($_POST['title'],false,'Заголовок теста не заполнен');
+        $title = $sec->filter($_POST['title'],false,'Р—Р°РіРѕР»РѕРІРѕРє С‚РµСЃС‚Р° РЅРµ Р·Р°РїРѕР»РЅРµРЅ');
         
-        $arr_quest=$db->query('SELECT id, type, test FROM question WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','Такого вопроса не нашлось',true);
+        $arr_quest=$db->query('SELECT id, type, test FROM question WHERE `id`='.$id.' AND `delete` != "2" LIMIT 1','РўР°РєРѕРіРѕ РІРѕРїСЂРѕСЃР° РЅРµ РЅР°С€Р»РѕСЃСЊ',true);
         
         $this->test_id = $arr_quest['test'];
         
@@ -258,19 +258,19 @@ class edit extends someFunction {
 		
 		$this->type = 1;
         
-        /* Параметр предназначенный для передачи файлов */
+        /* РџР°СЂР°РјРµС‚СЂ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Р№ РґР»СЏ РїРµСЂРµРґР°С‡Рё С„Р°Р№Р»РѕРІ */
         $num=$sec->ClearInt($_POST['number'],'Security breach');
         
         if ($num > 8) {
             return $err->GNC('Security breach 1');
         }
 
-        /* Проверим реальное количество ответов */
+        /* РџСЂРѕРІРµСЂРёРј СЂРµР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РѕРІ */
         $array_answers = $this->RealCountAnswers($num,true);
         
-        /* Проверяем, есть ли в ответах правильный ответ */
+        /* РџСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё РІ РѕС‚РІРµС‚Р°С… РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ */
         if (!$this->isIssetTrueAnswer($array_answers)) {
-            return $err->GNC('Вы не указали правильный ответ');
+            return $err->GNC('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚');
         }
 		
         if ($this->countTrueAnswer($array_answers) >= 2) {
@@ -301,7 +301,7 @@ class edit extends someFunction {
     function typeTest_2Update($id) {
         global $db,$sec;
         
-        $input=strtolower($sec->filter($_POST['answer'],255,'Ответ не заполнен'));       
+        $input=strtolower($sec->filter($_POST['answer'],255,'РћС‚РІРµС‚ РЅРµ Р·Р°РїРѕР»РЅРµРЅ'));       
         $this->type = 2;
         $test_query=$db->query('UPDATE answers SET title="'.$input.'" WHERE question='.$id.'');
     }
@@ -310,19 +310,19 @@ class edit extends someFunction {
 		
 		$this->type = 3;
         
-		/* Параметр предназначенный для передачи файлов */
+		/* РџР°СЂР°РјРµС‚СЂ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Р№ РґР»СЏ РїРµСЂРµРґР°С‡Рё С„Р°Р№Р»РѕРІ */
         $num=$sec->ClearInt($_POST['number'],'Security breach');
         
         if ($num > 8) {
             return $err->GNC('Security breach 1');
         }
 
-        /* Проверим реальное количество ответов */
+        /* РџСЂРѕРІРµСЂРёРј СЂРµР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РѕРІ */
         $array_answers = $this->RealCountAnswers($num,true);
         
-        /* Проверяем, есть ли в ответах правильный ответ */
+        /* РџСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё РІ РѕС‚РІРµС‚Р°С… РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ */
         if (!$this->isIssetTrueAnswer($array_answers)) {
-            return $err->GNC('Вы не указали правильный ответ');
+            return $err->GNC('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚');
         }
         if ($this->countTrueAnswer($array_answers) < 2) {
 			 $this->type = 1;

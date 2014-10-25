@@ -1,4 +1,4 @@
-/* Глобальное */
+п»ї/* Р“Р»РѕР±Р°Р»СЊРЅРѕРµ */
 body {
     background-image: url('../upload/images/main/{%SRC_IMG%}');
 }
@@ -8,7 +8,7 @@ body {
 }
 a { text-decoration: none; }
 li { list-style-type: none; }
-/* Меню */
+/* РњРµРЅСЋ */
 #menu {
     background: #F26321;
     margin: 0 auto;
@@ -33,7 +33,7 @@ li { list-style-type: none; }
     text-decoration: none;
     font-size: 18px;
 }
-/* Тело */
+/* РўРµР»Рѕ */
 #body {
     background-color: #cfff;
     margin-top: 10px;

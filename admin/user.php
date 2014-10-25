@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 define('CMS', true);
 define('A', '../admin/');
 require A.'engine/classes/mainclass.php';
@@ -12,16 +12,16 @@ if (isset($_GET['m'])) {
 switch ($_GET['sec']) {
         case 'add':
                     $mainclass->AssetsUser(array('1'));
-                    $title='Добавление нового администратора';
+                    $title='Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°';
                     $page='user_add';
             break;
         case 'edit':
-                    $id=$sec->ClearInt($_GET['id'],' id не заполнено');
+                    $id=$sec->ClearInt($_GET['id'],' id РЅРµ Р·Р°РїРѕР»РЅРµРЅРѕ');
                     if($id != $mainclass->user['id']) {
                         $mainclass->AssetsUser(array('1'));
                     }
                     
-                    $title='Редактирование профиля';
+                    $title='Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕС„РёР»СЏ';
                     $user->userEdit($id);
                     $page='user_edit';
             break;
@@ -31,13 +31,13 @@ switch ($_GET['sec']) {
                 $mainclass->AssetsUser(array('1'));
             }
             else {
-                $this_you = '(Это вы)';
+                $this_you = '(Р­С‚Рѕ РІС‹)';
             }
-            $title='Добавление нового администратора';
+            $title='Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°';
             $page='profile';
             $user_info=$user->Profile($id);
             if ($mainclass->AssetsUser(array('1'),true) && $id != $mainclass->user['id'] ) {
-                $delete = '<div style="float: right; margin-right: 20px;"><a href="user.php?act=delete&id='.$id.'">(удалить)</a></div>';
+                $delete = '<div style="float: right; margin-right: 20px;"><a href="user.php?act=delete&id='.$id.'">(СѓРґР°Р»РёС‚СЊ)</a></div>';
             }
             
             $tmp->setVar('Delete',$delete);
@@ -54,10 +54,10 @@ switch ($_GET['sec']) {
             
                     $mainclass->AssetsUser(array('1'));
                     
-                    $title='Список администраторов';
-                    $content.='<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">Список администраторов</div>
+                    $title='РЎРїРёСЃРѕРє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРІ';
+                    $content.='<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">РЎРїРёСЃРѕРє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРІ</div>
    <table width="100%" border="0">
-     <tr><span style="color: #323232; font-size: 14px; margin-left: 10px"><a href="user.php?sec=add" style="color: #69C">(добавить нового)</a></span></tr>  
+     <tr><span style="color: #323232; font-size: 14px; margin-left: 10px"><a href="user.php?sec=add" style="color: #69C">(РґРѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРіРѕ)</a></span></tr>  
      <tr><ul class="test">'.$user->adminsList().'</ul></tr>
    </table>';
             break;
@@ -87,7 +87,7 @@ if (isset($_GET['act'])) {
                 $content.=$user->DeleteUser($id);
                 break;
             default:
-                $content='По идее здесь должен выводиться какой-то текст, но т.к. это ранняя версия, то мы ограничимся только этим';
+                $content='РџРѕ РёРґРµРµ Р·РґРµСЃСЊ РґРѕР»Р¶РµРЅ РІС‹РІРѕРґРёС‚СЊСЃСЏ РєР°РєРѕР№-С‚Рѕ С‚РµРєСЃС‚, РЅРѕ С‚.Рє. СЌС‚Рѕ СЂР°РЅРЅСЏСЏ РІРµСЂСЃРёСЏ, С‚Рѕ РјС‹ РѕРіСЂР°РЅРёС‡РёРјСЃСЏ С‚РѕР»СЊРєРѕ СЌС‚РёРј';
                 break;
     }
 }

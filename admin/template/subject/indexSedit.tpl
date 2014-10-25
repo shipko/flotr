@@ -1,4 +1,4 @@
-{HEADER}
+п»ї{HEADER}
 <script type="text/javascript">
     var ballOpt = {
         '2' : ['two',1],
@@ -8,20 +8,20 @@
         '6' : ['six',21]
     };
 </script>
-<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">Редактирование предмета <a href="subject.php">(назад)</a></div>
+<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРµРґРјРµС‚Р° <a href="subject.php">(РЅР°Р·Р°Рґ)</a></div>
     <form action="subject.php?cat=sedit&id={id}&do" method="post">
         <div class="row">
-            <div class="rowTitle ListTableLeftBar">Заголовок</div>
+            <div class="rowTitle ListTableLeftBar">Р—Р°РіРѕР»РѕРІРѕРє</div>
             <div class="rowBlock">
                 <input name="title" type="text" style="width: 400px" value="{i_title}" maxlength="70" />
             </div>
         </div>
         <div class="row">
             <div class="rowTitle ListTableLeftBar">
-                Критерии оценки
+                РљСЂРёС‚РµСЂРёРё РѕС†РµРЅРєРё
             </div>
             <div class="rowBlock">
-                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Задать &#8595;</span>
+                <span id="selectMark" style="color: #2D76B9; font-size: 14px; cursor: pointer;">Р—Р°РґР°С‚СЊ &#8595;</span>
             </div>
             <div class="blockBall" style="display: none;">
                 <div class="blockLines">
@@ -87,7 +87,7 @@
                 <input name="factor2" id="factor4" type="hidden" value="{factor4}" />
                 <input name="factor3" id="factor5" type="hidden" value="{factor5}" />
                 <input name="is_edit_factor" id="is_edit" type="hidden" value="false" />
-                <input name="ok" type="submit" value="Сохранить" />
+                <input name="ok" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" />
             </div>
         </div>
 </form>

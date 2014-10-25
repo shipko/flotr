@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 define('A', '../admin/');
 require A.'engine/classes/mainclass.php';
 
@@ -15,26 +15,26 @@ require A.'engine/classes/answer.class.php';
 
 switch ($_GET['cat']) {
     case 'list':
-        $title='Ðåäàêòèðîâàíèå òåñòà | Cïèñîê òåñòîâ';
+        $title='Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚ÐµÑÑ‚Ð° | CÐ¿Ð¸ÑÐ¾Ðº Ñ‚ÐµÑÑ‚Ð¾Ð²';
 
         $content.=$test->ListTest($_GET['sid']);
         break;
     case 'test':
-        $title='Ðåäàêòèðîâàíèå âîïðîñîâ';
+        $title='Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð²';
         $tmp->setJS(array('edittest'));
         $content.=$test->TestId($_GET['id']);
         break;
     case 'answer':
-        $title='Ðåäàêòèðîâàíèå îòâåòîâ';
+        $title='Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¾Ñ‚Ð²ÐµÑ‚Ð¾Ð²';
         $tmp->setJS(array('jquery.filedrop','fileupload','addanswers'));
         $content.=$test->EditQuestion($_GET['id']);
         break;
     case 'nametest':
-        $title='Ðåäàêòèðîâàíèå òåñòà';
+        $title='Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚ÐµÑÑ‚Ð°';
         $content.=$test->NameTest($_GET['id']);
         break;
     default:
-        $title='Ðåäàêòèðîâàíèå òåñòà | Cïèñîê ïðåäìåòîâ';
+        $title='Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚ÐµÑÑ‚Ð° | CÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚Ð¾Ð²';
         $content.=$test->ListSubject();
         break;
     }

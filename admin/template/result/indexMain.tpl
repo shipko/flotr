@@ -1,5 +1,5 @@
-{HEADER}
-		<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">Результаты прохождения</div>
+п»ї{HEADER}
+		<div class="headi" style="margin: 10px 10px 0 10px; height: 10px;">Р РµР·СѓР»СЊС‚Р°С‚С‹ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ</div>
         <table width="100%" border="0">
             <tr>
                 <ul class="test">{ListResult}

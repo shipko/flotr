@@ -1,11 +1,11 @@
-<?php
+ï»¿<?php
 class delete {
     
     public function testQuestion() {
         global $db,$sec,$err;
-        $id=$sec->ClearInt($_GET['id'],'Ïàðàìåòð id íå çàäàí');
+        $id=$sec->ClearInt($_GET['id'],'ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ id Ð½Ðµ Ð·Ð°Ð´Ð°Ð½');
 
-        $question=$db->query('SELECT id,test FROM question WHERE id='.$id.'','Òàêîãî âîïðîñà íå ñóùåñòâóåò',true);
+        $question=$db->query('SELECT id,test FROM question WHERE id='.$id.'','Ð¢Ð°ÐºÐ¾Ð³Ð¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ° Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚',true);
 
         $db->query('UPDATE `question` SET  `delete` =  2 WHERE  `id`="'.$id.'"');
         $answer_in_quest=$db->query('UPDATE `answers` SET `delete` = 2 WHERE `question`='.$id.'');
@@ -15,9 +15,9 @@ class delete {
     
     public function testTest() {
         global $db,$sec,$err;
-        $id = $sec->ClearInt($_GET['id'],'Ïàðàìåòð id íå çàäàí');
+        $id = $sec->ClearInt($_GET['id'],'ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ id Ð½Ðµ Ð·Ð°Ð´Ð°Ð½');
 
-        $test_name=$db->query('SELECT id,subject FROM nametest WHERE id='.$id.'','Òàêîãî òåñòà íå ñóùåñòâóåò',true);
+        $test_name=$db->query('SELECT id,subject FROM nametest WHERE id='.$id.'','Ð¢Ð°ÐºÐ¾Ð³Ð¾ Ñ‚ÐµÑÑ‚Ð° Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚',true);
 
         $db->query('UPDATE `nametest` SET  `delete` =  2 WHERE  `id` = "'.$id.'"');
         $question=$db->query('SELECT id FROM question WHERE test='.$id.'');

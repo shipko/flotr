@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class err {
     function GNC($str) {
         $admin='../';

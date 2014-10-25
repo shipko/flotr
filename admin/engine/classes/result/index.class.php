@@ -1,8 +1,8 @@
-<?php
+п»ї<?php
 /**
  * Description of index
  *
- * @author Дом
+ * @author Р”РѕРј
  */
 class index {
     
@@ -12,20 +12,20 @@ class index {
     public function resultMain() {
         global $tmp, $db;
 		
-        $tmp->setVar('title','Список результатов');
+        $tmp->setVar('title','РЎРїРёСЃРѕРє СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ');
 		$res = $db->query('SELECT r.*, u.name, u.surname, n.title FROM result AS r 
 			INNER JOIN user AS u ON r.user = u.id
 			INNER JOIN nametest AS n ON r.test = n.id
-			','Никто не проходил тестирование');
+			','РќРёРєС‚Рѕ РЅРµ РїСЂРѕС…РѕРґРёР» С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ');
 		$html = '
 			<table class="table" style="text-align: left; margin: 0 0 0 20px;">
 				<thead>
 					<tr>
-					  <th>Фамилия, Имя</th>
-					  <th>Тест</th>
-					  <th>Время</th>
-					  <th>Оценка</th>
-					  <th>Функции</th>
+					  <th>Р¤Р°РјРёР»РёСЏ, РРјСЏ</th>
+					  <th>РўРµСЃС‚</th>
+					  <th>Р’СЂРµРјСЏ</th>
+					  <th>РћС†РµРЅРєР°</th>
+					  <th>Р¤СѓРЅРєС†РёРё</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -41,7 +41,7 @@ class index {
 					<td><a href="test.php?sec=edit&cat=list&id='.$r['test'].'">'.$r['title'].'</a></td>
 					<td>'.$r['time'].'</td>
 					<td>'.$json->ball.' ('.$json->percent.'%)</td>
-					<td><a href="result.php?cat=user&id='.$r['id'].'" style="color: #69C;">Подробнее</a></td>
+					<td><a href="result.php?cat=user&id='.$r['id'].'" style="color: #69C;">РџРѕРґСЂРѕР±РЅРµРµ</a></td>
                 </tr>';
 		}
 		$tmp->setVar('ListResult',$html);

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+п»ї<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
@@ -18,7 +18,7 @@
     <tr>
       <td><div class="header">
 <div class="menu">
-<ul class="list"><li><a href="../admin">Главная</a></li><li><a href="../">Перейти к сайту</a></li></ul>
+<ul class="list"><li><a href="../admin">Р“Р»Р°РІРЅР°СЏ</a></li><li><a href="../">РџРµСЂРµР№С‚Рё Рє СЃР°Р№С‚Сѓ</a></li></ul>
 </div>
 </div></td>
     </tr>
