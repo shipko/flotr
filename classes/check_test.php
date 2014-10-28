@@ -7,7 +7,7 @@
 class check_test {
 
     function charseTrue($str, $first = 'cp1251', $second = 'utf-8') {
-        $str = iconv($first, $second, $str);
+        //$str = iconv($first, $second, $str);
         if (!$str) {
             return 'error';
         }
