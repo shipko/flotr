@@ -90,7 +90,7 @@ class test extends Type {
         return '<script type="text/javascript">var test_id = '.$this->id.' ,arr ='.json_encode($array).'</script>';
     }
     function charseTrue($str,$first='cp1251',$second='utf-8') {
-        $str=iconv($first, $second, $str);
+        //$str=iconv($first, $second, $str);
         if(!$str) {
             return 'error';
         }
