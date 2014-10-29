@@ -28,6 +28,7 @@ class Mainclass {
 	
 	function isUser() {
 		global $sec,$db;
+		
         if ($this->isIssetCookie()) {
             $query = $db->query('SELECT * FROM user WHERE id=' . $this->user['id'] . '');
             if ($db->num_rows($query) == 1) {
@@ -39,15 +40,10 @@ class Mainclass {
                     $this->UpdateLastVisit();
 					$this->UpdateCookie();
                     return true;
-                } else {
-                    $sec->ClearCookie();
                 }
-            } else {
-                $sec->ClearCookie();
-            }
-        } else {
-            $sec->ClearCookie();
+            } 
         }
+        $sec->ClearCookie();
 		$this->user['isset'] = false;
 		return false;
 	}
