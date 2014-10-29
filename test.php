@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'header.php';
 if(isset($_GET['act']) && $_GET['act']=='test') {
     require './classes/check_test.php';

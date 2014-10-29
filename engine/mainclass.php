@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!defined('CMS'))die('Сюда нельзя');
 class Mainclass {
 	public $user = array();

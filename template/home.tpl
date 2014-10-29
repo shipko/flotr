@@ -1,4 +1,4 @@
-﻿{HEADER}
+{HEADER}
 <style type="text/css">
 	.popover {
 		width: 415px;

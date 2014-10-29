@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!defined('CMS'))die('Сюда нельзя');
 class DB  {
     public

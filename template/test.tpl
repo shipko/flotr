@@ -1,4 +1,4 @@
-﻿{HEADER}
+{HEADER}
 {JS_test}
 <style type="text/css">
 		@media (max-width: 979px) {

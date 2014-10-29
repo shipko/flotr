@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'header.php';
 require 'classes/subject.class.php';
 switch ($_GET['sec']) {

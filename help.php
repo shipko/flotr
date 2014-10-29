@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'header.php';
 switch ($_GET['sec']) {
     case 'copyright':

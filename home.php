@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require('header.php');
 require('classes/home.class.php');
 // Отсекаем всех незарегистированных пользователей

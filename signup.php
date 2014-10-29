@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require('header.php');
 require('classes/login.class.php');
 	if(isset($_GET['act']) && $_GET['act'] == 'ajax') {

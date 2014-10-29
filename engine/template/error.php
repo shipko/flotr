@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!defined('CMS'))die('Сюда нельзя');
 class err {
     public function GNC($message) {

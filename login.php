@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require('header.php');
 require('classes/login.class.php');
 if ($_GET['act'] == 'login') {

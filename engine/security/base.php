@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class Security {
     function head($s='index.php') {
         header("Location: $s");

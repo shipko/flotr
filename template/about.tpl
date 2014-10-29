@@ -1,4 +1,4 @@
-﻿{HEADER}
+{HEADER}
     <div class="container well">
         <div class="row">
             <div class="span6">

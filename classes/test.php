@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!defined('CMS'))die('Сюда нельзя');
 require './classes/type.extend.php';
     $test_mode=!$sec->Settings();

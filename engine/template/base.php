@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!defined('CMS'))die('Сюда нельзя');
 require_once 'engine/template/error.php';
 /*
