@@ -33,7 +33,7 @@ class home {
 	}
 	function getResult($id) {
 		global $sec,$db,$other,$m;
-		header("Content-type: text/html; charset=windows-1251");
+		
 		$id = $sec->ClearInt($id);
 		if (empty($id)) {
 			exit('empty');

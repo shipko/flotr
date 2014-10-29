@@ -11,7 +11,7 @@ else if(isset($_GET['act']) && $_GET['act']=='getBall') {
 }
 require './classes/test.php';
 $t->Go();
-$tmp->setJS(array('jquery','lang','test/second','test/test','bootstrap'));
+$tmp->setJS(array('lang','test/second','test/test','bootstrap'));
 $tmp->setCSS(array('test'));
 $tmp->setVar('title',$t->title);
 $tmp->setVar('description','Тест по теме '.$t->title.', предмет '.$t->arr['sub_title']);

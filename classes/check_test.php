@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /*
  * @author Муковкин Дмитрий
@@ -25,11 +25,7 @@ class check_test {
                 $c = $db->query('SELECT question,correct FROM answers WHERE id="' . $id . '"', 'empty',true);
                 $this->retBool($c['question'],($c['correct'] == '2'));
                 break;
-            case '2':
-                //переведем и кодировку
-                $value = $this->charseTrue($_POST['value'], 'utf-8', 'cp1251');
-                // т.к. очищаем
-				
+            case '2':	
                 $value = $sec->filter($this->st2lower(trim($value)));
                 // а теперь защитимся
                 

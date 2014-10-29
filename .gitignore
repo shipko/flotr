@@ -9,11 +9,11 @@ bin/
 tmp/
 lab/
 nbproject/
-uploads/tests/*
 config.php
 *.tmp
 *.bak
 *.swp
+*.idea
 *~.nib
 local.properties
 .classpath

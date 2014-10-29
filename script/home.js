@@ -1,4 +1,4 @@
-options = {animation : true, title: 'Результаты тестирования', content: '&nbsp;<br />&nbsp;<br />&nbsp;<br /><div class="popover_center"><img src="template/images/search-preloader.gif" /> <br />Секундочку, результаты загружаются</div><br />&nbsp;', placement: 'left', trigger: 'manual'};
+options = {animation : true, title: 'Р РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ', content: '&nbsp;<br />&nbsp;<br />&nbsp;<br /><div class="popover_center"><img src="template/images/search-preloader.gif" /> <br />РЎРµРєСѓРЅРґРѕС‡РєСѓ, СЂРµР·СѓР»СЊС‚Р°С‚С‹ Р·Р°РіСЂСѓР¶Р°СЋС‚СЃСЏ</div><br />&nbsp;', placement: 'left', trigger: 'manual'};
 var isDisplay = false;
 $('.full_result').click(function() {
 	$('.full_result').popover('destroy');
