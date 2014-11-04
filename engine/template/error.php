@@ -7,6 +7,7 @@ class err {
         $this->parse('critError');
         exit();
     }
+//    public function Error
 }
 $err=new err;
 ?>
